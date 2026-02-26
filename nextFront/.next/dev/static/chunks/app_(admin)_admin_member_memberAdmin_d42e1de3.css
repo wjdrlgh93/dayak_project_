@@ -1,0 +1,241 @@
+/* [project]/app/(admin)/admin/member/memberAdmin.css [app-client] (css) */
+.admin-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.admin-table th {
+  color: #5a5c69;
+  text-transform: uppercase;
+  text-align: left;
+  background-color: #f8f9fc;
+  border-bottom: 2px solid #e3e6f0;
+  padding: 15px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.admin-table td {
+  color: #444;
+  border-bottom: 1px solid #e3e6f0;
+  padding: 15px;
+  font-size: 14px;
+}
+
+.admin-table tr:hover {
+  background-color: #f1f3f9;
+}
+
+.badge {
+  text-transform: uppercase;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.badge-admin {
+  color: #fff;
+  background-color: #e74a3b;
+}
+
+.badge-user {
+  color: #fff;
+  background-color: #4e73df;
+}
+
+.admin-search-bar {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.admin-search-input {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  width: 300px;
+  padding: 10px 15px;
+}
+
+.admin-search-input:focus {
+  border-color: #4e73df;
+}
+
+.admin-table-container {
+  margin-top: 20px;
+}
+
+.pagination {
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+  display: flex;
+}
+
+.page-btn {
+  color: #4e73df;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid #d1d3e2;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-weight: 600;
+  transition: all .2s;
+}
+
+.page-btn:hover:not(:disabled) {
+  background-color: #f8f9fc;
+  border-color: #4e73df;
+}
+
+.page-btn:disabled {
+  color: #d1d3e2;
+  cursor: not-allowed;
+}
+
+.current-page-info {
+  color: #5a5c69;
+  font-size: 14px;
+}
+
+.btn-delete {
+  color: #e74a3b;
+  cursor: pointer;
+  background: none;
+  border: 1px solid #e74a3b;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  transition: all .2s;
+}
+
+.btn-delete:hover {
+  color: #fff;
+  background-color: #e74a3b;
+}
+
+.badge-master {
+  color: #7c3aed;
+  background-color: #f5f3ff;
+  border: 1px solid #ddd6fe;
+}
+
+.badge-admin {
+  color: #0369a1;
+  background-color: #f0f9ff;
+  border: 1px solid #bae6fd;
+}
+
+.text-restricted {
+  color: #94a3b8;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+}
+
+.text-restricted:before {
+  content: "🔒";
+  font-size: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+  .admin-search-input {
+    width: 250px;
+  }
+
+  .admin-table th, .admin-table td {
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+
+  .page-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .admin-search-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .admin-search-input {
+    width: 100%;
+  }
+
+  .admin-table, .admin-table thead, .admin-table tbody, .admin-table th, .admin-table td, .admin-table tr {
+    display: block;
+  }
+
+  .admin-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .admin-table tr {
+    background: #fff;
+    border: 1px solid #e3e6f0;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-shadow: 0 2px 5px #0000000d;
+  }
+
+  .admin-table td {
+    text-align: right;
+    border: none;
+    border-bottom: 1px solid #f1f1f1;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 40px;
+    display: flex;
+    position: relative;
+    padding-left: 40% !important;
+  }
+
+  .admin-table td:last-child {
+    border-bottom: 0;
+    justify-content: center;
+    padding-left: 15px !important;
+  }
+
+  .admin-table td:before {
+    white-space: nowrap;
+    text-align: left;
+    color: #5a5c69;
+    content: attr(data-label);
+    width: 35%;
+    font-weight: 700;
+    position: absolute;
+    left: 15px;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .current-page-info {
+    text-align: center;
+    order: -1;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+.admin-board-link:hover {
+  color: #4e73df !important;
+  text-decoration: underline !important;
+}
+
+/*# sourceMappingURL=app_%28admin%29_admin_member_memberAdmin_d42e1de3.css.map*/

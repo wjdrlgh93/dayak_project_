@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/qorak/Desktop/MEDPROJECT/mediFull/nextFront/app/%28site%29/store/location/location.css"],"sourcesContent":["/* --- [반응형] 갤럭시 폴드6 커버 스크린 및 모바일 (768px 이하) --- */\r\n@media (max-width: 768px) {\r\n    .pageContainer {\r\n        padding: 15px;\r\n    }\r\n\r\n    .mapWrapper {\r\n        height: 350px; /* 모바일에서는 지도 높이를 조금 줄임 */\r\n    }\r\n\r\n    /* 🚀 핵심: 모바일에서는 1단으로 변경하여 화면 밀림 방지 */\r\n    .resultsGrid {\r\n        grid-template-columns: 1fr;\r\n    }\r\n\r\n    .title {\r\n        font-size: 1.25rem;\r\n    }\r\n}\r\n\r\n/* 초소형 모바일 (폴드6 접었을 때 극단적 대응) */\r\n@media (max-width: 400px) {\r\n    .pharmacyCard {\r\n        padding: 15px;\r\n    }\r\n    .pharmacyName {\r\n        font-size: 1rem;\r\n    }\r\n    .pharmacyInfo {\r\n        font-size: 0.8rem;\r\n    }\r\n}"],"names":[],"mappings":"AACA;EACI;;;;EAIA;;;;EAKA;;;;EAIA;;;;;AAMJ;EACI;;;;EAGA;;;;EAGA"}}]
+}

@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/qorak/Desktop/MEDPROJECT/mediFull/nextFront/app/%28admin%29/sync/night24/sync.css"],"sourcesContent":[".sync-container {\r\n  max-width: 600px;\r\n  margin: 50px auto;\r\n  padding: 30px;\r\n  border: 1px solid #ddd;\r\n  border-radius: 12px;\r\n  text-align: center;\r\n  font-family: sans-serif;\r\n}\r\n\r\n.sync-title { font-size: 1.5rem; margin-bottom: 10px; }\r\n.sync-desc { color: #666; margin-bottom: 30px; line-height: 1.5; }\r\n\r\n.status-box {\r\n  background: #f8f9fa;\r\n  padding: 15px;\r\n  border-radius: 8px;\r\n  margin-bottom: 20px;\r\n  font-weight: bold;\r\n}\r\n\r\n.sync-btn {\r\n  background-color: #3b82f6;\r\n  color: white;\r\n  padding: 12px 24px;\r\n  border: none;\r\n  border-radius: 8px;\r\n  font-size: 1rem;\r\n  cursor: pointer;\r\n}\r\n.sync-btn:disabled { background-color: #ccc; cursor: not-allowed; }\r\n.blink { animation: blink 1s infinite; }\r\n@keyframes blink { 50% { opacity: 0.5; } }"],"names":[],"mappings":"AAAA;;;;;;;;;;AAUA;;;;;AACA;;;;;;AAEA;;;;;;;;AAQA;;;;;;;;;;AASA;;;;;AACA;;;;AACA"}}]
+}

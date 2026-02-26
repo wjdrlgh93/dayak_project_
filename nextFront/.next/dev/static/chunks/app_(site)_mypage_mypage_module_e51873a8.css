@@ -1,0 +1,165 @@
+/* [project]/app/(site)/mypage/mypage.module.css [app-client] (css) */
+.mypage-module__TCVgia__container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+.mypage-module__TCVgia__loading {
+  text-align: center;
+  margin-top: 100px;
+  font-size: 1.2rem;
+}
+
+.mypage-module__TCVgia__title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.mypage-module__TCVgia__card {
+  background: #fff;
+  border-radius: 16px;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  display: flex;
+  box-shadow: 0 4px 20px #00000014;
+}
+
+.mypage-module__TCVgia__profileSection {
+  margin-bottom: 30px;
+}
+
+.mypage-module__TCVgia__imgWrapper {
+  cursor: pointer;
+  border: 4px solid #f8f9fa;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 10px #0000001a;
+}
+
+.mypage-module__TCVgia__profileImg {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.mypage-module__TCVgia__overlay {
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  background: #0009;
+  width: 100%;
+  padding: 6px 0;
+  font-size: 12px;
+  transition: all .3s;
+  position: absolute;
+  bottom: 0;
+}
+
+.mypage-module__TCVgia__imgWrapper:hover .mypage-module__TCVgia__overlay {
+  opacity: 1;
+}
+
+.mypage-module__TCVgia__infoSection {
+  width: 100%;
+}
+
+.mypage-module__TCVgia__row {
+  margin-bottom: 18px;
+}
+
+.mypage-module__TCVgia__row label {
+  color: #666;
+  margin-bottom: 6px;
+  font-size: .9rem;
+  font-weight: 600;
+  display: block;
+}
+
+.mypage-module__TCVgia__input, .mypage-module__TCVgia__inputDisabled {
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+.mypage-module__TCVgia__input:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+.mypage-module__TCVgia__inputDisabled {
+  color: #868e96;
+  background: #f1f3f5;
+  border: none;
+}
+
+.mypage-module__TCVgia__textValue {
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
+  font-size: 1.1rem;
+}
+
+.mypage-module__TCVgia__passwordSection {
+  background-color: #fcfcfc;
+  border-top: 2px dashed #eee;
+  border-radius: 8px;
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.mypage-module__TCVgia__subTitle {
+  color: #495057;
+  margin: 0 0 15px;
+  font-size: 1rem;
+}
+
+.mypage-module__TCVgia__btnArea {
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 30px;
+  display: flex;
+}
+
+.mypage-module__TCVgia__editBtn, .mypage-module__TCVgia__saveBtn {
+  cursor: pointer;
+  color: #fff;
+  background: #2563eb;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background .2s;
+}
+
+.mypage-module__TCVgia__editBtn:hover, .mypage-module__TCVgia__saveBtn:hover {
+  background: #1d4ed8;
+}
+
+.mypage-module__TCVgia__cancelBtn {
+  cursor: pointer;
+  color: #495057;
+  background: #e9ecef;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.mypage-module__TCVgia__cancelBtn:hover {
+  background: #dee2e6;
+}
+
+/*# sourceMappingURL=app_%28site%29_mypage_mypage_module_e51873a8.css.map*/

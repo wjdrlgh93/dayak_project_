@@ -1,0 +1,122 @@
+/* [project]/app/(site)/medi/drug.module.css [app-client] (css) */
+.drug-module__urHObq__container {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 20px;
+  font-family: Suit, sans-serif;
+}
+
+.drug-module__urHObq__title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.drug-module__urHObq__searchBox {
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  display: flex;
+}
+
+.drug-module__urHObq__input {
+  border: 2px solid #ddd;
+  border-radius: 50px;
+  outline: none;
+  width: 60%;
+  padding: 12px 20px;
+  font-size: 1rem;
+  transition: all .3s;
+}
+
+.drug-module__urHObq__input:focus {
+  border-color: #2563eb;
+}
+
+.drug-module__urHObq__btn {
+  color: #fff;
+  cursor: pointer;
+  background-color: #2563eb;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.drug-module__urHObq__btn:hover {
+  background-color: #1d4ed8;
+}
+
+.drug-module__urHObq__grid {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  display: grid;
+}
+
+.drug-module__urHObq__card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  transition: transform .2s;
+  overflow: hidden;
+  box-shadow: 0 4px 10px #0000000d;
+}
+
+.drug-module__urHObq__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px #0000001a;
+}
+
+.drug-module__urHObq__imgWrapper {
+  background-color: #f8f9fa;
+  justify-content: center;
+  align-items: center;
+  height: 180px;
+  display: flex;
+  overflow: hidden;
+}
+
+.drug-module__urHObq__imgWrapper img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.drug-module__urHObq__content {
+  padding: 20px;
+}
+
+.drug-module__urHObq__company {
+  color: #666;
+  margin-bottom: 5px;
+  font-size: .8rem;
+  display: block;
+}
+
+.drug-module__urHObq__drugName {
+  color: #333;
+  margin: 0 0 15px;
+  font-size: 1.1rem;
+}
+
+.drug-module__urHObq__info {
+  color: #555;
+  margin-bottom: 10px;
+  font-size: .9rem;
+  line-height: 1.5;
+}
+
+.drug-module__urHObq__info strong {
+  color: #2563eb;
+  margin-right: 5px;
+}
+
+.drug-module__urHObq__message {
+  text-align: center;
+  color: #888;
+  margin-top: 50px;
+  font-size: 1.1rem;
+}
+
+/*# sourceMappingURL=app_%28site%29_medi_drug_module_4abaae4e.css.map*/

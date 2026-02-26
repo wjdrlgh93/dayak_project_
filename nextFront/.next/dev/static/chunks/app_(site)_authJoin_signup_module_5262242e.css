@@ -1,0 +1,88 @@
+/* [project]/app/(site)/authJoin/signup.module.css [app-client] (css) */
+.signup-module__M-fhKq__container {
+  background-color: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 16px;
+  max-width: 480px;
+  margin: 80px auto;
+  padding: 40px;
+  box-shadow: 0 10px 25px #0000000d;
+}
+
+.signup-module__M-fhKq__title {
+  text-align: center;
+  color: #333;
+  letter-spacing: -.5px;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.signup-module__M-fhKq__form {
+  flex-direction: column;
+  gap: 20px;
+  display: flex;
+}
+
+.signup-module__M-fhKq__label {
+  color: #4b5563;
+  margin-bottom: 8px;
+  font-size: .95rem;
+  font-weight: 600;
+  display: block;
+}
+
+.signup-module__M-fhKq__input, .signup-module__M-fhKq__select {
+  color: #1f2937;
+  box-sizing: border-box;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  outline: none;
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1rem;
+  transition: all .2s;
+}
+
+.signup-module__M-fhKq__input:focus, .signup-module__M-fhKq__select:focus {
+  background-color: #fff;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px #2563eb1a;
+}
+
+.signup-module__M-fhKq__input::placeholder {
+  color: #9ca3af;
+}
+
+.signup-module__M-fhKq__button {
+  color: #fff;
+  cursor: pointer;
+  background-color: #2563eb;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color .2s;
+}
+
+.signup-module__M-fhKq__button:hover {
+  background-color: #1d4ed8;
+}
+
+.signup-module__M-fhKq__button:active {
+  transform: scale(.98);
+}
+
+.signup-module__M-fhKq__errorText {
+  color: #ff4d4d;
+  margin-top: 5px;
+  font-size: .85rem;
+  font-weight: 500;
+  display: block;
+}
+
+/*# sourceMappingURL=app_%28site%29_authJoin_signup_module_5262242e.css.map*/

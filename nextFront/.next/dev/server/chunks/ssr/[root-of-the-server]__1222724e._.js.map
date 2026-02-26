@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/qorak/Desktop/MEDPROJECT/mediFull/nextFront/app/page.tsx"],"sourcesContent":["\nimport Spline from '@splinetool/react-spline/next';\nimport Link from \"next/link\";\n\n\n\n\nexport default function Home() {\n   return (\n    <main>\n      <Link href={\"/main\"}>\n        <Spline\n          scene=\"https://prod.spline.design/gdJr7skAp6CW9RuL/scene.splinecode\" \n        />\n      </Link>\n    </main>\n  );\n}\n\n\n"],"names":[],"mappings":";;;;;AACA;AACA;;;;AAKe,SAAS;IACrB,qBACC,8OAAC;kBACC,cAAA,8OAAC,0LAAI;YAAC,MAAM;sBACV,cAAA,8OAAC,6LAAM;gBACL,OAAM;;;;;;;;;;;;;;;;AAKhB"}}]
+}

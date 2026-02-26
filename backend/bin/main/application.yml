@@ -1,0 +1,62 @@
+jwt.secret: #JWT 시크릿 키를 입력해주세요
+jwt.expiration: #JWT 토큰 만료 시간을 입력해주세요 (예: 3600000은 1시간)
+server.tomcat.connection-timeout: #서버 연결 타임아웃 시간을 입력해주세요 (예: 20000은 20초)
+
+server:
+  port: 8080
+  tomcat:
+    max-http-form-post-size: 20MB
+    max-swallow-size: 20MB
+spring:
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: #MySQL 데이터베이스 URL을 입력해주세요 (예: jdbc:mysql://localhost:3306/your_database_name)
+    username: #MySQL 사용자 이름을 입력해주세요
+    password: #MySQL 사용자 비밀번호를 입력해주세요
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+  database-platform: org.hibernate.dialect.MySQL8Dialect
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql: trace
+
+naver:
+  client:
+    id: #네이버 클라이언트 아이디를 입력해주세요
+    secret: #네이버 클라이언트 시크릿을 입력해주세요
+
+kakao:
+  client-id: #카카오 REST API 키를 입력해주세요
+  redirect-uri: #카카오 로그인 리디렉션 URI를 입력해주세요 (예: http://localhost:8080/oauth2/callback/kakao)
+
+oci:
+  user: ${OCI_USER_ID}
+  tenancy: ${OCI_TENANCY_ID}
+  fingerprint: ${OCI_FINGERPRINT}
+  region: ${OCI_REGION}
+  namespace: ${OCI_NAMESPACE}
+  bucketName: #OCI Object Storage 버킷 이름을 입력해주세요
+  privateKey: ${OCI_PRIVATE_KEY}
+
+#전문의약품 API
+api:
+  public-data:
+    url: "http://apis.data.go.kr/1471000/MdcinGrnIdntfcInfoService03/getMdcinGrnIdntfcInfoList03"
+    service-key: #공공데이터포털에서 발급받은 서비스 키를 입력해주세요
+    easy-drug:
+      url: "http://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList"
+      service-key: #공공데이터포털에서 발급받은 서비스 키를 입력해주세요

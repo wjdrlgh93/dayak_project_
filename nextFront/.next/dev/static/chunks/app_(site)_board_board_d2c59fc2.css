@@ -1,0 +1,114 @@
+/* [project]/app/(site)/board/board.css [app-client] (css) */
+.board-container {
+  background-color: #fcfcfd;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  font-family: Pretendard, Suit, sans-serif;
+}
+
+.write-card {
+  background: #fff;
+  border: 1px solid #e1e4e8;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 10px 30px #00000008;
+}
+
+.write-header {
+  border-bottom: 2px solid #f1f1f1;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+}
+
+.write-title {
+  color: #111;
+  margin-bottom: 8px;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.write-subtitle {
+  color: #777;
+  font-size: 14px;
+}
+
+.input-group {
+  margin-bottom: 24px;
+}
+
+.input-label {
+  color: #444;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  display: block;
+}
+
+.write-input {
+  background-color: #f9f9fb;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 16px;
+  transition: all .2s;
+}
+
+.write-input:focus {
+  background-color: #fff;
+  border-color: #111;
+  box-shadow: 0 0 0 3px #1111110d;
+}
+
+.editor-wrapper {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.write-actions {
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 40px;
+  display: flex;
+}
+
+.btn-cancel {
+  color: #666;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 12px 28px;
+  font-weight: 600;
+  transition: all .2s;
+}
+
+.btn-cancel:hover {
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+.btn-submit-main {
+  color: #fff;
+  cursor: pointer;
+  background-color: #111;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 36px;
+  font-weight: 600;
+  transition: transform .1s, background-color .2s;
+}
+
+.btn-submit-main:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+
+.btn-submit-main:active {
+  transform: translateY(0);
+}
+
+/*# sourceMappingURL=app_%28site%29_board_board_d2c59fc2.css.map*/

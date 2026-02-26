@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/qorak/Desktop/MEDPROJECT/mediFull/nextFront/app/member/page.tsx"],"sourcesContent":["import React from 'react'\r\n\r\n\r\nconst page = () => {\r\n  return (\r\n    <div className=\"main\">\r\n        <div className=\"main-con\">\r\n            <div className=\"main-header\">\r\n                <h1>HEADER</h1>\r\n            </div>\r\n            <div className=\"main-other\">\r\n                <h1>other content</h1>\r\n            </div>\r\n            <div className=\"main-footer\"></div>\r\n        </div>\r\n\r\n    </div>\r\n  )\r\n}\r\n\r\nexport default page"],"names":[],"mappings":";;;;;;AAGA,MAAM,OAAO;IACX,qBACE,8OAAC;QAAI,WAAU;kBACX,cAAA,8OAAC;YAAI,WAAU;;8BACX,8OAAC;oBAAI,WAAU;8BACX,cAAA,8OAAC;kCAAG;;;;;;;;;;;8BAER,8OAAC;oBAAI,WAAU;8BACX,cAAA,8OAAC;kCAAG;;;;;;;;;;;8BAER,8OAAC;oBAAI,WAAU;;;;;;;;;;;;;;;;;AAK3B;uCAEe"}}]
+}

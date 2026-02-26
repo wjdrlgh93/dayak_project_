@@ -1,0 +1,118 @@
+/* [project]/app/(site)/board/board.css [app-client] (css) */
+.board-container {
+  color: #333;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  font-family: Suit, sans-serif;
+}
+
+.board-header {
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  display: flex;
+}
+
+.board-title {
+  color: #111;
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.board-list-wrapper {
+  border-top: 2px solid #111;
+  margin-bottom: 40px;
+}
+
+.list-item {
+  color: inherit;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+  padding: 20px 10px;
+  text-decoration: none;
+  transition: background-color .2s;
+  display: flex;
+}
+
+.list-item:hover {
+  background-color: #f9f9fb;
+}
+
+.item-id {
+  color: #999;
+  text-align: center;
+  width: 60px;
+  font-size: 14px;
+}
+
+.item-content-wrap {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.item-title {
+  color: #222;
+  margin-bottom: 6px;
+  font-size: 17px;
+  font-weight: 600;
+  display: block;
+}
+
+.item-info-row {
+  color: #888;
+  gap: 15px;
+  font-size: 13px;
+  display: flex;
+}
+
+.item-author {
+  color: #555;
+  font-weight: 500;
+}
+
+.item-stats {
+  gap: 10px;
+  display: flex;
+}
+
+.btn-write {
+  color: #fff;
+  cursor: pointer;
+  background-color: #111;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 600;
+  transition: opacity .2s;
+}
+
+.btn-write:hover {
+  opacity: .8;
+}
+
+.pagination {
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  display: flex;
+}
+
+.page-link {
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.page-link:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+  background: #f5f5f5;
+}
+
+/*# sourceMappingURL=app_%28site%29_board_board_css_bad6b30c._.single.css.map*/

@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 22, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/qorak/Desktop/MEDPROJECT/mediFull/nextFront/app/%28admin%29/admin/page.tsx"],"sourcesContent":["export default function AdminDashboard() {\r\n  return (\r\n    <div>\r\n      <h1 className=\"admin-title\">관리자 대시보드</h1>\r\n      <p>환영합니다, 관리자님! 이곳에서 전체 현황을 관리할 수 있습니다.</p>\r\n      \r\n      {/* 여기에 통계 카드나 요약 정보를 넣을 예정 */}\r\n      <div style={{ marginTop: '30px', padding: '20px', border: '1px dashed #ccc', borderRadius: '10px', textAlign: 'center' }}>\r\n        콘텐츠가 들어갈 자리입니다. (너비 65% 적용 완료)\r\n      </div>\r\n    </div>\r\n  );\r\n}"],"names":[],"mappings":";;;;;;AAAe,SAAS;IACtB,qBACE,8OAAC;;0BACC,8OAAC;gBAAG,WAAU;0BAAc;;;;;;0BAC5B,8OAAC;0BAAE;;;;;;0BAGH,8OAAC;gBAAI,OAAO;oBAAE,WAAW;oBAAQ,SAAS;oBAAQ,QAAQ;oBAAmB,cAAc;oBAAQ,WAAW;gBAAS;0BAAG;;;;;;;;;;;;AAKhI"}}]
+}

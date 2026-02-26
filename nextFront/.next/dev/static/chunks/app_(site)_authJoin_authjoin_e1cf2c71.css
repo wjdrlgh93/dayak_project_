@@ -1,0 +1,80 @@
+/* [project]/app/(site)/authJoin/authjoin.css [app-client] (css) */
+.container {
+  background-color: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 16px;
+  max-width: 480px;
+  margin: 80px auto;
+  padding: 40px;
+  box-shadow: 0 10px 25px #0000000d;
+}
+
+.title {
+  text-align: center;
+  color: #333;
+  letter-spacing: -.5px;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.form {
+  flex-direction: column;
+  gap: 20px;
+  display: flex;
+}
+
+.label {
+  color: #4b5563;
+  margin-bottom: 8px;
+  font-size: .95rem;
+  font-weight: 600;
+  display: block;
+}
+
+.input, .select {
+  color: #1f2937;
+  box-sizing: border-box;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  outline: none;
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1rem;
+  transition: all .2s;
+}
+
+.input:focus, .select:focus {
+  background-color: #fff;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px #2563eb1a;
+}
+
+.input::placeholder {
+  color: #9ca3af;
+}
+
+.button {
+  color: #fff;
+  cursor: pointer;
+  background-color: #2563eb;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color .2s;
+}
+
+.button:hover {
+  background-color: #1d4ed8;
+}
+
+.button:active {
+  transform: scale(.98);
+}
+
+/*# sourceMappingURL=app_%28site%29_authJoin_authjoin_e1cf2c71.css.map*/

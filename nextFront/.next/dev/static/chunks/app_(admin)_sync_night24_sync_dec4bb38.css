@@ -1,0 +1,56 @@
+/* [project]/app/(admin)/sync/night24/sync.css [app-client] (css) */
+.sync-container {
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  font-family: sans-serif;
+}
+
+.sync-title {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.sync-desc {
+  color: #666;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.status-box {
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 15px;
+  font-weight: bold;
+}
+
+.sync-btn {
+  color: #fff;
+  cursor: pointer;
+  background-color: #3b82f6;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+}
+
+.sync-btn:disabled {
+  cursor: not-allowed;
+  background-color: #ccc;
+}
+
+.blink {
+  animation: 1s infinite blink;
+}
+
+@keyframes blink {
+  50% {
+    opacity: .5;
+  }
+}
+
+/*# sourceMappingURL=app_%28admin%29_sync_night24_sync_dec4bb38.css.map*/

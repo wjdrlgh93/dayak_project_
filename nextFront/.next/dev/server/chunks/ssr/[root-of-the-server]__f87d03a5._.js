@@ -1,0 +1,671 @@
+module.exports = [
+"[externals]/util [external] (util, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("util", () => require("util"));
+
+module.exports = mod;
+}),
+"[externals]/stream [external] (stream, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("stream", () => require("stream"));
+
+module.exports = mod;
+}),
+"[externals]/path [external] (path, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("path", () => require("path"));
+
+module.exports = mod;
+}),
+"[externals]/http [external] (http, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("http", () => require("http"));
+
+module.exports = mod;
+}),
+"[externals]/https [external] (https, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("https", () => require("https"));
+
+module.exports = mod;
+}),
+"[externals]/url [external] (url, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("url", () => require("url"));
+
+module.exports = mod;
+}),
+"[externals]/fs [external] (fs, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("fs", () => require("fs"));
+
+module.exports = mod;
+}),
+"[externals]/crypto [external] (crypto, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("crypto", () => require("crypto"));
+
+module.exports = mod;
+}),
+"[externals]/http2 [external] (http2, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("http2", () => require("http2"));
+
+module.exports = mod;
+}),
+"[externals]/assert [external] (assert, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("assert", () => require("assert"));
+
+module.exports = mod;
+}),
+"[externals]/tty [external] (tty, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("tty", () => require("tty"));
+
+module.exports = mod;
+}),
+"[externals]/os [external] (os, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("os", () => require("os"));
+
+module.exports = mod;
+}),
+"[externals]/zlib [external] (zlib, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("zlib", () => require("zlib"));
+
+module.exports = mod;
+}),
+"[externals]/events [external] (events, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("events", () => require("events"));
+
+module.exports = mod;
+}),
+"[project]/app/(site)/medication/calender/page.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>MedicationCalendarPage
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/axios/lib/axios.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-ssr] (ecmascript)");
+"use client";
+;
+;
+;
+;
+function MedicationCalendarPage() {
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
+    const [medications, setMedications] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [records, setRecords] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [currentDate, setCurrentDate] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(new Date());
+    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
+    // 🚀 선택된 날짜 상태 추가
+    const [selectedDate, setSelectedDate] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const themeColor = '#4f46e5';
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const token = localStorage.getItem('token');
+        if (!token) {
+            router.replace('/authLogin');
+            return;
+        }
+        fetchAllData(token);
+    }, [
+        router
+    ]);
+    const fetchAllData = async (token)=>{
+        try {
+            const [medRes, recordRes] = await Promise.all([
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].get('http://localhost:8080/api/medication/list', {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                }),
+                __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].get('http://localhost:8080/api/medication/check/history', {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                })
+            ]);
+            setMedications(Array.isArray(medRes.data) ? medRes.data : []);
+            setRecords(Array.isArray(recordRes.data) ? recordRes.data : []);
+        } catch (e) {
+            console.error("데이터 로딩 실패:", e);
+            setMedications([]);
+            setRecords([]);
+        } finally{
+            setLoading(false);
+        }
+    };
+    const getDayName = (dayIndex)=>{
+        return [
+            'SUN',
+            'MON',
+            'TUE',
+            'WED',
+            'THU',
+            'FRI',
+            'SAT'
+        ][dayIndex];
+    };
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    if (loading) return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        style: {
+            padding: '150px',
+            textAlign: 'center'
+        },
+        children: "로딩 중..."
+    }, void 0, false, {
+        fileName: "[project]/app/(site)/medication/calender/page.tsx",
+        lineNumber: 68,
+        columnNumber: 25
+    }, this);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        style: {
+            padding: '140px 20px 80px',
+            maxWidth: '800px',
+            margin: '0 auto',
+            fontFamily: 'sans-serif'
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    textAlign: 'center',
+                    marginBottom: '40px'
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                        style: {
+                            fontSize: '28px',
+                            fontWeight: '800',
+                            color: '#1e293b',
+                            marginBottom: '10px'
+                        },
+                        children: "🗓️ 복약 캘린더"
+                    }, void 0, false, {
+                        fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                        lineNumber: 73,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        style: {
+                            color: '#64748b'
+                        },
+                        children: "날짜를 클릭하여 상세 복약 내역을 확인하세요."
+                    }, void 0, false, {
+                        fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                        lineNumber: 74,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                lineNumber: 72,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: '25px',
+                    padding: '0 10px'
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        onClick: ()=>{
+                            setCurrentDate(new Date(year, month - 1));
+                            setSelectedDate(null);
+                        },
+                        style: {
+                            padding: '10px 15px',
+                            border: '1px solid #e2e8f0',
+                            borderRadius: '8px',
+                            cursor: 'pointer',
+                            backgroundColor: '#fff'
+                        },
+                        children: "◀ 이전 달"
+                    }, void 0, false, {
+                        fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                        lineNumber: 79,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                        style: {
+                            fontSize: '20px',
+                            fontWeight: 'bold'
+                        },
+                        children: [
+                            year,
+                            "년 ",
+                            month + 1,
+                            "월"
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                        lineNumber: 85,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        onClick: ()=>{
+                            setCurrentDate(new Date(year, month + 1));
+                            setSelectedDate(null);
+                        },
+                        style: {
+                            padding: '10px 15px',
+                            border: '1px solid #e2e8f0',
+                            borderRadius: '8px',
+                            cursor: 'pointer',
+                            backgroundColor: '#fff'
+                        },
+                        children: "다음 달 ▶"
+                    }, void 0, false, {
+                        fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                        lineNumber: 86,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                lineNumber: 78,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(7, 1fr)',
+                    marginBottom: '10px',
+                    textAlign: 'center',
+                    fontWeight: '600',
+                    color: '#64748b'
+                },
+                children: [
+                    '일',
+                    '월',
+                    '화',
+                    '수',
+                    '목',
+                    '금',
+                    '토'
+                ].map((d)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            padding: '10px'
+                        },
+                        children: d
+                    }, d, false, {
+                        fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                        lineNumber: 96,
+                        columnNumber: 63
+                    }, this))
+            }, void 0, false, {
+                fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                lineNumber: 95,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(7, 1fr)',
+                    gap: '10px'
+                },
+                children: [
+                    Array.from({
+                        length: firstDay
+                    }).map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {}, `empty-${i}`, false, {
+                            fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                            lineNumber: 101,
+                            columnNumber: 65
+                        }, this)),
+                    Array.from({
+                        length: daysInMonth
+                    }).map((_, i)=>{
+                        const day = i + 1;
+                        const dateObj = new Date(year, month, day);
+                        const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                        const dayName = getDayName(dateObj.getDay());
+                        const totalToTake = medications.filter((m)=>m.intakeDays.includes(dayName) || m.intakeDays === 'EVERYDAY').length;
+                        const dayRecords = Array.isArray(records) ? records.filter((r)=>r.checkDate === dateStr) : [];
+                        const takenCount = new Set(dayRecords.map((r)=>r.medicationId)).size;
+                        let bgColor = '#fff';
+                        let borderColor = selectedDate === dateStr ? themeColor : '#e2e8f0'; // 🚀 선택된 날짜 강조
+                        let statusIcon = '';
+                        if (totalToTake > 0) {
+                            if (takenCount === 0) {
+                                bgColor = '#fff';
+                            } else if (takenCount < totalToTake) {
+                                bgColor = '#fffbeb';
+                                if (selectedDate !== dateStr) borderColor = '#fbbf24';
+                                statusIcon = '⚠️';
+                            } else {
+                                bgColor = '#f0fdf4';
+                                if (selectedDate !== dateStr) borderColor = '#22c55e';
+                                statusIcon = '✅';
+                            }
+                        }
+                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            onClick: ()=>setSelectedDate(dateStr),
+                            style: {
+                                minHeight: '100px',
+                                border: `2px solid ${borderColor}`,
+                                borderRadius: '12px',
+                                padding: '10px',
+                                backgroundColor: bgColor,
+                                cursor: 'pointer',
+                                transition: 'all 0.2s ease',
+                                transform: selectedDate === dateStr ? 'scale(1.02)' : 'none',
+                                boxShadow: selectedDate === dateStr ? '0 4px 12px rgba(0,0,0,0.1)' : 'none',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'space-between'
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    style: {
+                                        fontSize: '14px',
+                                        fontWeight: 'bold',
+                                        color: selectedDate === dateStr ? themeColor : '#1e293b'
+                                    },
+                                    children: day
+                                }, void 0, false, {
+                                    fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                                    lineNumber: 153,
+                                    columnNumber: 29
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    style: {
+                                        textAlign: 'center'
+                                    },
+                                    children: totalToTake > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            fontSize: '11px',
+                                            fontWeight: '700'
+                                        },
+                                        children: [
+                                            statusIcon,
+                                            " ",
+                                            takenCount,
+                                            "/",
+                                            totalToTake
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                                        lineNumber: 157,
+                                        columnNumber: 37
+                                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            fontSize: '10px',
+                                            color: '#cbd5e1'
+                                        },
+                                        children: "-"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                                        lineNumber: 161,
+                                        columnNumber: 37
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                                    lineNumber: 155,
+                                    columnNumber: 29
+                                }, this)
+                            ]
+                        }, day, true, {
+                            fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                            lineNumber: 135,
+                            columnNumber: 25
+                        }, this);
+                    })
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                lineNumber: 100,
+                columnNumber: 13
+            }, this),
+            selectedDate && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    marginTop: '40px',
+                    padding: '25px',
+                    backgroundColor: '#fff',
+                    borderRadius: '16px',
+                    border: '1px solid #e2e8f0',
+                    boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)'
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            marginBottom: '20px'
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                style: {
+                                    margin: 0,
+                                    fontSize: '20px',
+                                    color: '#1e293b'
+                                },
+                                children: [
+                                    "📍 ",
+                                    selectedDate,
+                                    " 상세 내역"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                                lineNumber: 180,
+                                columnNumber: 25
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                onClick: ()=>setSelectedDate(null),
+                                style: {
+                                    border: 'none',
+                                    background: 'none',
+                                    cursor: 'pointer',
+                                    fontSize: '18px',
+                                    color: '#94a3b8'
+                                },
+                                children: "✕"
+                            }, void 0, false, {
+                                fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                                lineNumber: 181,
+                                columnNumber: 25
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                        lineNumber: 179,
+                        columnNumber: 21
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '12px'
+                        },
+                        children: (()=>{
+                            const dayName = getDayName(new Date(selectedDate).getDay());
+                            const dayMeds = medications.filter((m)=>m.intakeDays.includes(dayName) || m.intakeDays === 'EVERYDAY');
+                            if (dayMeds.length === 0) return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                style: {
+                                    textAlign: 'center',
+                                    color: '#64748b'
+                                },
+                                children: "이 날은 복약 일정이 없습니다."
+                            }, void 0, false, {
+                                fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                                lineNumber: 189,
+                                columnNumber: 62
+                            }, this);
+                            return dayMeds.map((m)=>{
+                                const isTaken = records.some((r)=>r.checkDate === selectedDate && r.medicationId === m.medicationId);
+                                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    style: {
+                                        display: 'flex',
+                                        justifyContent: 'space-between',
+                                        alignItems: 'center',
+                                        padding: '15px',
+                                        borderRadius: '10px',
+                                        border: '1px solid',
+                                        backgroundColor: isTaken ? '#f0fdf4' : '#fff1f2',
+                                        borderColor: isTaken ? '#22c55e' : '#fda4af'
+                                    },
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            style: {
+                                                fontWeight: '700',
+                                                color: isTaken ? '#166534' : '#9f1239'
+                                            },
+                                            children: m.medicineName
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                                            lineNumber: 200,
+                                            columnNumber: 41
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            style: {
+                                                fontSize: '14px',
+                                                fontWeight: '800',
+                                                color: isTaken ? '#166534' : '#9f1239'
+                                            },
+                                            children: isTaken ? '✅ 복용 완료' : '❌ 미복용'
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                                            lineNumber: 201,
+                                            columnNumber: 41
+                                        }, this)
+                                    ]
+                                }, m.medicationId, true, {
+                                    fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                                    lineNumber: 194,
+                                    columnNumber: 37
+                                }, this);
+                            });
+                        })()
+                    }, void 0, false, {
+                        fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                        lineNumber: 184,
+                        columnNumber: 21
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                lineNumber: 171,
+                columnNumber: 17
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    marginTop: '40px',
+                    padding: '20px',
+                    backgroundColor: '#f8fafc',
+                    borderRadius: '15px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    gap: '20px',
+                    fontSize: '13px'
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '8px'
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    width: '12px',
+                                    height: '12px',
+                                    backgroundColor: '#fff',
+                                    border: '1px solid #e2e8f0',
+                                    borderRadius: '3px'
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                                lineNumber: 215,
+                                columnNumber: 21
+                            }, this),
+                            " 미복용"
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                        lineNumber: 214,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '8px'
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    width: '12px',
+                                    height: '12px',
+                                    backgroundColor: '#fffbeb',
+                                    border: '1px solid #fbbf24',
+                                    borderRadius: '3px'
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                                lineNumber: 218,
+                                columnNumber: 21
+                            }, this),
+                            " 일부 복용"
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                        lineNumber: 217,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '8    px'
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    width: '12px',
+                                    height: '12px',
+                                    backgroundColor: '#f0fdf4',
+                                    border: '1px solid #22c55e',
+                                    borderRadius: '3px'
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                                lineNumber: 221,
+                                columnNumber: 21
+                            }, this),
+                            " 전체 복용 완료"
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                        lineNumber: 220,
+                        columnNumber: 17
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/(site)/medication/calender/page.tsx",
+                lineNumber: 213,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/app/(site)/medication/calender/page.tsx",
+        lineNumber: 71,
+        columnNumber: 9
+    }, this);
+}
+}),
+];
+
+//# sourceMappingURL=%5Broot-of-the-server%5D__f87d03a5._.js.map

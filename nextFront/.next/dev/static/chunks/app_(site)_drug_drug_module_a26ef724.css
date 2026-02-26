@@ -1,0 +1,232 @@
+/* [project]/app/(site)/drug/drug.module.css [app-client] (css) */
+.drug-module__uheO-q__container {
+  color: #333;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  font-family: Suit, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+}
+
+.drug-module__uheO-q__title {
+  text-align: center;
+  color: #111;
+  letter-spacing: -.5px;
+  margin-bottom: 50px;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.drug-module__uheO-q__searchBox {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 60px;
+  display: flex;
+}
+
+.drug-module__uheO-q__searchBox form {
+  flex: 1;
+  gap: 10px;
+  max-width: 600px;
+  display: flex;
+}
+
+.drug-module__uheO-q__input {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  outline: none;
+  flex: 1;
+  padding: 14px 24px;
+  font-size: 1rem;
+  transition: all .3s;
+  box-shadow: 0 2px 5px #00000005;
+}
+
+.drug-module__uheO-q__input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px #2563eb1a;
+}
+
+.drug-module__uheO-q__btn {
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+  background-color: #2563eb;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all .2s;
+  box-shadow: 0 4px 6px #2563eb33;
+}
+
+.drug-module__uheO-q__btn:hover:not(:disabled) {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 8px #2563eb4d;
+}
+
+.drug-module__uheO-q__btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.drug-module__uheO-q__btn:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+  background-color: #9ca3af;
+}
+
+.drug-module__uheO-q__btn.drug-module__uheO-q__sync {
+  background-color: #10b981;
+  box-shadow: 0 4px 6px #10b98133;
+}
+
+.drug-module__uheO-q__btn.drug-module__uheO-q__sync:hover:not(:disabled) {
+  background-color: #059669;
+  box-shadow: 0 6px 8px #10b9814d;
+}
+
+.drug-module__uheO-q__message {
+  text-align: center;
+  color: #666;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  padding: 40px;
+  font-size: 1.1rem;
+}
+
+.drug-module__uheO-q__grid {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+  display: grid;
+}
+
+.drug-module__uheO-q__card {
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 16px;
+  flex-direction: column;
+  height: 100%;
+  transition: transform .3s, box-shadow .3s;
+  display: flex;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px #0000000d;
+}
+
+.drug-module__uheO-q__card:hover {
+  border-color: #e5e7eb;
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px #0000001a;
+}
+
+.drug-module__uheO-q__imgWrapper {
+  background-color: #f9fafb;
+  border-bottom: 1px solid #f0f0f0;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  display: flex;
+  overflow: hidden;
+}
+
+.drug-module__uheO-q__imgWrapper img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: transform .5s;
+}
+
+.drug-module__uheO-q__card:hover .drug-module__uheO-q__imgWrapper img {
+  transform: scale(1.05);
+}
+
+.drug-module__uheO-q__content {
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 24px;
+  display: flex;
+}
+
+.drug-module__uheO-q__company {
+  color: #6b7280;
+  margin-bottom: 8px;
+  font-size: .85rem;
+  font-weight: 500;
+}
+
+.drug-module__uheO-q__drugName {
+  color: #1f2937;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 0 0 16px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+  overflow: hidden;
+}
+
+.drug-module__uheO-q__info {
+  color: #4b5563;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin-top: auto;
+  font-size: .95rem;
+  line-height: 1.6;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+.drug-module__uheO-q__info strong {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.drug-module__uheO-q__pagination-container {
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding-top: 20px;
+  display: flex;
+}
+
+.drug-module__uheO-q__page-btn {
+  color: #374151;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: .9rem;
+  font-weight: 600;
+  transition: all .2s;
+}
+
+.drug-module__uheO-q__page-btn:hover:not(:disabled) {
+  background-color: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+.drug-module__uheO-q__page-btn:disabled {
+  color: #d1d5db;
+  cursor: not-allowed;
+  background-color: #f9fafb;
+  border-color: #f3f4f6;
+}
+
+.drug-module__uheO-q__page-info {
+  color: #6b7280;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.drug-module__uheO-q__current-page {
+  color: #2563eb;
+  font-weight: 800;
+}
+
+/*# sourceMappingURL=app_%28site%29_drug_drug_module_a26ef724.css.map*/

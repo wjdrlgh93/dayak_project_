@@ -1,0 +1,163 @@
+/* [project]/app/(site)/pill/[id]/detail.module.css [app-client] (css) */
+.detail-module__nHOM_q__container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+}
+
+.detail-module__nHOM_q__backBtn {
+  color: #666;
+  cursor: pointer;
+  background: none;
+  border: none;
+  margin-bottom: 20px;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.detail-module__nHOM_q__backBtn:hover {
+  color: #0070f3;
+  text-decoration: underline;
+}
+
+.detail-module__nHOM_q__loadingContainer {
+  color: #0070f3;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  font-weight: bold;
+  display: flex;
+}
+
+.detail-module__nHOM_q__contentWrapper {
+  background: #fff;
+  border-radius: 16px;
+  gap: 40px;
+  padding: 40px;
+  display: flex;
+  box-shadow: 0 10px 30px #00000014;
+}
+
+.detail-module__nHOM_q__imageSection {
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  display: flex;
+}
+
+.detail-module__nHOM_q__pillImage {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 350px;
+  margin-bottom: 20px;
+}
+
+.detail-module__nHOM_q__badges {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  display: flex;
+}
+
+.detail-module__nHOM_q__badge {
+  color: #475569;
+  background: #f1f5f9;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: .9rem;
+  font-weight: 500;
+}
+
+.detail-module__nHOM_q__classBadge {
+  color: #0284c7;
+  background: #e0f2fe;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: .9rem;
+  font-weight: 600;
+}
+
+.detail-module__nHOM_q__infoSection {
+  flex: 1.5;
+}
+
+.detail-module__nHOM_q__entpName {
+  color: #64748b;
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.detail-module__nHOM_q__drugName {
+  color: #1e293b;
+  margin: 0 0 30px;
+  font-size: 2rem;
+}
+
+.detail-module__nHOM_q__section {
+  margin-bottom: 30px;
+}
+
+.detail-module__nHOM_q__section h3 {
+  color: #334155;
+  border-bottom: 2px solid #e2e8f0;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.detail-module__nHOM_q__efficacyBox {
+  color: #334155;
+  white-space: pre-line;
+  word-break: break-word;
+  background: #f8fafc;
+  border-left: 5px solid #3b82f6;
+  border-radius: 8px;
+  padding: 20px;
+  line-height: 1.7;
+}
+
+.detail-module__nHOM_q__noInfo {
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.detail-module__nHOM_q__gridInfo {
+  background: #f8fafc;
+  border-radius: 8px;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  display: grid;
+}
+
+.detail-module__nHOM_q__infoItem {
+  flex-direction: column;
+  display: flex;
+}
+
+.detail-module__nHOM_q__infoItem label {
+  color: #94a3b8;
+  margin-bottom: 4px;
+  font-size: .85rem;
+}
+
+.detail-module__nHOM_q__infoItem span {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .detail-module__nHOM_q__contentWrapper {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .detail-module__nHOM_q__gridInfo {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*# sourceMappingURL=app_%28site%29_pill_%5Bid%5D_detail_module_c04f53ea.css.map*/

@@ -1,0 +1,107 @@
+/* [project]/css/common/footer.css [app-client] (css) */
+.footer {
+  color: #e0e0e0;
+  box-sizing: border-box;
+  background-image: linear-gradient(#1a1a1a, #2d2d2d);
+  border-top: 1px solid #444;
+  width: 100%;
+  margin-top: auto;
+  padding: 60px 20px 30px;
+}
+
+.footer-top {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.footer-con {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-con h3 {
+  color: #fff;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  position: relative;
+}
+
+.footer-con h3:after {
+  content: "";
+  background-color: #3b82f6;
+  width: 30px;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.footer-con p, .footer-con li, .footer-con a {
+  color: #b0b0b0;
+  font-size: 13px;
+  line-height: 1.8;
+  text-decoration: none;
+  transition: all .2s;
+}
+
+.footer-con ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-con a:hover {
+  color: #fff;
+  padding-left: 5px;
+}
+
+.social {
+  flex-direction: column;
+  gap: 5px;
+  display: flex;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #333;
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding-top: 20px;
+}
+
+.footer-bottom p {
+  color: #888;
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    display: grid;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-top {
+    text-align: center;
+    grid-template-columns: 1fr;
+  }
+
+  .footer-con h3:after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-con a:hover {
+    padding-left: 0;
+  }
+}
+
+/*# sourceMappingURL=css_common_footer_76eed625.css.map*/

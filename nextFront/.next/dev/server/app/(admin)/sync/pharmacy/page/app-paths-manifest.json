@@ -1,0 +1,3 @@
+{
+  "/(admin)/sync/pharmacy/page": "app/(admin)/sync/pharmacy/page.js"
+}

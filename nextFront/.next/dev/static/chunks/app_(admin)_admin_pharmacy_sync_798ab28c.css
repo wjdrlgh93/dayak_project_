@@ -1,0 +1,134 @@
+/* [project]/app/(admin)/admin/pharmacy/sync.css [app-client] (css) */
+.admin-sync-container {
+  background-color: #f1f5f9;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+}
+
+.sync-box {
+  text-align: center;
+  background: #fff;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 500px;
+  padding: 40px;
+  box-shadow: 0 20px 25px -5px #0000001a, 0 10px 10px -5px #0000000a;
+}
+
+.sync-header h1 {
+  color: #1e293b;
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.sync-header p {
+  color: #64748b;
+  margin-top: 8px;
+  font-size: 1rem;
+}
+
+.status-panel {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin: 40px 0;
+  padding: 24px;
+  display: flex;
+}
+
+.status-panel.loading {
+  background-color: #eff6ff;
+  border-color: #3b82f6;
+}
+
+.status-panel.success {
+  background-color: #ecfdf5;
+  border-color: #10b981;
+}
+
+.status-panel.error {
+  background-color: #fef2f2;
+  border-color: #ef4444;
+}
+
+.icon-area .icon {
+  font-size: 2.5rem;
+}
+
+.main-msg {
+  color: #334155;
+  margin: 0;
+  font-weight: 600;
+}
+
+.sub-msg {
+  color: #64748b;
+  margin-top: 5px;
+  font-size: .85rem;
+}
+
+.btn-sync-trigger {
+  color: #fff;
+  cursor: pointer;
+  background: #0f172a;
+  border: none;
+  border-radius: 12px;
+  width: 100%;
+  padding: 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all .2s;
+}
+
+.btn-sync-trigger:hover:not(:disabled) {
+  background: #334155;
+  transform: translateY(-2px);
+}
+
+.btn-sync-trigger:disabled {
+  cursor: not-allowed;
+  background: #94a3b8;
+}
+
+.sync-guide {
+  text-align: left;
+  border-top: 1px solid #e2e8f0;
+  margin-top: 40px;
+  padding-top: 20px;
+}
+
+.sync-guide h3 {
+  color: #1e293b;
+  margin-bottom: 12px;
+  font-size: .95rem;
+}
+
+.sync-guide ul {
+  color: #475569;
+  padding-left: 20px;
+  font-size: .85rem;
+  line-height: 1.8;
+}
+
+.spinner {
+  border: 4px solid #e2e8f0;
+  border-top-color: #3b82f6;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: 1s linear infinite spin;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*# sourceMappingURL=app_%28admin%29_admin_pharmacy_sync_798ab28c.css.map*/
