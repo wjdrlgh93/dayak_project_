@@ -1,0 +1,238 @@
+
+
+:root {
+  --primary-red: #e11d48; 
+  --dark-red: #9f1239;    
+  --light-red: #fff1f2;   
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-500: #6b7280;
+  --gray-800: #1f2937;
+  --white: #ffffff;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.board-container {
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  font-family: 'Pretendard', -apple-system, sans-serif;
+  color: var(--gray-800);
+}
+
+
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--gray-100);
+}
+
+.board-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--dark-red);
+  letter-spacing: -0.025em;
+  margin-bottom: 0.5rem;
+}
+
+.board-subtitle {
+  font-size: 1rem;
+  color: var(--gray-500);
+}
+
+
+.btn-write-main {
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  color: var(--white) !important;
+  background-color: var(--primary-red) !important;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px 0 rgba(225, 29, 72, 0.39);
+}
+
+.btn-write-main:hover {
+  background-color: var(--dark-red) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(225, 29, 72, 0.23);
+}
+
+
+.board-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+.list-item {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.list-item:hover {
+  border-color: var(--primary-red);
+  box-shadow: var(--shadow-md);
+  transform: scale(1.005);
+}
+
+
+.item-id-badge {
+  min-width: 48px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 6px;
+  margin-right: 1.25rem;
+  color: var(--white);
+}
+
+
+.item-title-text {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--gray-800);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.item-title-text:hover {
+  color: var(--primary-red);
+}
+
+
+.item-info-row {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--gray-500);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.divider {
+  color: var(--gray-200);
+}
+
+
+.list-item > div:last-child {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.list-item button {
+  padding: 0.5rem 1rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  transition: all 0.2s;
+}
+
+
+.list-item button:first-child {
+  border: 1px solid var(--primary-red) !important;
+  color: var(--primary-red) !important;
+  background: transparent !important;
+}
+
+.list-item button:first-child:hover {
+  background: var(--light-red) !important;
+}
+
+
+.list-item button:last-child {
+  background: var(--gray-800) !important; 
+  color: var(--white) !important;
+}
+
+.list-item button:last-child:hover {
+  background: var(--dark-red) !important;
+}
+
+
+.pagination-container {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.page-nav-btn {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--gray-500);
+}
+
+.page-nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.current-page {
+  font-weight: 800;
+  color: var(--primary-red);
+}
+
+
+
+
+@media screen and (max-width: 400px) {
+  .board-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .board-title {
+    font-size: 1.75rem;
+  }
+  
+  .list-item {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 1rem;
+  }
+  
+  .list-item > div:last-child {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .item-id-badge {
+    margin-bottom: 0.5rem;
+  }
+}
+
+
+@media screen and (min-width: 401px) and (max-width: 800px) {
+  .board-container {
+    max-width: 95%;
+  }
+  
+  .item-title-text {
+    font-size: 1rem;
+  }
+}
+
+
+.loading-state, .empty-state {
+  text-align: center;
+  padding: 5rem 0;
+  color: var(--gray-500);
+  font-size: 1.125rem;
+}

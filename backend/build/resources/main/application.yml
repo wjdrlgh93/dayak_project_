@@ -1,0 +1,65 @@
+
+jwt.secret: VlwEyVlPKZ6yV9yVlwEyVlPKZ6yV9yVlwEyVlPKZ6yV9yVlwEyVlPKZ6yV9y
+jwt.expiration: 1800000
+server.tomcat.connection-timeout: 300000
+
+
+server:
+  port: 8080
+  tomcat:
+    max-http-form-post-size: 20MB
+    max-swallow-size: 20MB
+spring:
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://dayak.c5228qug8nx2.ap-northeast-2.rds.amazonaws.com:3306/pharmacy_db?serverTimezone=Asia/Seoul&useSSL=false
+    username: admin
+    password: qorakfud1
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+  database-platform: org.hibernate.dialect.MySQL8Dialect
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql: trace
+
+naver:
+  client:
+    id: "_g7KwVLO3aWX9r9YMfBg"
+    secret: "ZzRrUOOCjU"
+
+kakao:
+  client-id: "0ef321a590da021f07d759f2c5ad149a"
+  redirect-uri: "http://168.107.15.125:8080/api/auth/kakao/callback"
+
+oci:
+  user: ${OCI_USER_ID}
+  tenancy: ${OCI_TENANCY_ID}
+  fingerprint: ${OCI_FINGERPRINT}
+  region: ${OCI_REGION}
+  namespace: ${OCI_NAMESPACE}
+  bucketName: "medifull-images"
+  privateKey: ${OCI_PRIVATE_KEY} #
+
+
+#전문의약품 API
+api:
+  public-data:
+    url: "http://apis.data.go.kr/1471000/MdcinGrnIdntfcInfoService03/getMdcinGrnIdntfcInfoList03"
+    service-key: "97ec384396b270b2574f58319355dead3782970806d340e52f127f51a80f7e48"
+    easy-drug:
+      url: "http://apis.data.go.kr/1471000/DrbEasyDrugInfoService/getDrbEasyDrugList"
+      service-key: "97ec384396b270b2574f58319355dead3782970806d340e52f127f51a80f7e48"

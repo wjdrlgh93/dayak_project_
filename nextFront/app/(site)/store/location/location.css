@@ -1,0 +1,32 @@
+
+@media (max-width: 768px) {
+    .pageContainer {
+        padding: 15px;
+    }
+
+    .mapWrapper {
+        height: 350px; 
+    }
+
+    
+    .resultsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .title {
+        font-size: 1.25rem;
+    }
+}
+
+
+@media (max-width: 400px) {
+    .pharmacyCard {
+        padding: 15px;
+    }
+    .pharmacyName {
+        font-size: 1rem;
+    }
+    .pharmacyInfo {
+        font-size: 0.8rem;
+    }
+}

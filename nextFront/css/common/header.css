@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    text-decoration: none;
+    color: inherit;
+}
+
+body, html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.header {
+    height: 60px; 
+    background-color: whitesmoke;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10; 
+    padding: 0 15px; 
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    font-size: 13px;
+    
+    z-index: 999;
+}
+
+.nav h1 {
+    display: flex;
+    
+    font-size: 2vh;
+    
+ 
+    text-align: center;
+    justify-content: center;
+
+}
+
+.gnb ul {
+
+    font-size: 1.7vh;
+    font-family: "Do Hyeon", sans-serif;
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+
+    display: flex;
+    gap: 20px;
+}
+
+.gnb ul>li a:hover {
+    color: #0080bb;
+}
+
+
+
+
+.ham-btn{
+    display: block;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #313131;
+    padding: 5px;
+}
+
+
+.drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 200;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    
+}
+
+.drawer-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.drawer-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 30vw;
+    height: 100vh;
+    background-color: white;
+    z-index: 201;
+    transform: translateX(100%); 
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 20px;
+    box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+}
+
+.drawer-menu.open {
+    transform: translateX(0); 
+}
+
+
+.drawer-menu ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 40px;
+    font-family: "Do Hyeon", sans-serif;
+}
+
+.drawer-menu li {
+    font-size: 18px;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.drawer-menu li:hover {
+    color: #0080bb;
+}
+
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+
+@media (max-width: 850px) {
+    .header {
+    
+    font-size: 11px;
+    }
+   
+    
+    .nav h1{
+        font-size: 11px;
+        visibility: hidden;
+        opacity: 0;
+    }
+    .nav ul{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 11px;
+    }
+
+    .gnb{
+        display: none;
+    }
+    .ham-btn{
+        display: block;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+    .header {
+        height: 55px;
+    }
+
+    
+    .header p {
+        font-size: 0.85rem !important;
+        margin-right: 0.5rem !important;
+        max-width: 80px; 
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .header img {
+        height: 30px;
+    }
+
+    
+    .drawer-menu {
+        width: 80vw; 
+    }
+
+    .drawer-menu li {
+        font-size: 16px;
+        padding: 12px 0;
+    }
+}

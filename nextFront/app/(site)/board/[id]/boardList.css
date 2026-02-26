@@ -1,0 +1,251 @@
+
+
+
+.board-container {
+    max-width: 900px;
+    margin: 0 auto;
+    
+    padding: 80px 20px 60px; 
+    box-sizing: border-box;
+    background-color: #ffffff;
+    min-height: calc(100vh - 50px);
+}
+
+
+.board-header {
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 25px;
+    margin-bottom: 30px;
+}
+
+.board-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1a1a1a;
+    line-height: 1.4;
+    word-break: keep-all;
+}
+
+
+.detail-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.detail-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.detail-profile {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #f0f0f0;
+}
+
+.detail-user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.detail-nickname {
+    font-size: 15px;
+    font-weight: 700;
+    color: #333;
+}
+
+.detail-sub-info {
+    font-size: 13px;
+    color: #888;
+}
+
+
+.detail-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.btn-secondary {
+    background-color: #f4f4f5;
+    color: #555;
+}
+
+.btn-secondary:hover {
+    background-color: #e4e4e7;
+}
+
+.btn-danger {
+    background-color: #fff1f2;
+    color: #e11d48;
+}
+
+.btn-danger:hover {
+    background-color: #ffe4e6;
+}
+
+
+.detail-content {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #2c2c2c;
+    min-height: 300px;
+    word-break: break-all;
+    overflow-wrap: break-word;
+}
+
+
+.detail-content img {
+    
+    max-width: 100% !important; 
+    width: auto !important;      
+    
+    
+    height: auto !important;     
+    max-height: 600px;           
+    object-fit: contain;         
+    
+    
+    display: block;              
+    margin: 30px auto;           
+    border-radius: 12px;         
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+
+@media (max-width: 640px) {
+    .board-container {
+        padding-top: 70px;
+    }
+
+    .board-title {
+        font-size: 22px;
+    }
+
+    .detail-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .detail-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+
+
+
+
+
+
+.comment-section {
+    margin-top: 40px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.comment-count-header {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.comment-count-header span { color: #007bff; }
+
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.comment-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: none;
+    font-family: inherit;
+}
+
+.btn-submit {
+    align-self: flex-end;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+.comment-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.comment-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.comment-user-info { display: flex; align-items: center; gap: 10px; }
+
+.comment-profile-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.comment-author { font-weight: bold; font-size: 0.95rem; }
+.comment-date { font-size: 0.8rem; color: #888; }
+
+
+.comment-actions { display: flex; gap: 10px; }
+
+.action-btn {
+    background: none;
+    border: none;
+    font-size: 0.85rem;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+}
+
+.action-btn:hover { text-decoration: underline; }
+.action-btn.delete { color: #dc3545; }
+.action-btn.edit { color: #007bff; }
+.action-btn.save { color: #28a745; font-weight: bold; }
+
+
+.edit-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #007bff;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
