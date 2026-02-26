@@ -7,6 +7,13 @@
 > **"복잡한 약, 잊지 말고 챙기세요."**
 > 사용자의 복약 스케줄을 관리하고, 주변 약국 및 의약품 정보를 쉽고 빠르게 제공하는 헬스케어 웹 서비스입니다.
 
+## 설치방법 
+1. git clone 을 해주세요
+2. 프론트에서 터미널을 열고 npm install 을 해주세요
+3. 각각에 필요한 yml, Docker-compose 파일들은 첨부해 놓았습니다
+4. yml, Docker-compose, Dokerfile 에서 연결할려는 서비스를 입력해주세요
+5. Docker-compose 에서 서비스가 다르면 들어가는 시크릿키가 상이할 수 있습니다
+
 ---
 
 ## 📖 목차
@@ -181,5 +188,6 @@
 
 <img width="1338" height="905" alt="화면 캡처 2026-02-21 170132" src="https://github.com/user-attachments/assets/75aa800f-9538-4d52-b1a5-389d18971adb" /><br>
 <img width="1435" height="766" alt="화면 캡처 2026-02-22 145300" src="https://github.com/user-attachments/assets/62908c57-4e2a-446d-858b-98b27fe408ad" /><br>
+
 
 
