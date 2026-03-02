@@ -13,8 +13,7 @@ import lombok.NoArgsConstructor;
 public class MedicationDto {
     private Long medicationId;
     private String medicineName;
-    private String intakeTime; 
-    private String intakeDays;
+    private String intakeTime;     private String intakeDays;
 
     @JsonProperty("isKakaoAlert")
     private boolean isKakaoAlert;

@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from './signup.module.css'; 
-import api from '@/util/api'; 
+import api from '@/util/api'; // 설정하신 api 인스턴스 경로 확인 필수
 
 export default function SignupPage() {
   const router = useRouter();
@@ -30,13 +30,13 @@ export default function SignupPage() {
     }
   };
 
-  
+  // 🚀 handleSubmit 하나로 통합하여 로직 정리
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setErrors({}); 
+    setErrors({}); // 에러 초기화
 
     try {
-      
+      // Axios는 자동으로 객체를 JSON으로 변환하여 전송합니다.
       const response = await api.post('/api/member/signup', formData);
 
       if (response.status === 200 || response.status === 201) {
@@ -44,11 +44,11 @@ export default function SignupPage() {
         router.push('/main');
       }
     } catch (error: any) {
-      
+      // 🚀 백엔드에서 보낸 유효성 검사 에러(400 등) 처리
       if (error.response) {
         const errorData = error.response.data;
         console.log("백엔드 에러 데이터:", errorData);
-        setErrors(errorData); 
+        setErrors(errorData); // 화면에 빨간 글씨 표시
       } else {
         console.error("Signup Error:", error);
         alert("서버와 통신 중 오류가 발생했습니다.");
@@ -61,7 +61,7 @@ export default function SignupPage() {
       <h2 className={styles.title}>회원가입</h2>
       
       <form onSubmit={handleSubmit} className={styles.form}>
-        {}
+        {/* 이메일 */}
         <div>
           <label className={styles.label}>이메일</label>
           <input
@@ -75,7 +75,7 @@ export default function SignupPage() {
           {errors.email && <span className={styles.errorText}>{errors.email}</span>}
         </div>
 
-        {}
+        {/* 비밀번호 */}
         <div>
           <label className={styles.label}>비밀번호</label>
           <input
@@ -89,7 +89,7 @@ export default function SignupPage() {
           {errors.password && <span className={styles.errorText}>{errors.password}</span>}
         </div>
 
-        {}
+        {/* 이름 */}
         <div>
           <label className={styles.label}>이름</label>
           <input
@@ -103,7 +103,7 @@ export default function SignupPage() {
           {errors.name && <span className={styles.errorText}>{errors.name}</span>}
         </div>
 
-        {}
+        {/* 닉네임 */}
         <div>
           <label className={styles.label}>닉네임</label>
           <input
@@ -117,7 +117,7 @@ export default function SignupPage() {
           {errors.nickName && <span className={styles.errorText}>{errors.nickName}</span>}
         </div>
 
-        {}
+        {/* 성별 */}
         <div>
           <label className={styles.label}>성별</label>
           <select name="gender" value={formData.gender} onChange={handleChange} className={styles.select}>
@@ -126,7 +126,7 @@ export default function SignupPage() {
           </select>
         </div>
 
-        {}
+        {/* 주소 */}
         <div>
           <label className={styles.label}>주소</label>
           <input

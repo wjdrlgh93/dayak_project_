@@ -36,11 +36,9 @@ public class MemberEntity extends BasicTime {
 
     @Column(nullable = false)
     private String nickName; 
-
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Gender gender; 
-
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;
@@ -58,25 +56,19 @@ public class MemberEntity extends BasicTime {
 
     private boolean isDeleted;
 
-    
-    @Column(length = 3000)
+        @Column(length = 3000)
     private String kakaoAccessToken;
 
     @Column(length = 3000)
     private String kakaoRefreshToken; 
-
     @Column(name = "guardian_uuid", length = 100)
     private String guardianUuid; 
-
     @Column(name = "guardian_name", length = 50)
     private String guardianName; 
 
 
-
     
-
-    @Builder.Default 
-    @OneToMany(mappedBy = "memberId", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default     @OneToMany(mappedBy = "memberId", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BoardEntity> boards = new ArrayList<>();
 
 }

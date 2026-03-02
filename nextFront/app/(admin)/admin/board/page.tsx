@@ -73,10 +73,10 @@ export default function BoardManagementPage() {
     <tr key={post.id}>
       <td data-label="번호">{post.id}</td>
       
-      {}
+      {/* 🚀 제목 클릭 시 해당 게시물로 이동 */}
       <td data-label="제목" style={{ textAlign: 'left', fontWeight: '500' }}>
         <Link 
-          href={`/board/${post.id}`} 
+          href={`/board/${post.id}`} // 👈 요청하신 board/[id] 형식
           className="admin-board-link"
           style={{ 
             textDecoration: 'none', 

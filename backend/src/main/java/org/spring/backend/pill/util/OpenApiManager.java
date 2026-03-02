@@ -18,8 +18,7 @@ public class OpenApiManager {
 
     private final RestTemplate restTemplate;
 
-    
-    @Value("${api.public-data.service-key}")
+        @Value("${api.public-data.service-key}")
     private String serviceKey;
 
     @Value("${api.public-data.url}")
@@ -30,20 +29,14 @@ public class OpenApiManager {
      */
     public String fetchAllPills(int pageNo, int numOfRows) {
         try {
-            
-            
-            URI uri = UriComponentsBuilder.fromHttpUrl(baseUrl)
-                    .queryParam("serviceKey", serviceKey) 
-                    .queryParam("pageNo", pageNo)
+                                    URI uri = UriComponentsBuilder.fromHttpUrl(baseUrl)
+                    .queryParam("serviceKey", serviceKey)                     .queryParam("pageNo", pageNo)
                     .queryParam("numOfRows", numOfRows)
-                    .queryParam("type", "json") 
-                    .build(true) 
-                    .toUri();
+                    .queryParam("type", "json")                     .build(true)                     .toUri();
 
             log.info("API 호출 URL: {}", uri);
 
-            
-            return restTemplate.getForObject(uri, String.class);
+                        return restTemplate.getForObject(uri, String.class);
 
         } catch (Exception e) {
             log.error("API 호출 중 에러 발생: {}", e.getMessage());

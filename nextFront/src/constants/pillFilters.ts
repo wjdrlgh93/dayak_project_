@@ -1,4 +1,4 @@
-
+// 💊 알약 모양 상수 (백엔드 PillFilter.java와 동일하게 확장)
 export const DRUG_SHAPES = [
     { label: "원형", value: "원형" },
     { label: "타원형", value: "타원형" },
@@ -9,10 +9,10 @@ export const DRUG_SHAPES = [
     { label: "오각형", value: "오각형" },
     { label: "육각형", value: "육각형" },
     { label: "팔각형", value: "팔각형" },
-    { label: "마름모형", value: "마름모형" }, 
+    { label: "마름모형", value: "마름모형" }, // 추가
 ];
 
-
+// 🎨 알약 색상 상수 (백엔드 PillFilter.java와 동일하게 확장)
 export const COLOR_CLASSES = [
     { label: "하양", value: "하양" },
     { label: "노랑", value: "노랑" },
@@ -25,5 +25,5 @@ export const COLOR_CLASSES = [
     { label: "파랑", value: "파랑" },
     { label: "보라", value: "보라" },
     { label: "검정", value: "검정" },
-    { label: "투명", value: "투명" }, 
+    { label: "투명", value: "투명" }, // 추가
 ];

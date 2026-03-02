@@ -2,18 +2,18 @@
 import { useEffect, useState } from "react";
 import { getReplyList, createReply, deleteReply, updateReply } from "@/util/boardApi";
 
-
+// 🚀 [추가] 이미지 경로 처리 헬퍼 함수 (서버 URL 붙일지 말지 결정)
 const getProfileImageUrl = (fileUrl: string | null) => {
-  const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://168.107.15.125"; 
+  const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://168.107.15.125"; // 백엔드 주소
 
-  if (!fileUrl) return "/images/default_profile.png"; 
+  if (!fileUrl) return "/images/default_profile.png"; // 이미지가 없으면 기본 프사
 
-  
+  // http로 시작하면(카카오, 오라클 스토리지) 그대로 사용 [cite: 2026-02-19]
   if (fileUrl.startsWith("http") || fileUrl.startsWith("https")) {
     return fileUrl;
   }
 
-  
+  // 그 외에는(상대 경로) 백엔드 서버 주소를 붙여줌
   return `${BASE_URL}${fileUrl}`;
 };
 
@@ -21,14 +21,14 @@ export default function CommentSection({ boardId, myId }: any) {
   const [replies, setReplies] = useState<any[]>([]);
   const [text, setText] = useState("");
   
-  
+  // 수정 기능을 위한 상태
   const [editingId, setEditingId] = useState<number | null>(null);
   const [editText, setEditText] = useState("");
 
   const load = () => getReplyList(boardId, 0).then(d => setReplies(d.content));
   useEffect(() => { load(); }, [boardId]);
 
-  
+  // 댓글 등록
   const add = async () => {
     const token = localStorage.getItem("token");
     if (!token) return alert("로그인이 필요한 서비스입니다.");
@@ -40,7 +40,7 @@ export default function CommentSection({ boardId, myId }: any) {
     });
   };
 
-  
+  // 댓글 삭제
   const remove = async (rid: number) => {
     const token = localStorage.getItem("token");
     if (token && confirm("댓글을 삭제하시겠습니까?")) {
@@ -48,13 +48,13 @@ export default function CommentSection({ boardId, myId }: any) {
     }
   };
 
-  
+  // 수정 모드 진입
   const startEdit = (reply: any) => {
     setEditingId(reply.id);
     setEditText(reply.content);
   };
 
-  
+  // 댓글 수정 저장
   const saveEdit = async (rid: number) => {
     const token = localStorage.getItem("token");
     if (!token) return;
@@ -86,7 +86,7 @@ export default function CommentSection({ boardId, myId }: any) {
 
       <div className="comment-list">
         {replies.map((r: any) => {
-          
+          // 🚀 작성자 본인 확인 (타입 안전하게 비교)
           const isAuthor = Number(myId) === Number(r.userId);
           
           return (
@@ -94,7 +94,7 @@ export default function CommentSection({ boardId, myId }: any) {
               <div className="comment-item-header">
                 <div className="comment-user-info">
                   <img 
-                    
+                    // 🚀 [수정] 헬퍼 함수를 사용하여 이미지 경로 문제 해결 [cite: 2026-02-19]
                     src={getProfileImageUrl(r.userProfileImage)}
                     alt="프로필" 
                     className="comment-profile-img"
@@ -109,7 +109,7 @@ export default function CommentSection({ boardId, myId }: any) {
                   </div>
                 </div>
                 
-                {}
+                {/* 🚀 본인 댓글인 경우에만 수정/삭제 버튼 노출 */}
                 {isAuthor && (
                   <div className="comment-actions">
                     {editingId === r.id ? (

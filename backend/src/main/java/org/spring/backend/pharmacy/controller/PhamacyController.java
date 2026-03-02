@@ -25,8 +25,7 @@ public class PhamacyController {
     @PostMapping("/sync-all")
     public ResponseEntity<String> syncAll() {
 
-        
-        parmacyService.syncAllPharmacies();
+                parmacyService.syncAllPharmacies();
         return ResponseEntity.ok("약국 데이터 동기화가 백그라운드에서 시작되었습니다. 작업 완료 여부는 서버 로그에서 확인해 주세요.");
     }
 
@@ -36,8 +35,7 @@ public class PhamacyController {
             @RequestParam(required = false) Double lon,
             @PageableDefault(size = 200) Pageable pageable) {
 
-        
-        if (lat == null || lon == null) {
+                if (lat == null || lon == null) {
             return ResponseEntity.ok(pharmacyRepository.findAll(pageable));
         }
 
@@ -52,9 +50,7 @@ public class PhamacyController {
 
     @GetMapping("/region")
     public ResponseEntity<List<PharmacyDto>> getPharmaciesByRegion(
-            @RequestParam String city,     
-            @RequestParam String district  
-    ) {
+            @RequestParam String city,                 @RequestParam String district      ) {
         return ResponseEntity.ok(parmacyService.findByRegion(city, district));
     }
 }

@@ -43,32 +43,22 @@ public class DrugService {
     @Value("${naver.client.secret}")
     private String naverClientSecret;
 
-    
-    
-    
-    @Transactional
+                @Transactional
     public Page<DrugEntity> searchDrug(String keyword, Pageable pageable) {
-        
-        Page<DrugEntity> dbResults = drugRepository.findByItemNameContaining(keyword, pageable);
+                Page<DrugEntity> dbResults = drugRepository.findByItemNameContaining(keyword, pageable);
 
-        
-        if (dbResults.isEmpty() && pageable.getPageNumber() == 0) {
+                if (dbResults.isEmpty() && pageable.getPageNumber() == 0) {
             System.out.println("🔍 DB에 데이터 없음. API 호출 수행: " + keyword);
 
-            
-            fetchAndSaveFromApi(keyword);
+                        fetchAndSaveFromApi(keyword);
 
-            
-            return drugRepository.findByItemNameContaining(keyword, pageable);
+                        return drugRepository.findByItemNameContaining(keyword, pageable);
         }
 
         return dbResults;
     }
 
-    
-    
-    
-    @Async
+                @Async
     public void syncAllDrugs() {
         int pageNo = 1;
         int numOfRows = 100;
@@ -86,8 +76,7 @@ public class DrugService {
                     break;
                 }
 
-                
-                int savedCount = drugDataProcessor.savePage(items);
+                                int savedCount = drugDataProcessor.savePage(items);
 
                 log.info("📄 Page {} 완료: {}개 신규 저장", pageNo, savedCount);
 
@@ -98,25 +87,18 @@ public class DrugService {
 
                 pageNo++;
 
-                
-                Thread.sleep(500);
+                                Thread.sleep(500);
 
             } catch (Exception e) {
                 log.error("🚨 동기화 중 오류 발생 (Page {}): {}", pageNo, e.getMessage());
-                break; 
-            }
+                break;             }
         }
         log.info("🏁 [e약은요] 전체 동기화 프로세스 종료");
     }
 
-    
-    
-    
-
-    
-    private void fetchAndSaveFromApi(String keyword) {
-        
-        URI uri = buildUri(keyword, 1, 20);
+            
+        private void fetchAndSaveFromApi(String keyword) {
+                URI uri = buildUri(keyword, 1, 20);
         List<DrugDto.Item> apiResults = fetchItemsFromUri(uri);
 
         if (apiResults != null) {
@@ -127,8 +109,7 @@ public class DrugService {
     }
 
     private URI buildUri(String keyword, int pageNo, int numOfRows) {
-        
-        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(apiUrl)
+                UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(apiUrl)
                 .queryParam("serviceKey", serviceKey)
                 .queryParam("pageNo", pageNo)
                 .queryParam("numOfRows", numOfRows)
@@ -138,9 +119,7 @@ public class DrugService {
             builder.queryParam("itemName", keyword);
         }
 
-        
-        
-        return builder.build().encode().toUri();
+                        return builder.build().encode().toUri();
     }
 
     private List<DrugDto.Item> fetchItemsFromUri(URI uri) {
@@ -180,8 +159,7 @@ public class DrugService {
     }
 
     private String searchNaverEncyclopedia(String query) {
-        
-        try {
+                try {
             RestTemplate restTemplate = new RestTemplate();
             String searchWord = query + " 효능";
             URI uri = UriComponentsBuilder.fromUriString("https://openapi.naver.com")
@@ -207,9 +185,6 @@ public class DrugService {
     }
 
     public Optional<DrugEntity> getDrugDetail(String itemSeq) {
-        
-        
-        
-        return drugRepository.findByItemSeq(itemSeq);
+                                return drugRepository.findByItemSeq(itemSeq);
     }
 }

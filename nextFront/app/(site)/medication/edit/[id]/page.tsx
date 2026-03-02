@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter, useParams } from 'next/navigation';
-import api from '@/util/api'; 
+import api from '@/util/api'; // 🚀 공통 api 유틸리티 사용 (자동 토큰 주입)
 
 export default function EditMedicationPage() {
     const router = useRouter();
@@ -30,12 +30,12 @@ export default function EditMedicationPage() {
             router.replace('/authLogin');
             return;
         }
-        validateAndFetch(); 
+        validateAndFetch(); // 🚀 token을 인자로 줄 필요 없음 (api 인스턴스 활용)
     }, [id, router]);
 
     const validateAndFetch = async () => {
         try {
-            
+            // 1. 유저 상세 정보 확인 (소셜 로그인 여부 체크)
             const userRes = await api.get('/api/member/detail');
 
             if (userRes.data.socialLogin === 0) {
@@ -44,8 +44,8 @@ export default function EditMedicationPage() {
                 return;
             }
 
-            
-            
+            // 2. 기존 약물 정보 호출
+            // 앞에 슬래시(/)가 포함된 절대 경로를 사용하여 404를 방지합니다.
             const res = await api.get(`/api/medication/${id}`);
             
             const data = res.data;
@@ -82,9 +82,9 @@ export default function EditMedicationPage() {
         try {
             console.log("🚀 전송 데이터:", {
                 medicineName: formData.medicineName,
-                isKakaoAlert: formData.isKakaoAlert 
+                isKakaoAlert: formData.isKakaoAlert // true/false 인지 확인
             });
-            
+            // 🚀 PUT 요청 시에도 경로 시작에 슬래시(/) 확인!
             await api.put(`/api/medication/${id}`, {
                 medicineName: formData.medicineName,
                 intakeTime: formData.intakeTime + ":00",
@@ -108,7 +108,7 @@ export default function EditMedicationPage() {
             <h1 style={{ fontSize: '24px', fontWeight: '800', marginBottom: '30px', textAlign: 'center' }}>✏️ 복약 정보 수정</h1>
 
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                {}
+                {/* ... (이하 동일한 JSX 구조) ... */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                     <label style={{ fontSize: '14px', fontWeight: 'bold' }}>약 이름</label>
                     <input

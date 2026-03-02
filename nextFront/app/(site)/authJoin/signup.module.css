@@ -1,17 +1,17 @@
+/* signup.module.css */
 
-
-
+/* 전체 컨테이너: 카드 형태 */
 .container {
   max-width: 480px;
   margin: 80px auto;
   padding: 40px;
   background-color: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); 
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* 부드러운 그림자 */
   border: 1px solid #f0f0f0;
 }
 
-
+/* 제목 스타일 */
 .title {
   text-align: center;
   margin-bottom: 30px;
@@ -21,14 +21,14 @@
   letter-spacing: -0.5px;
 }
 
-
+/* 폼 레이아웃 */
 .form {
   display: flex;
   flex-direction: column;
-  gap: 20px; 
+  gap: 20px; /* 입력창 사이 간격 */
 }
 
-
+/* 라벨 스타일 */
 .label {
   display: block;
   margin-bottom: 8px;
@@ -37,7 +37,7 @@
   color: #4b5563;
 }
 
-
+/* 인풋(입력창) & 셀렉트(선택창) 공통 스타일 */
 .input,
 .select {
   width: 100%;
@@ -49,23 +49,23 @@
   transition: all 0.2s ease;
   outline: none;
   color: #1f2937;
-  box-sizing: border-box; 
+  box-sizing: border-box; /* 패딩 포함 크기 계산 */
 }
 
-
+/* 입력창 포커스 시 효과 */
 .input:focus,
 .select:focus {
-  border-color: #2563eb; 
+  border-color: #2563eb; /* 브랜드 컬러 (파란색) */
   background-color: #fff;
   box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
 }
 
-
+/* 입력창 플레이스홀더 색상 */
 .input::placeholder {
   color: #9ca3af;
 }
 
-
+/* 가입하기 버튼 */
 .button {
   margin-top: 10px;
   width: 100%;
@@ -80,20 +80,20 @@
   transition: background-color 0.2s;
 }
 
-
+/* 버튼 호버 효과 */
 .button:hover {
   background-color: #1d4ed8;
 }
 
-
+/* 버튼 클릭 효과 */
 .button:active {
   transform: scale(0.98);
 }
 
 .errorText {
-  color: #ff4d4d;      
-  font-size: 0.85rem;  
+  color: #ff4d4d;      /* 밝은 빨간색 */
+  font-size: 0.85rem;  /* 본문보다 약간 작게 */
   margin-top: 5px;
-  display: block;      
+  display: block;      /* 줄바꿈 */
   font-weight: 500;
 }

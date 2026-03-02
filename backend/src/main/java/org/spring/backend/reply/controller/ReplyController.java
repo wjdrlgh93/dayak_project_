@@ -49,10 +49,7 @@ public class ReplyController {
             @PathVariable Long id,
             @RequestBody ReplyDto.Request dto,
             @AuthenticationPrincipal UserPrincipal userPrincipal) { 
-
-        
-        
-        replyService.update(id, dto.getContent(), userPrincipal.getId());
+                        replyService.update(id, dto.getContent(), userPrincipal.getId());
 
         return ResponseEntity.ok("댓글이 수정되었습니다.");
     }

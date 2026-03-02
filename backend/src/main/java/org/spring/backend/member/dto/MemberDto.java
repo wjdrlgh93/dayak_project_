@@ -40,12 +40,11 @@ public class MemberDto {
 
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
-    
     private int socialLogin;
     private int isProfileImg;
     private String newFileName;
     private String fileUrl;
-    
+    private boolean isDeleted;
     private String currentPassword;
     private String newPassword;
 

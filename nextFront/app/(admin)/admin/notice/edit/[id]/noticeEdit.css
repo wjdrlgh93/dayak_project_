@@ -1,27 +1,27 @@
-
+/* noticeEdit.css */
 
 :root {
-  --primary-red: #e11d48;   
-  --dark-red: #9f1239;      
-  --light-red-bg: #fff1f2;  
-  --border-red: #fecdd3;    
+  --primary-red: #e11d48;   /* 메인 레드 */
+  --dark-red: #9f1239;      /* 진빨강 */
+  --light-red-bg: #fff1f2;  /* 연한 핑크 배경 */
+  --border-red: #fecdd3;    /* 연한 레드 테두리 */
   --gray-50: #f9fafb;
   --gray-400: #9ca3af;
   --gray-800: #1f2937;
   --white: #ffffff;
 }
 
-
+/* 전체 컨테이너 */
 .edit-page-container {
   padding: 40px 20px;
   max-width: 900px;
   margin: 0 auto;
   font-family: 'Pretendard', sans-serif;
-  
+  /* 🚀 상단 헤더와 겹침 방지 */
   margin-top: 20px;
 }
 
-
+/* 제목 섹션 */
 .edit-title {
   font-size: 28px;
   font-weight: 800;
@@ -32,7 +32,7 @@
   gap: 10px;
 }
 
-
+/* 입력 폼 그룹 */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -46,7 +46,7 @@
   font-size: 15px;
 }
 
-
+/* 제목 입력창 */
 .title-input {
   width: 100%;
   padding: 16px;
@@ -62,7 +62,7 @@
   box-shadow: 0 0 0 4px rgba(225, 29, 72, 0.1);
 }
 
-
+/* 📌 상단 고정 체크박스 영역 */
 .pin-toggle-area {
   display: flex;
   align-items: center;
@@ -93,17 +93,17 @@
   font-size: 15px;
 }
 
-
+/* 🚀 에디터 영역 (겹침 해결 핵심) */
 .editor-section {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  
+  /* 에디터 툴바와 본문 사이의 간격 및 위치 고정 */
   position: relative;
   margin-bottom: 40px;
 }
 
-
+/* 버튼 그룹 */
 .button-group {
   display: flex;
   gap: 12px;
@@ -146,9 +146,9 @@
   background-color: var(--gray-200);
 }
 
+/* 📱 갤럭시 폴드 6 미디어 쿼리 */
 
-
-
+/* 폴드 6 접었을 때 (좁은 화면) */
 @media screen and (max-width: 400px) {
   .edit-page-container {
     padding: 25px 15px;
@@ -159,7 +159,7 @@
   }
 
   .button-group {
-    flex-direction: column; 
+    flex-direction: column; /* 버튼 세로 정렬 */
   }
 
   .btn-submit, .btn-cancel {
@@ -168,7 +168,7 @@
   }
 }
 
-
+/* 폴드 6 펼쳤을 때 (넓은 화면) */
 @media screen and (min-width: 760px) and (max-width: 850px) {
   .edit-page-container {
     max-width: 95%;

@@ -9,7 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ReplyRepository extends JpaRepository<ReplyEntity, Long> {
 
-    
-    
-    Page<ReplyEntity> findByBoardId(Long boardId, Pageable pageable);
+            Page<ReplyEntity> findByBoardId(Long boardId, Pageable pageable);
 }

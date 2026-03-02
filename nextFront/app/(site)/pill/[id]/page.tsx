@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useRouter } from 'next/navigation';
-import styles from './detail.module.css'; 
+import styles from './detail.module.css'; // CSS 파일 별도 생성 필요
 
 interface PillDetail {
     itemSeq: string;
@@ -14,13 +14,13 @@ interface PillDetail {
     printBack: string;
     drugShape: string;
     colorClass1: string;
-    className: string; 
-    chart: string;     
+    className: string; // 분류명 (예: 해열, 진통, 소염제)
+    chart: string;     // 성상 (예: 흰색의 장방형 정제)
     efficacy: string | null;
 }
 
 export default function PillDetailPage() {
-    const { id } = useParams(); 
+    const { id } = useParams(); // URL에서 itemSeq 가져오기
     const router = useRouter();
     
     const [pill, setPill] = useState<PillDetail | null>(null);
@@ -34,13 +34,13 @@ export default function PillDetailPage() {
 
     const fetchDetail = async () => {
         try {
-            
+            // 상세 정보 요청 (이때 백엔드가 네이버 정보를 긁어옵니다)
             const response = await axios.get(`/api/pill/${id}`);
             setPill(response.data);
         } catch (error) {
             console.error("상세 정보 조회 실패:", error);
             alert("정보를 가져올 수 없습니다.");
-            router.back(); 
+            router.back(); // 실패 시 뒤로가기
         } finally {
             setLoading(false);
         }
@@ -59,13 +59,13 @@ export default function PillDetailPage() {
 
     return (
         <div className={styles.container}>
-            {}
+            {/* 상단 네비게이션 */}
             <button onClick={() => router.back()} className={styles.backBtn}>
                 ← 목록으로 돌아가기
             </button>
 
             <div className={styles.contentWrapper}>
-                {}
+                {/* 왼쪽: 이미지 영역 */}
                 <div className={styles.imageSection}>
                     <img 
                         src={pill.itemImage || "/img/no_drug_img.png"} 
@@ -80,7 +80,7 @@ export default function PillDetailPage() {
                     </div>
                 </div>
 
-                {}
+                {/* 오른쪽: 상세 정보 영역 */}
                 <div className={styles.infoSection}>
                     <p className={styles.entpName}>{pill.entpName}</p>
                     <h1 className={styles.drugName}>{pill.itemName}</h1>

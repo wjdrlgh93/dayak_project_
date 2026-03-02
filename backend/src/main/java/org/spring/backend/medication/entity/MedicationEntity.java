@@ -25,32 +25,25 @@ public class MedicationEntity extends BasicTime {
     @JsonProperty("medicationId")
     private Long id;
 
-    
-    @ManyToOne(fetch = FetchType.LAZY)
+        @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private MemberEntity member;
 
-    
-    @Column(nullable = false)
+        @Column(nullable = false)
     private String medicineName;
 
-    
-    
-    @Column(nullable = false)
+            @Column(nullable = false)
     @JsonProperty("intakeTime")
     private LocalTime intakeTime;
 
-    
-    @Column(nullable = false)
+        @Column(nullable = false)
     private String intakeDays;
 
-    
-    @Column(nullable = false)
+        @Column(nullable = false)
     @JsonProperty("isKakaoAlert")
     private boolean isKakaoAlert;
 
-    
-    @Builder.Default
+        @Builder.Default
     private boolean isActive = true;
 
 

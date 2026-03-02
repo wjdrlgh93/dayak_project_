@@ -5,18 +5,18 @@ import { getAdminUserList, deleteAdminUser } from "@/util/boardApi";
 import './memberAdmin.css'
 
 export default function UserManagementPage() {
-  const [userData, setUserData] = useState<any>(null); 
+  const [userData, setUserData] = useState<any>(null); // Page 객체 전체 저장
   const [currentPage, setCurrentPage] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
-  
+  // 회원 목록 불러오기
   const fetchUsers = async (page: number) => {
     setIsLoading(true);
     const token = localStorage.getItem("token");
     if (!token) return;
 
     try {
-      
+      // API 호출 시 페이지 번호 전달
       const data = await getAdminUserList(token, page);
       setUserData(data);
     } catch (error) {
@@ -31,7 +31,7 @@ export default function UserManagementPage() {
     fetchUsers(currentPage);
   }, [currentPage]);
 
-  
+  // 회원 삭제(소프트 딜리트) 처리
   const handleDelete = async (id: number) => {
     if (!confirm("해당 회원을 강제 탈퇴 처리하시겠습니까?\n작성한 게시글도 모두 삭제됩니다.")) return;
 
@@ -42,7 +42,7 @@ export default function UserManagementPage() {
       const res = await deleteAdminUser(token, id);
       if (res.ok) {
         alert("처리가 완료되었습니다.");
-        fetchUsers(currentPage); 
+        fetchUsers(currentPage); // 목록 새로고침
       }
     } catch (error) {
       alert("삭제 처리 중 오류가 발생했습니다.");
@@ -71,7 +71,7 @@ export default function UserManagementPage() {
           </thead>
          <tbody>
   {userData?.content.map((user: any) => {
-    
+    // 🚀 관리자급 계정인지 체크 (MASTER 또는 ADMIN)
     const isHighPrivilege = user.role === 'ADMIN' || user.role === 'MASTER';
     
     return (
@@ -90,14 +90,14 @@ export default function UserManagementPage() {
         </td>
         <td>{user.createTime ? new Date(user.createTime).toLocaleDateString() : "-"}</td>
         <td>
-          {}
+          {/* 🚀 삭제 로직 조건부 렌더링 */}
           {user.isDeleted ? (
             <span style={{ color: '#aaa', fontSize: '12px' }}>탈퇴됨</span>
           ) : isHighPrivilege ? (
-            
+            // MASTER나 ADMIN일 때는 빨간 버튼 대신 보호 문구 출력
             <span className="text-restricted">보호됨</span>
           ) : (
-            
+            // 일반 USER일 때만 빨간색 삭제 버튼 출력
             <button className="btn-delete" onClick={() => handleDelete(user.id)}>
               강제탈퇴
             </button>
@@ -110,7 +110,7 @@ export default function UserManagementPage() {
         </table>
       </div>
 
-      {}
+      {/* 페이지네이션 UI */}
       <div className="pagination">
         <button 
           className="page-btn" 

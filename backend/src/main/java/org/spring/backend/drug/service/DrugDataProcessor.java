@@ -15,17 +15,14 @@ import java.util.List;
 public class DrugDataProcessor {
 
     private final DrugRepository drugRepository;
-    
-    
-
+        
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public int savePage(List<DrugDto.Item> items) {
         if (items == null || items.isEmpty()) return 0;
 
         int savedCount = 0;
         for (DrugDto.Item item : items) {
-            
-            if (!drugRepository.existsByItemSeq(item.getItemSeq())) {
+                        if (!drugRepository.existsByItemSeq(item.getItemSeq())) {
                 DrugEntity entity = DrugEntity.builder()
                         .itemSeq(item.getItemSeq())
                         .itemName(item.getItemName())

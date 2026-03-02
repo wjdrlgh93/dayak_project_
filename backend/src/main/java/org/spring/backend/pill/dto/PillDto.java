@@ -39,8 +39,7 @@ public class PillDto {
         @JsonProperty("PRINT_BACK")   private String printBack;
         @JsonProperty("DRUG_SHAPE")   private String drugShape;
         @JsonProperty("COLOR_CLASS1") private String colorClass1;
-        @JsonProperty("COLOR_CLASS2") private String colorClass2;   
-        @JsonProperty("CLASS_NAME") private String className;
+        @JsonProperty("COLOR_CLASS2") private String colorClass2;           @JsonProperty("CLASS_NAME") private String className;
 
 
         private String efficacy;

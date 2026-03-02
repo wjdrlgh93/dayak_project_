@@ -25,8 +25,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class WebSecurityConfigClass {
 
-    
-    private final JwtProvider jwtProvider;
+        private final JwtProvider jwtProvider;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -36,43 +35,39 @@ public class WebSecurityConfigClass {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-        
-        http.csrf(AbstractHttpConfigurer::disable);
+                http.csrf(AbstractHttpConfigurer::disable);
 
-        
-        http.cors(cors -> cors.configurationSource(corsConfigurationSource()));
+                http.cors(cors -> cors.configurationSource(corsConfigurationSource()));
 
-        
-        http.sessionManagement(session ->
+                http.sessionManagement(session ->
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
-        
-        http.formLogin(AbstractHttpConfigurer::disable);
+                http.formLogin(AbstractHttpConfigurer::disable);
         http.httpBasic(AbstractHttpConfigurer::disable);
 
-        
-        http.authorizeHttpRequests(auth -> {
+                http.authorizeHttpRequests(auth -> {
             auth
-                    
+                    .requestMatchers("/ws-chat/**").permitAll()
                     .requestMatchers(
                             "/api/board/write",
                             "/api/board/update/**",
                             "/api/board/delete/**",
-                            "/api/reply/write/**",  
-                            "/api/reply/update/**", 
-                            "/api/reply/delete/**", 
+                            "/api/reply/write/**",
+                            "/api/reply/update/**",
+                            "/api/reply/delete/**",
                             "/api/member/detail",
                             "/api/member/update",
                             "/api/member/profileImg"
                     ).authenticated()
 
-                    
                     .requestMatchers(
+                            "/swagger-ui/**",
+                            "/v3/api-docs/**",
+                            "/swagger-resources/**",
+                            "/webjars/**",
                             "/api/member/signup", "/api/member/login",
-                            "/api/board/list/**", "/api/board/list", 
-                            "/api/board/detail/**",
-                            "/api/reply/list/**",   
-                            "/api/store/**",
+                            "/api/board/list/**", "/api/board/list", "/api/board/detail/**",
+                            "/api/reply/list/**", "/api/store/**",
                             "/images/**",
                             "/api/pill/**",
                             "/api/pharmacy/**",
@@ -81,32 +76,28 @@ public class WebSecurityConfigClass {
                             "/swagger-ui/**", "/v3/api-docs/**"
                     ).permitAll()
 
-                    
-                    .requestMatchers("/api/admin/**").hasAnyAuthority("ADMIN", "MASTER")
+                                .requestMatchers("/api/admin/**").hasAnyAuthority("ADMIN", "MASTER")
 
 
-                    
-                    .anyRequest().permitAll();
+                                        .anyRequest().permitAll();
         });
 
-        
-        http.addFilterBefore(new JwtAuthenticationFilter(jwtProvider),
+                http.addFilterBefore(new JwtAuthenticationFilter(jwtProvider),
                 UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
 
-    
-    @Bean
+        @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
 
-        config.setAllowedOrigins(List.of("http://localhost:3000"));
-        
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
+        config.setAllowedOrigins(List.of("http://localhost:3000", "http://168.107.15.125"));
+                config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
 
+        config.setExposedHeaders(List.of("Authorization"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
         return source;

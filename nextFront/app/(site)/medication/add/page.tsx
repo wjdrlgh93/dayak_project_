@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import api from '@/util/api'; 
+import api from '@/util/api'; // 🚀 기존 설정된 api 인스턴스 사용
 
 export default function AddMedicationPage() {
     const router = useRouter();
@@ -24,7 +24,7 @@ export default function AddMedicationPage() {
 
     const themeColor = '#4f46e5';
 
-    
+    // 🚀 [수정] 페이지 진입 시 로그인 및 카카오 연동 상태 체크
     useEffect(() => {
         const checkSocialAuth = async () => {
             const token = localStorage.getItem('token');
@@ -36,17 +36,17 @@ export default function AddMedicationPage() {
             }
 
             try {
-                
+                // 1. 유저 상세 정보 확인 [cite: 2026-02-21]
                 const res = await api.get('/api/member/detail');
                 
-                
+                // 2. socialLogin 값이 0(일반 회원)이면 차단 [cite: 2026-02-21]
                 if (res.data.socialLogin === 0) {
                     alert("카카오톡 연동을 해주세요!");
-                    router.back(); 
+                    router.back(); // 이전 페이지로 이동
                     return;
                 }
 
-                
+                // 3. 소셜 로그인 회원인 경우에만 폼 보여주기
                 setIsAuthChecking(false);
             } catch (error) {
                 console.error("인증 확인 중 오류:", error);

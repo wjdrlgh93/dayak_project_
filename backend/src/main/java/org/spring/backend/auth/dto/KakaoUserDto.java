@@ -6,7 +6,6 @@ import lombok.Data;
 @Data
 public class KakaoUserDto {
     private Long id; 
-
     @JsonProperty("kakao_account")
     private KakaoAccount kakaoAccount;
 

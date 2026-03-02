@@ -26,17 +26,14 @@ public class MemberDataTeset {
 
     @Test
     @Transactional
-    @Rollback(false) 
-    public void insertDummyMembers() {
+    @Rollback(false)     public void insertDummyMembers() {
         for (int i = 1; i <= 100; i++) {
             MemberEntity member = MemberEntity.builder()
                     .email("testuser" + i + "@example.com")
-                    .password(passwordEncoder.encode("1234")) 
-                    .name("테스터" + i)
+                    .password(passwordEncoder.encode("1234"))                     .name("테스터" + i)
                     .nickName("닉네임" + i)
                     .address("서울시 강남구 " + i + "번지")
-                    .gender(i % 2 == 0 ? Gender.MAN : Gender.WOMAN) 
-                    .role(Role.MEMBER)
+                    .gender(i % 2 == 0 ? Gender.MAN : Gender.WOMAN)                     .role(Role.MEMBER)
                     .isProfileImg(0)
                     .socialLogin(0)
                     .isDeleted(false)

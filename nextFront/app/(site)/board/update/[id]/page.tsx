@@ -15,7 +15,7 @@ export default function BoardEditPage() {
   const [isLoading, setIsLoading] = useState(true);
   const hasAlerted = useRef(false);
 
-  
+  // 1. 기존 데이터 불러오기 및 권한 체크
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -42,7 +42,7 @@ export default function BoardEditPage() {
     }
   }, [id, router]);
 
-  
+  // 2. 수정 처리 핸들러
   const handleUpdate = async () => {
     const token = localStorage.getItem("token");
     if (!token) return;
@@ -53,10 +53,10 @@ export default function BoardEditPage() {
     }
 
     try {
-      
+      // updateBoard API 호출 (id와 수정된 데이터 전달)
       await updateBoard(token, id as string, { title, content });
       alert("수정이 완료되었습니다.");
-      router.push(`/board/detail/${id}`); 
+      router.push(`/board/detail/${id}`); // 수정 후 상세 페이지로 이동
     } catch (error) {
       console.error("수정 실패:", error);
       alert("글 수정에 실패했습니다.");

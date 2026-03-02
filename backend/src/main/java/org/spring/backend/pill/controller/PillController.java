@@ -25,8 +25,7 @@ public class PillController {
             @RequestParam(required = false) String printFront,
             @RequestParam(required = false) String drugShape,
             @RequestParam(required = false) String colorClass1,
-            @RequestParam(defaultValue = "0") int page, 
-            @RequestParam(defaultValue = "20") int size)  {
+            @RequestParam(defaultValue = "0") int page,             @RequestParam(defaultValue = "20") int size)  {
 
         Page<PillEntity> results = pillService.searchPills(itemName ,printFront, drugShape, colorClass1, page, size);;
         return ResponseEntity.ok(results);

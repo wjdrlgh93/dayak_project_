@@ -27,11 +27,9 @@ public class MemberController {
 
     @PostMapping("/login")
     public ResponseEntity<TokenDto> login(@RequestBody MemberLoginDto loginDto) {
-        
-        String token = memberService.login(loginDto);
+                String token = memberService.login(loginDto);
 
-        
-        TokenDto tokenDto = TokenDto.builder()
+                TokenDto tokenDto = TokenDto.builder()
                 .accessToken(token)
                 .grantType("Bearer")
                 .build();
@@ -39,8 +37,7 @@ public class MemberController {
         return ResponseEntity.ok(tokenDto);
     }
 
-    
-    @GetMapping("/detail")
+        @GetMapping("/detail")
     public ResponseEntity<MemberDto> getMemberDetail(@AuthenticationPrincipal UserDetails userDetails) {
         MemberDto memberDto = memberService.getMemberDetail(userDetails.getUsername());
         return ResponseEntity.ok(memberDto);
@@ -50,17 +47,14 @@ public class MemberController {
     public ResponseEntity<String> updateMember(@AuthenticationPrincipal UserDetails userDetails,
                                                @RequestBody MemberDto memberDto) {
         try {
-            
-            memberService.updateMember(userDetails.getUsername(), memberDto);
+                        memberService.updateMember(userDetails.getUsername(), memberDto);
             return ResponseEntity.ok("회원 정보가 성공적으로 수정되었습니다.");
         } catch (IllegalArgumentException e) {
-            
-            return ResponseEntity.badRequest().body(e.getMessage());
+                        return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 
-    
-    @PostMapping("/profileImg")
+        @PostMapping("/profileImg")
     public ResponseEntity<String> uploadProfileImg(@AuthenticationPrincipal UserDetails userDetails,
                                                    @RequestParam("file") MultipartFile file) {
         try {
@@ -69,6 +63,11 @@ public class MemberController {
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("이미지 업로드 실패: " + e.getMessage());
         }
+    }
+    @DeleteMapping("/delete")
+    public ResponseEntity<String> deleteMember(@AuthenticationPrincipal UserDetails userDetails) {
+        memberService.deleteMember(userDetails.getUsername());
+        return ResponseEntity.ok("회원 탈퇴 및 게시물 삭제가 완료되었습니다.");
     }
 
 }

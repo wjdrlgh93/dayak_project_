@@ -1,4 +1,4 @@
-
+/* 공지사항 상세 컨테이너 */
 .board-detail-container {
   max-width: 1000px;
   margin: 0 auto;
@@ -7,16 +7,16 @@
   background-color: #fff;
 }
 
-
+/* 제목 영역 */
 .board-detail-container h1 {
   font-size: 28px;
   font-weight: 700;
   color: #1a1a1a;
   line-height: 1.4;
-  word-break: keep-all; 
+  word-break: keep-all; /* 단어 단위 줄바꿈 */
 }
 
-
+/* 상단 정보 (작성자, 날짜 등) */
 .info-row {
   display: flex;
   justify-content: space-between;
@@ -31,7 +31,7 @@
   color: #333;
 }
 
-
+/* 🚀 본문 내용 영역 (Quill 에디터 출력 대응) */
 .board-content {
   min-height: 400px;
   padding: 30px 0;
@@ -41,7 +41,7 @@
   border-top: 1px solid #eee;
 }
 
-
+/* 본문 내 이미지 자동 조절 */
 .board-content img {
   max-width: 100%;
   height: auto;
@@ -50,13 +50,13 @@
   border-radius: 8px;
 }
 
-
+/* 본문 내 링크 스타일 */
 .board-content a {
   color: #2563eb;
   text-decoration: underline;
 }
 
-
+/* 하단 버튼 영역 */
 .button-group {
   display: flex;
   justify-content: space-between;
@@ -66,7 +66,7 @@
   border-top: 1px solid #ddd;
 }
 
-
+/* 공통 버튼 스타일 */
 .btn {
   padding: 10px 22px;
   font-size: 15px;
@@ -106,7 +106,7 @@
   background: #dc2626;
 }
 
-
+/* 로딩 상태 */
 .loading {
   text-align: center;
   padding: 100px 0;

@@ -1,13 +1,13 @@
-
+// app/drug/[id]/page.tsx
 "use client";
 
 import React, { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { getDrugDetail } from '@/util/drugApi';
-import '../drug.css'; 
+import '../drug.css'; // CSS 재사용
 
 export default function DrugDetailPage() {
-    const { id } = useParams(); 
+    const { id } = useParams(); // URL에서 itemSeq(id) 가져오기
     const router = useRouter();
     const [drug, setDrug] = useState<any>(null);
     const [loading, setLoading] = useState(true);
@@ -26,7 +26,7 @@ export default function DrugDetailPage() {
 
     return (
         <div className="container">
-            {}
+            {/* 뒤로 가기 버튼 */}
             <button 
                 onClick={() => router.back()} 
                 className="btn" 
@@ -65,7 +65,7 @@ export default function DrugDetailPage() {
     );
 }
 
-
+// 간단한 섹션 컴포넌트
 function Section({ title, content }: { title: string, content: string }) {
     if (!content || content === "정보 없음") return null;
     return (

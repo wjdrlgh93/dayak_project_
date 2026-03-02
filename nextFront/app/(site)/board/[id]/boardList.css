@@ -1,17 +1,17 @@
+/* boardList.css */
 
-
-
+/* 1. 전체 컨테이너 */
 .board-container {
     max-width: 900px;
     margin: 0 auto;
-    
+    /* 고정 헤더 높이(50px) + 여유 공간 */
     padding: 80px 20px 60px; 
     box-sizing: border-box;
     background-color: #ffffff;
     min-height: calc(100vh - 50px);
 }
 
-
+/* 2. 헤더 섹션 (제목) */
 .board-header {
     border-bottom: 1px solid #eeeeee;
     padding-bottom: 25px;
@@ -26,7 +26,7 @@
     word-break: keep-all;
 }
 
-
+/* 3. 작성자 정보 및 관리 버튼 라인 */
 .detail-meta {
     display: flex;
     justify-content: space-between;
@@ -65,7 +65,7 @@
     color: #888;
 }
 
-
+/* 4. 수정/삭제 버튼 */
 .detail-actions {
     display: flex;
     gap: 8px;
@@ -99,7 +99,7 @@
     background-color: #ffe4e6;
 }
 
-
+/* 5. 본문 내용 (HTML 렌더링 영역) */
 .detail-content {
     font-size: 17px;
     line-height: 1.8;
@@ -109,25 +109,25 @@
     overflow-wrap: break-word;
 }
 
-
+/* 본문 내 이미지 자동 최적화 */
 .detail-content img {
+    /* 1. 너비 제한 */
+    max-width: 100% !important; /* 부모 컨테이너 너비를 절대 넘지 못하게 강제 */
+    width: auto !important;      /* 에디터가 지정한 고정 너비 무시 */
     
-    max-width: 100% !important; 
-    width: auto !important;      
+    /* 2. 높이 제한 및 비율 유지 */
+    height: auto !important;     /* 비율에 맞게 높이 자동 조절 */
+    max-height: 600px;           /* 이미지가 너무 위아래로 길어지는 것 방지 (값 조절 가능) */
+    object-fit: contain;         /* 비율을 유지하며 박스 안에 다 들어오게 */
     
-    
-    height: auto !important;     
-    max-height: 600px;           
-    object-fit: contain;         
-    
-    
-    display: block;              
-    margin: 30px auto;           
-    border-radius: 12px;         
+    /* 3. 보기 좋게 꾸미기 */
+    display: block;              /* 블록 요소로 만들어야 가운데 정렬 가능 */
+    margin: 30px auto;           /* 위아래 30px 여백, 좌우 자동(가운데 정렬) */
+    border-radius: 12px;         /* 모서리 둥글게 */
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-
+/* 6. 반응형 (모바일) */
 @media (max-width: 640px) {
     .board-container {
         padding-top: 70px;
@@ -153,7 +153,7 @@
 
 
 
-
+/* Comment Section Layout */
 .comment-section {
     margin-top: 40px;
     border-top: 1px solid #eee;
@@ -168,7 +168,7 @@
 
 .comment-count-header span { color: #007bff; }
 
-
+/* 댓글 입력창 스타일 */
 .comment-form {
     display: flex;
     flex-direction: column;
@@ -199,7 +199,7 @@
     font-weight: bold;
 }
 
-
+/* 댓글 아이템 스타일 */
 .comment-item {
     padding: 15px 0;
     border-bottom: 1px solid #f1f1f1;
@@ -224,7 +224,7 @@
 .comment-author { font-weight: bold; font-size: 0.95rem; }
 .comment-date { font-size: 0.8rem; color: #888; }
 
-
+/* 🚀 수정/삭제 버튼 스타일 */
 .comment-actions { display: flex; gap: 10px; }
 
 .action-btn {
@@ -241,7 +241,7 @@
 .action-btn.edit { color: #007bff; }
 .action-btn.save { color: #28a745; font-weight: bold; }
 
-
+/* 수정 모드 텍스트 영역 */
 .edit-input {
     width: 100%;
     padding: 10px;

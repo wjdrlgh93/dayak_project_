@@ -16,25 +16,16 @@ public class AsyncConfig {
     public Executor taskExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
 
-        
-        
         executor.setCorePoolSize(2);
 
-        
         executor.setMaxPoolSize(5);
 
-        
-        
         executor.setQueueCapacity(50);
 
-        
-        
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
 
-        
         executor.setThreadNamePrefix("LowSpec-Async-");
 
-        
         executor.setWaitForTasksToCompleteOnShutdown(true);
         executor.setAwaitTerminationSeconds(30);
 

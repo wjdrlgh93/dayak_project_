@@ -36,8 +36,7 @@ public class ParmacyService {
      * 공공데이터 API(getParmacyFullDown)를 호출하여
      * 전체 약국 데이터를 200개씩 배치로 DB에 동기화합니다.
      */
-    @Async 
-    public void syncAllPharmacies() {
+    @Async     public void syncAllPharmacies() {
         int pageNo = 1;
         int numOfRows = 200;
         boolean hasMoreData = true;
@@ -60,16 +59,14 @@ public class ParmacyService {
                 break;
             }
 
-            
-            processPage(nList);
+                        processPage(nList);
 
             log.info("페이지 {} 완료 (현재까지 {}개 처리 중...)", pageNo, pageNo * numOfRows);
             pageNo++;
         }
     }
 
-    
-    @Transactional
+        @Transactional
     public void processPage(NodeList nList) {
         List<PharmacyEntity> batchList = new ArrayList<>();
 
@@ -78,9 +75,7 @@ public class ParmacyService {
             String hpid = getTagValue("hpid", e);
             if (hpid.isEmpty()) continue;
 
-            
-            
-            PharmacyEntity pharmacy = pharmacyRepository.findByHpid(hpid)
+                                    PharmacyEntity pharmacy = pharmacyRepository.findByHpid(hpid)
                     .orElse(new PharmacyEntity());
 
             pharmacy.setHpid(hpid);
@@ -96,8 +91,7 @@ public class ParmacyService {
 
             batchList.add(pharmacy);
         }
-        pharmacyRepository.saveAll(batchList); 
-    }
+        pharmacyRepository.saveAll(batchList);     }
 
 
     /**
@@ -112,11 +106,9 @@ public class ParmacyService {
             URL url = new URL(urlString);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
-            conn.setConnectTimeout(10000); 
-            conn.setReadTimeout(10000);
+            conn.setConnectTimeout(10000);             conn.setReadTimeout(10000);
 
-            
-            if (conn.getResponseCode() != 200) {
+                        if (conn.getResponseCode() != 200) {
                 log.error("API 서버 응답 에러: HTTP {}", conn.getResponseCode());
                 return null;
             }
@@ -139,8 +131,7 @@ public class ParmacyService {
         if (eElement == null) return "";
         NodeList nList = eElement.getElementsByTagName(tag);
 
-        
-        if (nList == null || nList.getLength() == 0 || nList.item(0) == null) {
+                if (nList == null || nList.getLength() == 0 || nList.item(0) == null) {
             return "";
         }
 
@@ -152,43 +143,28 @@ public class ParmacyService {
         return nValue.getFirstChild().getNodeValue().trim();
     }
 
-    
-    public void saveKakaoPharmacies(List<KakaoPharmacyDto> kakaoList) {
+        public void saveKakaoPharmacies(List<KakaoPharmacyDto> kakaoList) {
         for (KakaoPharmacyDto dto : kakaoList) {
-            
-            String uniqueId = "K-" + dto.getId();
+                        String uniqueId = "K-" + dto.getId();
 
-            
-            if (pharmacyRepository.existsByHpid(uniqueId)) {
+                        if (pharmacyRepository.existsByHpid(uniqueId)) {
                 continue;
             }
 
-            
-            PharmacyEntity entity = PharmacyEntity.builder()
-                    .hpid(uniqueId)                 
-                    .dutyName(dto.getPlace_name())  
-                    .dutyAddr(dto.getAddress_name())
-                    .dutyTel1(dto.getPhone())       
-                    .wgs84Lon(dto.getX())           
-                    .wgs84Lat(dto.getY())           
-                    .qt("영업시간 정보 없음")         
-                    .build();
+                        PharmacyEntity entity = PharmacyEntity.builder()
+                    .hpid(uniqueId)                                     .dutyName(dto.getPlace_name())                      .dutyAddr(dto.getAddress_name())                    .dutyTel1(dto.getPhone())                           .wgs84Lon(dto.getX())                               .wgs84Lat(dto.getY())                               .qt("영업시간 정보 없음")                             .build();
 
-            
-            pharmacyRepository.save(entity);
+                        pharmacyRepository.save(entity);
         }
     }
 
     public List<PharmacyDto> findByRegion(String city, String district) {
         String address = city + " " + district;
 
-        
-        List<PharmacyEntity> entities = pharmacyRepository.findByDutyAddrStartingWith(address);
+                List<PharmacyEntity> entities = pharmacyRepository.findByDutyAddrStartingWith(address);
 
-        
-        return entities.stream()
-                .map(entity -> new PharmacyDto(entity)) 
-                .collect(Collectors.toList());
+                return entities.stream()
+                .map(entity -> new PharmacyDto(entity))                 .collect(Collectors.toList());
     }
 
 

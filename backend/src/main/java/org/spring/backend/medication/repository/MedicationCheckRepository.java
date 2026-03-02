@@ -10,11 +10,9 @@ import java.util.List;
 
 public interface MedicationCheckRepository extends JpaRepository<MedicationCheckEntity, Long> {
 
-    
-    List<MedicationCheckEntity> findByMedicationId(Long medicationId);
+        List<MedicationCheckEntity> findByMedicationId(Long medicationId);
 
-    
-    @Query("SELECT mc FROM MedicationCheckEntity mc " +
+        @Query("SELECT mc FROM MedicationCheckEntity mc " +
             "JOIN FETCH mc.medication m " +
             "WHERE m.member.id = :memberId")
     List<MedicationCheckEntity> findAllByMemberId(@Param("memberId") Long memberId);

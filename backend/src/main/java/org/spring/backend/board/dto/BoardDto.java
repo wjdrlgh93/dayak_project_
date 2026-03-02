@@ -14,8 +14,7 @@ public class BoardDto {
     public static class Request {
         private String title;
         private String content;
-        
-    }
+            }
 
     @Data
     @Builder
@@ -27,12 +26,10 @@ public class BoardDto {
         private int viewCount;
         private LocalDateTime createdAt;
 
-        
-        private Long userId;
+                private Long userId;
         private String userNickname;
         private String userProfileImage;
 
-        
-        private List<ReplyDto.Response> replies;
+                private List<ReplyDto.Response> replies;
     }
 }

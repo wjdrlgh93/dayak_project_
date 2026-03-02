@@ -1,4 +1,4 @@
-
+/* board.css */
 
 .board-container {
   max-width: 900px;
@@ -8,7 +8,7 @@
   background-color: #fcfcfd;
 }
 
-
+/* --- 글쓰기 카드 스타일 --- */
 .write-card {
   background: #fff;
   border: 1px solid #e1e4e8;
@@ -35,7 +35,7 @@
   font-size: 14px;
 }
 
-
+/* --- 인풋 그룹 --- */
 .input-group {
   margin-bottom: 24px;
 }
@@ -65,14 +65,14 @@
   box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.05);
 }
 
-
+/* 에디터 영역 */
 .editor-wrapper {
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid #ddd;
 }
 
-
+/* --- 버튼 영역 --- */
 .write-actions {
   display: flex;
   justify-content: flex-end;

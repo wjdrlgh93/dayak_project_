@@ -1,4 +1,4 @@
-
+/* globals.css 또는 layout.css */
 
 
 
@@ -8,7 +8,7 @@
     color: #e0e0e0;
     padding: 60px 20px 30px;
     box-sizing: border-box;
-    margin-top: auto; 
+    margin-top: auto; /* Flexbox 환경에서 안전하게 바닥 고정 */
     border-top: 1px solid #444;
 
  
@@ -37,7 +37,7 @@
     padding-bottom: 8px;
 }
 
-
+/* 제목 아래 짧은 선 추가 (디자인 포인트) */
 .footer-con h3::after {
     content: '';
     position: absolute;
@@ -45,7 +45,7 @@
     bottom: 0;
     width: 30px;
     height: 2px;
-    background-color: #3b82f6; 
+    background-color: #3b82f6; /* 포인트 컬러 */
 }
 
 .footer-con p, 
@@ -66,10 +66,10 @@
 
 .footer-con a:hover {
     color: #ffffff;
-    padding-left: 5px; 
+    padding-left: 5px; /* 호버 시 살짝 움직이는 효과 */
 }
 
-
+/* SNS 목록 스타일 */
 .social {
     display: flex;
     flex-direction: column;
@@ -89,25 +89,25 @@
     color: #888;
 }
 
-
+/* --- 반응형 설정 --- */
 
 @media (max-width: 768px) {
     .footer-top {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); 
+        grid-template-columns: repeat(2, 1fr); /* 2열 배치 */
         gap: 30px;
     }
 }
 
 @media (max-width: 480px) {
     .footer-top {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr; /* 1열 배치 */
         text-align: center;
     }
 
     .footer-con h3::after {
         left: 50%;
-        transform: translateX(-50%); 
+        transform: translateX(-50%); /* 선 가운데 정렬 */
     }
 
     .footer-con a:hover {

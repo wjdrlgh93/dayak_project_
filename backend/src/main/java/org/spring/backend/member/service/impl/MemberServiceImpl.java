@@ -4,6 +4,7 @@ package org.spring.backend.member.service.impl;
 import java.util.Collections;
 
 import org.spring.backend.auth.dto.KakaoUserDto;
+import org.spring.backend.board.repository.BoardRepository;
 import org.spring.backend.config.security.JwtProvider;
 import org.spring.backend.config.security.UserPrincipal;
 import org.spring.backend.global.Gender;
@@ -30,14 +31,14 @@ public class MemberServiceImpl  {
     private final OciStorageService ociStorageService;
     private final PasswordEncoder passwordEncoder;
     private final JwtProvider jwtProvider;
+    private final BoardRepository boardRepository;
 
 
 
     @Transactional
     public void signup(MemberDto dto) {
 
-        
-        if(memberRepository.existsByEmail(dto.getEmail())) {
+                if(memberRepository.existsByEmail(dto.getEmail())) {
             throw new RuntimeException("이미 존재하는 이메일입니다");
         }
         if(memberRepository.existsByNickName(dto.getNickName())){
@@ -62,28 +63,24 @@ public class MemberServiceImpl  {
 
     @Transactional
     public String login(MemberLoginDto loginDto) {
-        
-        MemberEntity member = memberRepository.findByEmail(loginDto.getEmail())
+                MemberEntity member = memberRepository.findByEmail(loginDto.getEmail())
                 .orElseThrow(() -> new IllegalArgumentException("가입되지 않은 이메일입니다."));
 
-        
-        if (member.isDeleted()) {
+                if (member.isDeleted()) {
             throw new IllegalArgumentException("탈퇴 처리된 계정입니다. 관리자에게 문의하세요.");
         }
         if (!passwordEncoder.matches(loginDto.getPassword(), member.getPassword())) {
             throw new IllegalArgumentException("비밀번호가 일치하지 않습니다.");
         }
 
-        
-        UserPrincipal userPrincipal = new UserPrincipal(
+                UserPrincipal userPrincipal = new UserPrincipal(
                 member.getId(),
                 member.getEmail(),
                 member.getPassword(),
                 Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + member.getRole()))
         );
 
-        
-        return jwtProvider.createToken(userPrincipal);
+                return jwtProvider.createToken(userPrincipal);
     }
 
 
@@ -113,27 +110,20 @@ public class MemberServiceImpl  {
         MemberEntity member = memberRepository.findByEmail(email)
                 .orElseThrow(() -> new IllegalArgumentException("회원이 존재하지 않습니다."));
 
-        
-        member.setNickName(memberDto.getNickName());
+                member.setNickName(memberDto.getNickName());
         member.setAddress(memberDto.getAddress());
         
+                        if (StringUtils.hasText(memberDto.getNewPassword())) {
 
-        
-        
-        if (StringUtils.hasText(memberDto.getNewPassword())) {
-
-            
-            if (!StringUtils.hasText(memberDto.getCurrentPassword())) {
+                        if (!StringUtils.hasText(memberDto.getCurrentPassword())) {
                 throw new IllegalArgumentException("비밀번호 변경을 위해서는 현재 비밀번호가 필요합니다.");
             }
 
-            
-            if (!passwordEncoder.matches(memberDto.getCurrentPassword(), member.getPassword())) {
+                        if (!passwordEncoder.matches(memberDto.getCurrentPassword(), member.getPassword())) {
                 throw new IllegalArgumentException("현재 비밀번호가 일치하지 않습니다.");
             }
 
-            
-            member.setPassword(passwordEncoder.encode(memberDto.getNewPassword()));
+                        member.setPassword(passwordEncoder.encode(memberDto.getNewPassword()));
         }
         memberRepository.save(member);
     }
@@ -143,23 +133,32 @@ public class MemberServiceImpl  {
         MemberEntity member = memberRepository.findByEmail(email)
                 .orElseThrow(() -> new IllegalArgumentException("회원이 존재하지 않습니다."));
 
-        
-        
-
+                
         try {
-            
             String imageUrl = ociStorageService.uploadImage(file);
-
-            
             member.setNewFileName(imageUrl);
             member.setIsProfileImg(1);
 
             memberRepository.save(member);
 
         } catch (Exception e) {
-            
-            throw new RuntimeException("오라클 클라우드 이미지 업로드 실패", e);
+                        throw new RuntimeException("오라클 클라우드 이미지 업로드 실패", e);
         }
     }
+
+    @Transactional
+    public void deleteMember(String email) {
+        MemberEntity member = memberRepository.findByEmail(email)
+                .orElseThrow(() -> new IllegalArgumentException("회원이 존재하지 않습니다."));
+
+        boardRepository.deleteByMemberId(member);
+
+        member.setDeleted(true);
+
+        member.setNickName("탈퇴유저_" + member.getId());
+
+        memberRepository.save(member);
+    }
+
 
 }

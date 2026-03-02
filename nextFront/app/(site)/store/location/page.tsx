@@ -5,15 +5,15 @@ import api from "@/util/api";
 import { useState } from "react";
 import "./location.css";
 
-
+// 🚀 [수정 1] 콘솔 로그에 찍힌 실제 데이터 이름으로 인터페이스 변경 [cite: 2026-02-19]
 interface Pharmacy {
   id: string;
-  place_name: string;   
-  address_name: string; 
-  phone: string;        
-  x: string;            
-  y: string;            
-  qt?: string;          
+  place_name: string;   // dutyName -> place_name
+  address_name: string; // dutyAddr -> address_name
+  phone: string;        // dutyTel1 -> phone
+  x: string;            // wgs84Lon -> x
+  y: string;            // wgs84Lat -> y
+  qt?: string;          // 영업시간
 }
 
 export default function PharmacyPage() {
@@ -30,8 +30,8 @@ export default function PharmacyPage() {
       setPharmacyList(response.data);
 
       if (response.data.length > 0) {
-        
-        
+        // 🚀 [수정 2] 좌표 키값 변경 (y, x) [cite: 2026-02-19]
+        // 여기가 틀려서 지도가 NaN(숫자 아님) 좌표로 이동하려다 멈췄던 겁니다.
         setCenterPos({ 
           lat: Number(response.data[0].y), 
           lng: Number(response.data[0].x) 
@@ -73,7 +73,7 @@ export default function PharmacyPage() {
             {pharmacyList.map((pharmacy) => (
               <div 
                 key={pharmacy.id}
-                
+                // 🚀 [수정 3] y, x 좌표 사용
                 onClick={() => moveToLocation(pharmacy.y, pharmacy.x)}
                 style={{
                   border: '1px solid #e0e0e0',
@@ -95,7 +95,7 @@ export default function PharmacyPage() {
                   e.currentTarget.style.borderColor = '#e0e0e0';
                 }}
               >
-                {}
+                {/* 🚀 [수정 4] 데이터 이름 변경 (place_name, address_name) */}
                 <h4 style={{ margin: '0 0 8px 0', fontSize: '1.1rem', color: '#333' }}>
                   {pharmacy.place_name} 
                 </h4>

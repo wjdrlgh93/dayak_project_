@@ -8,5 +8,4 @@ import lombok.Setter;
 public class NoticeRequestDto {
     private String title;
     private String content;
-    private boolean isPinned; 
-}
+    private boolean isPinned; }

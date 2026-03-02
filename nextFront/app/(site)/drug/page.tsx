@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, Suspense } from 'react'; 
+import React, { useState, useEffect, Suspense } from 'react'; // Suspense 추가
 import { useRouter, useSearchParams } from 'next/navigation';
 import { searchDrugs, syncDrugs } from '@/util/drugApi';
 import Link from 'next/link';
@@ -14,7 +14,7 @@ function DrugContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
 
-    
+    // URL에서 초기값 읽어오기
     const initialKeyword = searchParams.get('keyword') || "";
     const initialPage = parseInt(searchParams.get('page') || "0");
 
@@ -26,7 +26,7 @@ function DrugContent() {
     const [page, setPage] = useState<number>(initialPage);
     const [totalPages, setTotalPages] = useState<number>(0);
 
-    
+    // URL 파라미터가 바뀔 때마다 데이터 페칭
     useEffect(() => {
         const currentKeyword = searchParams.get('keyword');
         const currentPage = parseInt(searchParams.get('page') || "0");
@@ -130,7 +130,7 @@ function DrugContent() {
                 </div>
             )}
             
-            {}
+            {/* 동기화 버튼 필요한 경우 여기에 배치 */}
             <div style={{ marginTop: '20px', textAlign: 'center' }}>
                 <button onClick={handleSync} className="btn" style={{ backgroundColor: '#666' }}>데이터 동기화</button>
             </div>
@@ -146,7 +146,7 @@ export default function DrugPage() {
         <div className="container">
             <h1 className="title">e약은요 검색</h1>
             
-            {}
+            {/* 빌드 에러 방지를 위해 Suspense로 감싸줍니다. */}
             <Suspense fallback={<div className="message">검색 화면을 불러오는 중입니다...</div>}>
                 <DrugContent />
             </Suspense>

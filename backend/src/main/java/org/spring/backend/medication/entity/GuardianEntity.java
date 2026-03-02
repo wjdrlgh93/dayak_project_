@@ -19,20 +19,15 @@ public class GuardianEntity extends BasicTime {
     @Column(name = "guardian_conn_id")
     private Long id;
 
-    
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ward_id") 
-    private MemberEntity ward;
+        @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ward_id")     private MemberEntity ward;
 
-    
-    @ManyToOne(fetch = FetchType.LAZY)
+        @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "guardian_id")
     private MemberEntity guardian;
 
-    
-    private String relationship;
+        private String relationship;
 
-    
-    @Builder.Default
+        @Builder.Default
     private boolean isApproved = false;
 }

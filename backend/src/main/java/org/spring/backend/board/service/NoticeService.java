@@ -20,8 +20,7 @@ public class NoticeService {
     private final NoticeRepository noticeRepository;
     private final MemberRepository memberRepository;
 
-    
-    @Transactional
+        @Transactional
     public void createNotice(NoticeRequestDto dto, Long memberId) {
         MemberEntity writer = memberRepository.findById(memberId)
                 .orElseThrow(() -> new IllegalArgumentException("사용자 정보를 찾을 수 없습니다."));
@@ -36,35 +35,29 @@ public class NoticeService {
         noticeRepository.save(notice);
     }
 
-    
-    public Page<NoticeResponseDto> getNoticeList(Pageable pageable) {
-        
-        return noticeRepository.findAllByOrderByIsPinnedDescCreatedAtDesc(pageable)
+        public Page<NoticeResponseDto> getNoticeList(Pageable pageable) {
+                return noticeRepository.findAllByOrderByIsPinnedDescCreatedAtDesc(pageable)
                 .map(this::convertToDto);
     }
 
-    
-    public NoticeResponseDto getNoticeDetail(Long id) {
+        public NoticeResponseDto getNoticeDetail(Long id) {
         NoticeEntity notice = noticeRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 공지사항이 없습니다. id=" + id));
 
         return convertToDto(notice);
     }
 
-    
-    @Transactional
+        @Transactional
     public void updateNotice(Long id, NoticeRequestDto dto) {
         NoticeEntity notice = noticeRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 공지사항이 없습니다. id=" + id));
 
-        
-        notice.setTitle(dto.getTitle());
+                notice.setTitle(dto.getTitle());
         notice.setContent(dto.getContent());
         notice.setPinned(dto.isPinned());
     }
 
-    
-    @Transactional
+        @Transactional
     public void deleteNotice(Long id) {
         if (!noticeRepository.existsById(id)) {
             throw new IllegalArgumentException("해당 공지사항이 없습니다. id=" + id);
@@ -72,8 +65,7 @@ public class NoticeService {
         noticeRepository.deleteById(id);
     }
 
-    
-    private NoticeResponseDto convertToDto(NoticeEntity n) {
+        private NoticeResponseDto convertToDto(NoticeEntity n) {
         return NoticeResponseDto.builder()
                 .id(n.getId())
                 .title(n.getTitle())

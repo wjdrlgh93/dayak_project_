@@ -12,6 +12,5 @@ public class NoticeResponseDto {
     private String title;
     private String content;
     private boolean isPinned;
-    private String writer;     
-    private LocalDateTime createdAt;
+    private String writer;         private LocalDateTime createdAt;
 }

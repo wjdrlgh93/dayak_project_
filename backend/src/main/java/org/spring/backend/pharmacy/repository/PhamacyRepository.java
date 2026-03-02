@@ -17,17 +17,12 @@ import java.util.Optional;
 @Repository
 public interface PhamacyRepository extends JpaRepository<PharmacyEntity, Long> {
 
-    
-    Optional<PharmacyEntity> findByHpid(String hpid);
+        Optional<PharmacyEntity> findByHpid(String hpid);
 
-    
-    List<PharmacyEntity> findByDutyNameContaining(String name);
+        List<PharmacyEntity> findByDutyNameContaining(String name);
 
-    
-    
-    @Query(value = "SELECT *, " +
-            
-            "(6371 * acos(cos(radians(:lat)) * cos(radians(wgs84lat)) * cos(radians(wgs84lon) - radians(:lon)) + " +
+            @Query(value = "SELECT *, " +
+                        "(6371 * acos(cos(radians(:lat)) * cos(radians(wgs84lat)) * cos(radians(wgs84lon) - radians(:lon)) + " +
             "sin(radians(:lat)) * sin(radians(wgs84lat)))) AS distance " +
             "FROM pharmacy_tb " +
             "HAVING distance <= 2 " +
@@ -38,9 +33,7 @@ public interface PhamacyRepository extends JpaRepository<PharmacyEntity, Long> {
                                               @Param("lon") Double lon,
                                               Pageable pageable);
 
-    
-    
-    List<PharmacyEntity> findByDutyAddrStartingWith(String dutyAddr);
+            List<PharmacyEntity> findByDutyAddrStartingWith(String dutyAddr);
 
     boolean existsByHpid(String uniqueId);
 }

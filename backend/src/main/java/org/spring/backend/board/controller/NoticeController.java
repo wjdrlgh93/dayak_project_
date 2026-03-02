@@ -21,8 +21,7 @@ public class NoticeController {
 
     private final NoticeService noticeService;
 
-    
-    @PostMapping
+        @PostMapping
     public ResponseEntity<String> createNotice(
             @RequestBody NoticeRequestDto dto,
             @AuthenticationPrincipal UserPrincipal userPrincipal) {
@@ -34,8 +33,7 @@ public class NoticeController {
         return ResponseEntity.ok("공지사항이 성공적으로 등록되었습니다.");
     }
 
-    
-    @GetMapping("/list")
+        @GetMapping("/list")
     public ResponseEntity<Page<NoticeResponseDto>> getNoticeList(
             @PageableDefault(size = 10, sort = "isPinned", direction = Sort.Direction.DESC) Pageable pageable) {
 
@@ -43,15 +41,13 @@ public class NoticeController {
         return ResponseEntity.ok(result);
     }
 
-    
-    @GetMapping("/{id}")
+        @GetMapping("/{id}")
     public ResponseEntity<NoticeResponseDto> getNoticeDetail(@PathVariable Long id) {
         NoticeResponseDto result = noticeService.getNoticeDetail(id);
         return ResponseEntity.ok(result);
     }
 
-    
-    @PutMapping("/{id}")
+        @PutMapping("/{id}")
     public ResponseEntity<String> updateNotice(
             @PathVariable Long id,
             @RequestBody NoticeRequestDto dto,
@@ -61,14 +57,12 @@ public class NoticeController {
             return ResponseEntity.status(401).body("로그인이 필요합니다.");
         }
 
-        
-        noticeService.updateNotice(id, dto);
+                noticeService.updateNotice(id, dto);
 
         return ResponseEntity.ok("공지사항이 수정되었습니다.");
     }
 
-    
-    @DeleteMapping("/{id}")
+        @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteNotice(
             @PathVariable Long id,
             @AuthenticationPrincipal UserPrincipal userPrincipal) {

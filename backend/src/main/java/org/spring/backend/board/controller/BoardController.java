@@ -6,8 +6,7 @@ import org.spring.backend.board.service.BoardService;
 import org.spring.backend.oracle.OciStorageService;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal; 
-import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.annotation.AuthenticationPrincipal; import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -23,9 +22,7 @@ public class BoardController {
     private final BoardService boardService;
     private final OciStorageService ociStorageService;
 
-    
-    
-    @GetMapping("/list")
+            @GetMapping("/list")
     public ResponseEntity<Page<BoardDto.Response>> getBoardList(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size
@@ -34,28 +31,21 @@ public class BoardController {
         return ResponseEntity.ok(list);
     }
 
-    
-    
-    @GetMapping("/{id}")
+            @GetMapping("/{id}")
     public ResponseEntity<BoardDto.Response> getBoardDetail(@PathVariable Long id) {
         BoardDto.Response detail = boardService.getBoardDetail(id);
         return ResponseEntity.ok(detail);
     }
 
-    
-    
-    @PostMapping
+            @PostMapping
     public ResponseEntity<String> createBoard(
             @RequestBody BoardDto.Request dto,
-            Principal principal 
-    ) {
+            Principal principal     ) {
         boardService.createBoard(dto, principal.getName());
         return ResponseEntity.ok("게시글이 등록되었습니다.");
     }
 
-    
-    
-    @PutMapping("/{id}")
+            @PutMapping("/{id}")
     public ResponseEntity<String> updateBoard(
             @PathVariable Long id,
             @RequestBody BoardDto.Request dto,
@@ -65,9 +55,7 @@ public class BoardController {
         return ResponseEntity.ok("게시글이 수정되었습니다.");
     }
 
-    
-    
-    @DeleteMapping("/{id}")
+            @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteBoard(
             @PathVariable Long id,
             Principal principal
@@ -78,8 +66,7 @@ public class BoardController {
 
     @PostMapping("/upload")
     public ResponseEntity<String> uploadEditorImage(@RequestParam("file") MultipartFile file) throws Exception {
-        
-        String url = ociStorageService.uploadImage(file);
+                String url = ociStorageService.uploadImage(file);
         return ResponseEntity.ok(url);
     }
 

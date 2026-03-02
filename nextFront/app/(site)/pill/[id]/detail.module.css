@@ -30,7 +30,7 @@
     font-weight: bold;
 }
 
-
+/* 본문 레이아웃 */
 .contentWrapper {
     display: flex;
     gap: 40px;
@@ -40,7 +40,7 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-
+/* 이미지 섹션 */
 .imageSection {
     flex: 1;
     display: flex;
@@ -81,7 +81,7 @@
     font-weight: 600;
 }
 
-
+/* 정보 섹션 */
 .infoSection {
     flex: 1.5;
 }
@@ -117,7 +117,7 @@
     line-height: 1.7;
     color: #334155;
     border-left: 5px solid #3b82f6;
-    white-space: pre-line;  
+    white-space: pre-line;  /* 줄바꿈 문자(\n)를 실제 줄바꿈으로 적용 */
     word-break: break-word; 
 }
 
@@ -151,7 +151,7 @@
     color: #1e293b;
 }
 
-
+/* 모바일 대응 */
 @media (max-width: 768px) {
     .contentWrapper {
         flex-direction: column;

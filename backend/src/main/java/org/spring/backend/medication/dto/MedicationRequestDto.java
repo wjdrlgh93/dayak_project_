@@ -8,9 +8,7 @@ import lombok.Setter;
 @Setter
 public class MedicationRequestDto {
     private String medicineName;
-    private String intakeTime; 
-    private String intakeDays; 
-
+    private String intakeTime;     private String intakeDays; 
     @JsonProperty("isKakaoAlert")
     private boolean isKakaoAlert;
 }

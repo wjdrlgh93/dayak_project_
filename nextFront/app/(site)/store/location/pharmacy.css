@@ -1,4 +1,4 @@
-
+/* 1. 기본 레이아웃 및 변수 설정 */
 .pharmacy-container {
   --ph-primary: #3b82f6;
   --ph-primary-hover: #2563eb;
@@ -15,7 +15,7 @@
   font-family: 'Pretendard', -apple-system, sans-serif;
 }
 
-
+/* 2. 헤더 섹션 */
 .pharmacy-header {
   text-align: center;
   margin-bottom: 40px;
@@ -39,7 +39,7 @@
   font-weight: 700;
 }
 
-
+/* 3. 지도 영역 */
 .map-section {
   width: 100%;
   height: 500px;
@@ -51,7 +51,7 @@
   position: relative;
 }
 
-
+/* 4. 리스트 헤더 */
 .list-header {
   display: flex;
   justify-content: space-between;
@@ -75,7 +75,7 @@
   color: var(--ph-text-sub);
 }
 
-
+/* 5. 약국 그리드 및 카드 */
 .pharmacy-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -105,7 +105,7 @@
   color: var(--ph-text-main);
 }
 
-
+/* 카드 내부 정보 스타일 */
 .info-row {
   display: flex;
   margin-bottom: 8px;
@@ -124,7 +124,7 @@
   color: var(--ph-text-main);
 }
 
-
+/* 영업시간 강조 */
 .qt-row {
   background-color: #eff6ff;
   padding: 10px;
@@ -145,7 +145,7 @@
   font-weight: 600;
 }
 
-
+/* 6. 페이지네이션 */
 .pagination {
   display: flex;
   justify-content: center;
@@ -184,7 +184,7 @@
   font-size: 1.4rem;
 }
 
-
+/* 7. 로딩 및 스피너 */
 .loading-msg {
   display: flex;
   flex-direction: column;
@@ -210,7 +210,7 @@
   100% { transform: rotate(360deg); }
 }
 
-
+/* 8. 반응형 처리 */
 @media (max-width: 768px) {
   .pharmacy-grid {
     grid-template-columns: 1fr;

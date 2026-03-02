@@ -68,18 +68,13 @@ public class ReplyService {
      */
     @Transactional
     public void update(Long id, String content, Long userId) {
-        
-        ReplyEntity reply = replyRepository.findById(id)
+                ReplyEntity reply = replyRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 댓글이 존재하지 않습니다. id=" + id));
 
-        
-        
-        if (!reply.getUser().getId().equals(userId)) {
+                        if (!reply.getUser().getId().equals(userId)) {
             throw new IllegalStateException("본인이 작성한 댓글만 수정할 수 있습니다.");
         }
 
-        
-        
-        reply.setContent(content);
+                        reply.setContent(content);
     }
 }

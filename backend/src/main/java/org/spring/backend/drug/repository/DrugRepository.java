@@ -12,11 +12,9 @@ import java.util.Optional;
 @Repository
 public interface DrugRepository extends JpaRepository<DrugEntity, Long> {
 
-    
-    List<DrugEntity> findByItemNameContaining(String keyword);
+        List<DrugEntity> findByItemNameContaining(String keyword);
 
-    
-    boolean existsByItemSeq(String itemSeq);
+        boolean existsByItemSeq(String itemSeq);
 
     Page<DrugEntity> findByItemNameContaining(String keyword, Pageable pageable);
 

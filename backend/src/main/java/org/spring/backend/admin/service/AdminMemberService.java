@@ -26,8 +26,7 @@ public class AdminMemberService {
 
     @Transactional(readOnly = true)
     public Page<MemberDto> getAllMembersPage(Pageable pageable) {
-        
-        return adminMemberRepository.findAllByIsDeletedFalse(pageable)
+                return adminMemberRepository.findAllByIsDeletedFalse(pageable)
                 .map(member -> MemberDto.builder()
                         .id(member.getId())
                         .email(member.getEmail())
@@ -43,12 +42,9 @@ public class AdminMemberService {
     public void deleteMember(Long id) {
         MemberEntity member = adminMemberRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 회원입니다."));
-        
-        
-        boardRepository.deleteByMemberId(id);
+                        boardRepository.deleteByMemberId(id);
 
-        
-        member.setDeleted(true);
+                member.setDeleted(true);
     }
 
     @Transactional
@@ -56,13 +52,11 @@ public class AdminMemberService {
         MemberEntity member = adminMemberRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 회원입니다."));
 
-        
-        if (member.getRole() == Role.ADMIN) {
+                if (member.getRole() == Role.ADMIN) {
             member.setRole(Role.MEMBER);
         } else {
             member.setRole(Role.ADMIN);
         }
-        
-    }
+            }
 
 }

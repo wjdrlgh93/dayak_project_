@@ -19,10 +19,7 @@ public class DrugController {
 
     private final DrugService drugService;
 
-    
-    
-    
-    @GetMapping("/search")
+                @GetMapping("/search")
     public ResponseEntity<Page<DrugEntity>> searchDrugs(
             @RequestParam String keyword,
             @PageableDefault(size = 10, sort = "itemName", direction = Sort.Direction.ASC) Pageable pageable
@@ -33,9 +30,7 @@ public class DrugController {
 
     @GetMapping("/{itemSeq}")
     public ResponseEntity<DrugEntity> getDrugDetail(@PathVariable String itemSeq) {
-        
-        
-        return drugService.getDrugDetail(itemSeq)
+                        return drugService.getDrugDetail(itemSeq)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }

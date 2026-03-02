@@ -28,12 +28,9 @@ public class OciStorageService {
     @Value("${oci.privateKey}") private String privateKey;
 
     public String uploadImage(MultipartFile file) throws Exception {
-        
-        
-        String formattedKey = privateKey.replace("\\n", "\n");
+                        String formattedKey = privateKey.replace("\\n", "\n");
 
-        
-        Supplier<InputStream> privateKeySupplier = () ->
+                Supplier<InputStream> privateKeySupplier = () ->
                 new ByteArrayInputStream(formattedKey.getBytes(StandardCharsets.UTF_8));
 
         SimpleAuthenticationDetailsProvider provider = SimpleAuthenticationDetailsProvider.builder()
@@ -44,13 +41,11 @@ public class OciStorageService {
                 .privateKeySupplier(privateKeySupplier)
                 .build();
 
-        
-        try (ObjectStorage client = ObjectStorageClient.builder().build(provider)) {
+                try (ObjectStorage client = ObjectStorageClient.builder().build(provider)) {
 
             String fileName = UUID.randomUUID() + "_" + file.getOriginalFilename();
 
-            
-            PutObjectRequest request = PutObjectRequest.builder()
+                        PutObjectRequest request = PutObjectRequest.builder()
                     .namespaceName(namespace)
                     .bucketName(bucketName)
                     .objectName(fileName)
@@ -58,15 +53,12 @@ public class OciStorageService {
                     .putObjectBody(file.getInputStream())
                     .build();
 
-            
-            client.putObject(request);
+                        client.putObject(request);
 
-            
-            return String.format("https://objectstorage.%s.oraclecloud.com/n/%s/b/%s/o/%s",
+                        return String.format("https://objectstorage.%s.oraclecloud.com/n/%s/b/%s/o/%s",
                     region, namespace, bucketName, fileName);
         } catch (Exception e) {
-            
-            System.err.println("OCI Upload Error: " + e.getMessage());
+                        System.err.println("OCI Upload Error: " + e.getMessage());
             throw e;
         }
     }

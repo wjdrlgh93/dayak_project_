@@ -1,8 +1,7 @@
 package org.spring.backend.medication.service;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j; 
-import org.spring.backend.member.entity.MemberEntity;
+import lombok.extern.slf4j.Slf4j; import org.spring.backend.member.entity.MemberEntity;
 import org.spring.backend.member.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
@@ -14,8 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Map;
 
-@Slf4j 
-@Service
+@Slf4j @Service
 @RequiredArgsConstructor
 public class KakaoMessageService {
 
@@ -25,8 +23,7 @@ public class KakaoMessageService {
     @Value("${kakao.client-id}")
     private String clientId;
 
-    
-    public void sendSelfMessage(Long memberId, Long medicationId, String text) {
+        public void sendSelfMessage(Long memberId, Long medicationId, String text) {
         MemberEntity member = memberRepository.findById(memberId)
                 .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다."));
 
@@ -38,24 +35,19 @@ public class KakaoMessageService {
         executeSendMessage(url, accessToken, text, member, medicationId);
     }
 
-    
-    private void executeSendMessage(String url, String accessToken, String text, MemberEntity member, Long medicationId) {
+        private void executeSendMessage(String url, String accessToken, String text, MemberEntity member, Long medicationId) {
         HttpHeaders headers = new HttpHeaders();
         headers.setBearerAuth(accessToken);
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
-        
-        long sentAt = System.currentTimeMillis();
+                long sentAt = System.currentTimeMillis();
 
-        
-        
-        String linkUrl = "http://168.107.15.125:8080/api/medication/check/direct?id="
+                        String linkUrl = "http://168.107.15.125:8080/api/medication/check/direct?id="
                 + medicationId + "&sentAt=" + sentAt;
 
         String safeText = text.replace("\n", " ").replace("\"", "'");
 
-        
-        String templateJson = "{" +
+                String templateJson = "{" +
                 "\"object_type\":\"text\"," +
                 "\"text\":\"" + safeText + "\"," +
                 "\"link\":{" +
@@ -88,8 +80,7 @@ public class KakaoMessageService {
             log.error("❌ 알 수 없는 오류 발생", e);
         }
     }
-    
-    public String refreshKakaoToken(MemberEntity member) {
+        public String refreshKakaoToken(MemberEntity member) {
         String url = "https://kauth.kakao.com/oauth/token";
 
         HttpHeaders headers = new HttpHeaders();

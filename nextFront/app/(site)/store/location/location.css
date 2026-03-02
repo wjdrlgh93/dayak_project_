@@ -1,14 +1,14 @@
-
+/* --- [반응형] 갤럭시 폴드6 커버 스크린 및 모바일 (768px 이하) --- */
 @media (max-width: 768px) {
     .pageContainer {
         padding: 15px;
     }
 
     .mapWrapper {
-        height: 350px; 
+        height: 350px; /* 모바일에서는 지도 높이를 조금 줄임 */
     }
 
-    
+    /* 🚀 핵심: 모바일에서는 1단으로 변경하여 화면 밀림 방지 */
     .resultsGrid {
         grid-template-columns: 1fr;
     }
@@ -18,7 +18,7 @@
     }
 }
 
-
+/* 초소형 모바일 (폴드6 접었을 때 극단적 대응) */
 @media (max-width: 400px) {
     .pharmacyCard {
         padding: 15px;

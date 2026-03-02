@@ -13,14 +13,14 @@ function LoginSuccessContent() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    
+    // URL에서 토큰 추출
     const token = searchParams.get('token');
 
     if (token) {
-      
+      // 로컬 스토리지에 토큰 저장
       localStorage.setItem('token', token);
 
-      
+      // 토큰 디코딩하여 userId 추출 및 저장
       try {
         const decoded: any = jwtDecode(token);
         if (decoded.userId) {
@@ -31,10 +31,10 @@ function LoginSuccessContent() {
         console.error("Token decode failed", e);
       }
 
-      
+      // 메인 페이지로 이동
       window.location.href = '/main';
     } else {
-      
+      // 토큰이 없으면 로그인 실패 처리
       alert("로그인에 실패했습니다.");
       router.replace('/main');
     }
@@ -58,7 +58,7 @@ export default function LoginSuccessPage() {
       fontSize: '18px', 
       fontWeight: 'bold' 
     }}>
-      {}
+      {/* 빌드 시 CSR 바일아웃 에러를 방지하기 위해 Suspense로 감싸줍니다. [cite: 2026-02-18] */}
       <Suspense fallback={<div>로딩 중...</div>}>
         <LoginSuccessContent />
       </Suspense>

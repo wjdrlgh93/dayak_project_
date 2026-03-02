@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { getNoticeDetail, deleteNotice } from "@/util/noticeApi";
 import Link from "next/link";
-
+// 🚀 경로 에러 수정: 현재 폴더에 있는 파일을 임포트합니다.
 import "./noticeDetail.css"; 
 
 export default function NoticeDetailPage() {
@@ -41,7 +41,7 @@ export default function NoticeDetailPage() {
 
   return (
     <div className="board-detail-container">
-      {}
+      {/* 1. 헤더 */}
       <div style={{ borderBottom: "2px solid #333", paddingBottom: "20px", marginBottom: "30px" }}>
         <h1>
           {notice.isPinned && <span style={{ color: "#e11d48", marginRight: "10px" }}>[공지]</span>}
@@ -56,13 +56,13 @@ export default function NoticeDetailPage() {
         </div>
       </div>
 
-      {}
+      {/* 2. 본문 */}
       <div 
-        className="board-content ql-editor" 
+        className="board-content ql-editor" // 🚀 Quill 스타일 적용을 위한 ql-editor 추가
         dangerouslySetInnerHTML={{ __html: notice.content }} 
       />
 
-      {}
+      {/* 3. 하단 버튼 */}
       <div className="button-group">
         <Link href="/board">
           <button className="btn btn-list">목록으로</button>

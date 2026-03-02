@@ -35,10 +35,8 @@ public class MedicationController {
     private final MedicationCheckRepository medicationCheckRepository;
     private final RestTemplate restTemplate;
 
-    
-    @DeleteMapping("/{id}")
-    @Transactional 
-    public ResponseEntity<?> deleteMedication(@PathVariable Long id, @AuthenticationPrincipal UserPrincipal userPrincipal) {
+        @DeleteMapping("/{id}")
+    @Transactional     public ResponseEntity<?> deleteMedication(@PathVariable Long id, @AuthenticationPrincipal UserPrincipal userPrincipal) {
         MedicationEntity medication = medicationRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 약을 찾을 수 없습니다."));
 
@@ -46,12 +44,9 @@ public class MedicationController {
             return ResponseEntity.status(403).body("삭제 권한이 없습니다.");
         }
 
-        
-        
-        medicationCheckRepository.deleteByMedicationId(id);
+                        medicationCheckRepository.deleteByMedicationId(id);
 
-        
-        medicationRepository.delete(medication);
+                medicationRepository.delete(medication);
 
         return ResponseEntity.ok("삭제 성공");
     }
@@ -71,8 +66,7 @@ public class MedicationController {
 
         return ResponseEntity.ok(dto);
     }
-    
-    @PutMapping("/{id}")
+        @PutMapping("/{id}")
     public ResponseEntity<?> updateMedication(
             @PathVariable Long id,
             @RequestBody MedicationDto dto,
@@ -85,8 +79,7 @@ public class MedicationController {
             return ResponseEntity.status(403).body("수정 권한이 없습니다.");
         }
 
-        
-        medication.setMedicineName(dto.getMedicineName());
+                medication.setMedicineName(dto.getMedicineName());
         medication.setIntakeTime(LocalTime.parse(dto.getIntakeTime()));
         medication.setIntakeDays(dto.getIntakeDays());
         medication.setKakaoAlert(dto.isKakaoAlert());
@@ -95,22 +88,18 @@ public class MedicationController {
         return ResponseEntity.ok("수정 성공");
     }
 
-    
-    @PostMapping
+        @PostMapping
     public ResponseEntity<String> registerMedication(
             @RequestBody MedicationRequestDto dto,
             @AuthenticationPrincipal UserPrincipal userPrincipal) {
 
-        
-        MemberEntity member = memberRepository.findById(userPrincipal.getId())
+                MemberEntity member = memberRepository.findById(userPrincipal.getId())
                 .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다."));
 
-        
-        MedicationEntity medication = MedicationEntity.builder()
+                MedicationEntity medication = MedicationEntity.builder()
                 .member(member)
                 .medicineName(dto.getMedicineName())
-                .intakeTime(LocalTime.parse(dto.getIntakeTime())) 
-                .intakeDays(dto.getIntakeDays())
+                .intakeTime(LocalTime.parse(dto.getIntakeTime()))                 .intakeDays(dto.getIntakeDays())
                 .isKakaoAlert(dto.isKakaoAlert())
                 .isActive(true)
                 .build();
@@ -120,14 +109,12 @@ public class MedicationController {
         return ResponseEntity.ok("복약 알림이 등록되었습니다.");
     }
 
-    
-    @GetMapping("/list")
+        @GetMapping("/list")
     public ResponseEntity<List<MedicationDto>> getMyMedications(@AuthenticationPrincipal UserPrincipal userPrincipal) {
         List<MedicationEntity> entities = medicationRepository.findByMemberIdOrderByIntakeTimeAsc(userPrincipal.getId());
 
         List<MedicationDto> dtos = entities.stream().map(m -> MedicationDto.builder()
-                .medicationId(m.getId()) 
-                .medicineName(m.getMedicineName())
+                .medicationId(m.getId())                 .medicineName(m.getMedicineName())
                 .intakeTime(m.getIntakeTime() != null ? m.getIntakeTime().toString() : null)
                 .intakeDays(m.getIntakeDays())
                 .isKakaoAlert(m.isKakaoAlert())
@@ -143,8 +130,7 @@ public class MedicationController {
 
         List<MedicationCheckEntity> history = medicationCheckRepository.findAllByMemberId(userPrincipal.getId());
 
-        
-        List<MedicationCheckDto> dtoList = history.stream().map(h -> MedicationCheckDto.builder()
+                List<MedicationCheckDto> dtoList = history.stream().map(h -> MedicationCheckDto.builder()
                 .id(h.getId())
                 .checkDate(h.getCheckDate().toString())
                 .medicineName(h.getMedication().getMedicineName())
@@ -160,16 +146,14 @@ public class MedicationController {
             @RequestParam("id") Long medicationId,
             @RequestParam("sentAt") Long sentAt) {
 
-        
-        long currentTime = System.currentTimeMillis();
+                long currentTime = System.currentTimeMillis();
         if (currentTime - sentAt > 60 * 60 * 1000) {
             return "<html><body><script>alert('⏰ 알림이 만료되었습니다.'); window.close();</script></body></html>";
         }
 
         LocalDate today = LocalDate.now();
 
-        
-        if (medicationCheckRepository.existsByMedicationIdAndCheckDate(medicationId, today)) {
+                if (medicationCheckRepository.existsByMedicationIdAndCheckDate(medicationId, today)) {
             return "<html><head><meta charset='UTF-8'></head><body>" +
                     "<script>alert('이미 오늘의 복약 확인이 완료되었습니다! 중복 기록되지 않습니다.'); window.close();</script>" +
                     "</body></html>";
@@ -179,8 +163,7 @@ public class MedicationController {
             MedicationEntity medication = medicationRepository.findById(medicationId)
                     .orElseThrow(() -> new IllegalArgumentException("정보 없음"));
 
-            
-            MedicationCheckEntity check = MedicationCheckEntity.builder()
+                        MedicationCheckEntity check = MedicationCheckEntity.builder()
                     .medication(medication)
                     .checkDate(today)
                     .checkTime(LocalTime.now())
@@ -199,8 +182,7 @@ public class MedicationController {
 
     @GetMapping("/kakao/friends")
     public ResponseEntity<?> getKakaoFriends(@AuthenticationPrincipal UserPrincipal userPrincipal) {
-        String accessToken = getAccessToken(userPrincipal.getId()); 
-        String url = "https://kapi.kakao.com/v1/api/talk/friends";
+        String accessToken = getAccessToken(userPrincipal.getId());         String url = "https://kapi.kakao.com/v1/api/talk/friends";
 
         HttpHeaders headers = new HttpHeaders();
         headers.setBearerAuth(accessToken);
@@ -210,12 +192,10 @@ public class MedicationController {
     }
 
     private String getAccessToken(Long memberId) {
-        
-        MemberEntity member = memberRepository.findById(memberId)
+                MemberEntity member = memberRepository.findById(memberId)
                 .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다."));
 
-        
-        String token = member.getKakaoAccessToken();
+                String token = member.getKakaoAccessToken();
 
         if (token == null || token.isEmpty()) {
             throw new IllegalStateException("카카오 액세스 토큰이 없습니다. 다시 로그인해주세요.");
@@ -229,16 +209,13 @@ public class MedicationController {
             @RequestBody GuardianSaveDto dto,
             @AuthenticationPrincipal UserPrincipal userPrincipal) {
 
-        
-        MemberEntity member = memberRepository.findById(userPrincipal.getId())
+                MemberEntity member = memberRepository.findById(userPrincipal.getId())
                 .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다."));
 
-        
-        member.setGuardianUuid(dto.getGuardianUuid());
+                member.setGuardianUuid(dto.getGuardianUuid());
         member.setGuardianName(dto.getGuardianName());
 
         memberRepository.save(member); 
-
         return ResponseEntity.ok("보호자 지정 성공!");
     }
 }

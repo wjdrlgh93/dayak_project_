@@ -1,9 +1,9 @@
-
+/* adminNoticeList.css */
 
 :root {
-  --primary-red: #e11d48; 
-  --dark-red: #9f1239;    
-  --light-red: #fff1f2;   
+  --primary-red: #e11d48; /* 밝은 빨강 */
+  --dark-red: #9f1239;    /* 진한 빨강 */
+  --light-red: #fff1f2;   /* 아주 연한 빨강 배경 */
   --gray-100: #f3f4f6;
   --gray-200: #e5e7eb;
   --gray-500: #6b7280;
@@ -20,7 +20,7 @@
   color: var(--gray-800);
 }
 
-
+/* 헤더 영역 */
 .board-header {
   display: flex;
   justify-content: space-between;
@@ -43,7 +43,7 @@
   color: var(--gray-500);
 }
 
-
+/* 새 공지 작성 버튼 */
 .btn-write-main {
   padding: 0.75rem 1.5rem;
   font-weight: 700;
@@ -62,14 +62,14 @@
   box-shadow: 0 6px 20px rgba(225, 29, 72, 0.23);
 }
 
-
+/* 리스트 래퍼 */
 .board-list-wrapper {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-
+/* 리스트 아이템 (카드 스타일) */
 .list-item {
   background: var(--white);
   border: 1px solid var(--gray-200);
@@ -84,7 +84,7 @@
   transform: scale(1.005);
 }
 
-
+/* 공지 고정 뱃지 */
 .item-id-badge {
   min-width: 48px;
   height: 24px;
@@ -98,7 +98,7 @@
   color: var(--white);
 }
 
-
+/* 제목 텍스트 */
 .item-title-text {
   font-size: 1.125rem;
   font-weight: 600;
@@ -111,7 +111,7 @@
   color: var(--primary-red);
 }
 
-
+/* 정보 행 (작성자, 날짜) */
 .item-info-row {
   margin-top: 0.5rem;
   font-size: 0.875rem;
@@ -125,7 +125,7 @@
   color: var(--gray-200);
 }
 
-
+/* 수정/삭제 버튼 그룹 */
 .list-item > div:last-child {
   display: flex;
   gap: 0.5rem;
@@ -139,7 +139,7 @@
   transition: all 0.2s;
 }
 
-
+/* 수정 버튼 */
 .list-item button:first-child {
   border: 1px solid var(--primary-red) !important;
   color: var(--primary-red) !important;
@@ -150,9 +150,9 @@
   background: var(--light-red) !important;
 }
 
-
+/* 삭제 버튼 */
 .list-item button:last-child {
-  background: var(--gray-800) !important; 
+  background: var(--gray-800) !important; /* 세련되게 검정/빨강 조합 */
   color: var(--white) !important;
 }
 
@@ -160,7 +160,7 @@
   background: var(--dark-red) !important;
 }
 
-
+/* 페이지네이션 */
 .pagination-container {
   margin-top: 3rem;
   display: flex;
@@ -188,9 +188,9 @@
   color: var(--primary-red);
 }
 
+/* 📱 미디어 쿼리 - 갤럭시 폴드 6 전용 (접었을 때/펼쳤을 때) */
 
-
-
+/* 폴드 6 접었을 때 (좁은 화면: ~375px) */
 @media screen and (max-width: 400px) {
   .board-header {
     flex-direction: column;
@@ -218,7 +218,7 @@
   }
 }
 
-
+/* 폴드 6 펼쳤을 때 (정사각형 느낌: ~768px) */
 @media screen and (min-width: 401px) and (max-width: 800px) {
   .board-container {
     max-width: 95%;
@@ -229,7 +229,7 @@
   }
 }
 
-
+/* 공통 로딩/비어있음 상태 */
 .loading-state, .empty-state {
   text-align: center;
   padding: 5rem 0;

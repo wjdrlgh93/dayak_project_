@@ -7,8 +7,7 @@ import java.util.Collection;
 
 @Getter
 public class UserPrincipal implements UserDetails {
-    private Long id; 
-    private String email;
+    private Long id;     private String email;
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
 

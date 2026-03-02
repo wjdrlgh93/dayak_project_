@@ -1,4 +1,4 @@
-
+/* board.css */
 
 .board-container {
   max-width: 1000px;
@@ -22,7 +22,7 @@
   color: #111;
 }
 
-
+/* --- 리스트형 테이블 스타일 --- */
 .board-list-wrapper {
   border-top: 2px solid #111;
   margin-bottom: 40px;
@@ -79,7 +79,7 @@
   gap: 10px;
 }
 
-
+/* --- 버튼 및 페이지네이션 (기존 유지/강화) --- */
 .btn-write {
   background-color: #111;
   color: #fff;

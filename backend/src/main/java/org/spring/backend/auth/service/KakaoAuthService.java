@@ -25,25 +25,20 @@ public class KakaoAuthService {
     @Value("${kakao.redirect-uri}")
     private String redirectUri;
 
-    
-    public KakaoTokenDto getKakaoAccessToken(String code) {
+        public KakaoTokenDto getKakaoAccessToken(String code) {
         RestTemplate rt = new RestTemplate();
 
-        
-        HttpHeaders headers = new HttpHeaders();
+                HttpHeaders headers = new HttpHeaders();
         headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
 
-        
-        MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
+                MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("grant_type", "authorization_code");
         params.add("client_id", clientId);
         params.add("redirect_uri", redirectUri);
         params.add("code", code);
-        
-         params.add("client_secret", "HnWvUfV0ohNxlhFPZrV3LRLbOB2JjZ38");
+                 params.add("client_secret", "HnWvUfV0ohNxlhFPZrV3LRLbOB2JjZ38");
 
-        
-        HttpEntity<MultiValueMap<String, String>> kakaoTokenRequest = new HttpEntity<>(params, headers);
+                HttpEntity<MultiValueMap<String, String>> kakaoTokenRequest = new HttpEntity<>(params, headers);
 
         try {
             ResponseEntity<KakaoTokenDto> response = rt.exchange(
@@ -54,13 +49,11 @@ public class KakaoAuthService {
             );
             return response.getBody();
         } catch (HttpClientErrorException e) {
-            
-            System.err.println("Kakao Token Request Failed: " + e.getResponseBodyAsString());
+                        System.err.println("Kakao Token Request Failed: " + e.getResponseBodyAsString());
             throw e;
         }
     }
-    
-    public KakaoUserDto getKakaoUserInfo(String accessToken) {
+        public KakaoUserDto getKakaoUserInfo(String accessToken) {
         RestTemplate rt = new RestTemplate();
 
         HttpHeaders headers = new HttpHeaders();

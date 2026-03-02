@@ -6,8 +6,7 @@ import java.nio.charset.StandardCharsets;
 
 @Getter
 public enum PillFilter {
-    
-    SHAPE_CIRCLE("원형"),
+        SHAPE_CIRCLE("원형"),
     SHAPE_OVAL("타원형"),
     SHAPE_HALF_CIRCLE("반원형"),
     SHAPE_RECTANGLE("장방형"),
@@ -18,8 +17,7 @@ public enum PillFilter {
     SHAPE_OCTAGON("팔각형"),
     SHAPE_DIAMOND("마름모형"),
 
-    
-    COLOR_WHITE("하양"),
+        COLOR_WHITE("하양"),
     COLOR_YELLOW("노랑"),
     COLOR_ORANGE("주황"),
     COLOR_PINK("분홍"),
@@ -37,8 +35,7 @@ public enum PillFilter {
 
     PillFilter(String koreanName) {
         this.koreanName = koreanName;
-        
-        this.encodedName = URLEncoder.encode(koreanName, StandardCharsets.UTF_8);
+                this.encodedName = URLEncoder.encode(koreanName, StandardCharsets.UTF_8);
     }
 
     public static String getEncodedValue(String koreanInput) {
@@ -49,7 +46,6 @@ public enum PillFilter {
                 return filter.encodedName;
             }
         }
-        
-        return URLEncoder.encode(koreanInput, StandardCharsets.UTF_8);
+                return URLEncoder.encode(koreanInput, StandardCharsets.UTF_8);
     }
 }

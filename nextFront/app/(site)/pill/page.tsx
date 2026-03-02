@@ -23,7 +23,7 @@ function SearchContent() {
     const pathname = usePathname();
     const searchParams = useSearchParams();
 
-    
+    // 상태 관리 (itemName 추가됨 ⭐️)
     const [itemName, setItemName] = useState('');
     const [printFront, setPrintFront] = useState('');
     const [drugShape, setDrugShape] = useState('');
@@ -33,12 +33,12 @@ function SearchContent() {
     const [loading, setLoading] = useState(false);
     const [hasSearched, setHasSearched] = useState(false);
 
-    
+    // 페이지네이션
     const [currentPage, setCurrentPage] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
     const [totalElements, setTotalElements] = useState(0);
 
-    
+    // ✅ URL 파라미터 감지 (itemName 추가 ⭐️)
     useEffect(() => {
         const name = searchParams.get('itemName') || '';
         const print = searchParams.get('printFront') || '';
@@ -51,13 +51,13 @@ function SearchContent() {
         setDrugShape(shape);
         setColorClass1(color);
 
-        
+        // 조건이 하나라도 있으면 검색 실행
         if (name || print || shape || color) {
             fetchData(name, print, shape, color, page);
         }
     }, [searchParams]);
 
-    
+    // ✅ 데이터 가져오기 (itemName 추가 ⭐️)
     const fetchData = async (name: string, print: string, shape: string, color: string, page: number) => {
         setLoading(true);
         setHasSearched(true);
@@ -65,7 +65,7 @@ function SearchContent() {
         try {
             const response = await axios.get(`api/pill/search`, {
                 params: { 
-                    itemName: name.trim(), 
+                    itemName: name.trim(), // ⭐️ 백엔드로 전달
                     printFront: print.trim(),
                     drugShape: shape === "전체" ? "" : shape, 
                     colorClass1: color === "전체" ? "" : color,
@@ -88,7 +88,7 @@ function SearchContent() {
         }
     };
 
-    
+    // ✅ URL 업데이트 (itemName 추가 ⭐️)
     const updateURL = (name: string, print: string, shape: string, color: string, page: number) => {
         const params = new URLSearchParams();
         if (name) params.set('itemName', name);
@@ -100,9 +100,9 @@ function SearchContent() {
         router.push(`${pathname}?${params.toString()}`);
     };
 
-    
+    // 핸들러들
     const handleSearch = () => {
-        
+        // 유효성 검사에도 이름 추가
         if (!itemName.trim() && !printFront.trim() && !drugShape && !colorClass1) {
             alert("검색 조건을 최소 하나 이상 입력해주세요.");
             return;
@@ -137,7 +137,7 @@ function SearchContent() {
             </header>
 
             <div className={styles.searchFilter}>
-                {}
+                {/* ⭐️ 제품명 입력칸 추가 */}
                 <div className={styles.inputGroup}>
                     <label>제품명</label>
                     <input 

@@ -30,10 +30,10 @@ export default function MedicationListPage() {
 
    const fetchMedications = async () => {
     try {
-        
+        // 🚀 도메인 생략 및 자동 토큰 주입 [cite: 2026-02-18]
         const res = await api.get('/api/medication/list');
         
-        
+        // Axios는 응답 데이터가 .data에 담겨 있습니다. [cite: 2026-02-18]
         setMedications(Array.isArray(res.data) ? res.data : []);
     } catch (e: any) {
         console.error("목록 로드 실패", e);
@@ -46,16 +46,16 @@ export default function MedicationListPage() {
     }
 };
 
-
+// 2. 삭제 함수 (localStorage에서 직접 꺼내던 로직 제거)
 const handleDelete = async (id: number) => {
     if (!confirm("정말 이 복약 알림을 삭제하시겠습니까?")) return;
     
     try {
-        
+        // 🚀 경로만 사용하여 DELETE 요청 [cite: 2026-02-18]
         await api.delete(`/api/medication/${id}`);
         
         alert("삭제되었습니다. ✅");
-        
+        // 상태 업데이트로 화면에서 즉시 제거
         setMedications(medications.filter(m => m.medicationId !== id));
     } catch (e: any) {
         console.error("삭제 실패:", e);

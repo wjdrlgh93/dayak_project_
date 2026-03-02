@@ -17,15 +17,14 @@ public class AdminBoardService {
     @Transactional(readOnly = true)
     public Page<BoardDto.Response> getAllBoardsPage(Pageable pageable) {
         return boardRepository.findAll(pageable)
-                .map(board -> BoardDto.Response.builder() 
+                .map(board -> BoardDto.Response.builder()
                         .id(board.getId())
                         .title(board.getTitle())
                         .content(board.getContent())
                         .thumbnailUrl(board.getThumbnailUrl())
                         .viewCount(board.getViewCount())
                         .createdAt(board.getCreatedAt())
-                        
-                        .userId(board.getMemberId().getId())
+                                                .userId(board.getMemberId().getId())
                         .userNickname(board.getMemberId().getNickName())
                         .userProfileImage(board.getMemberId().getFileUrl())
                         .build());

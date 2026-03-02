@@ -10,15 +10,11 @@ import java.util.List;
 
 public interface MedicationRepository extends JpaRepository<MedicationEntity, Long> {
 
-    
-    
-
-    @Query("SELECT m FROM MedicationEntity m " +
+            @Query("SELECT m FROM MedicationEntity m " +
             "JOIN FETCH m.member " +
             "WHERE m.isActive = true " +
             "AND m.isKakaoAlert = true " +
-            
-            "AND FUNCTION('TIME_FORMAT', m.intakeTime, '%H:%i') = FUNCTION('TIME_FORMAT', :now, '%H:%i')")
+                        "AND FUNCTION('TIME_FORMAT', m.intakeTime, '%H:%i') = FUNCTION('TIME_FORMAT', :now, '%H:%i')")
     List<MedicationEntity> findByIntakeTime(@Param("now") LocalTime now);
 
     List<MedicationEntity> findByMemberIdOrderByIntakeTimeAsc(Long memberId);

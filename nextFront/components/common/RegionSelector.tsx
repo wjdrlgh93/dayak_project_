@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-
+// 1. 전국 지역 데이터 (전남 예시 포함)
 const REGION_DATA: { [key: string]: string[] } = {
   "서울특별시": ["강남구", "강동구", "강북구", "강서구", "관악구", "광진구", "구로구", "금천구", "노원구", "도봉구", "동대문구", "동작구", "마포구", "서대문구", "서초구", "성동구", "성북구", "송파구", "양천구", "영등포구", "용산구", "은평구", "종로구", "중구", "중랑구"],
   "부산광역시": ["강서구", "금정구", "기장군", "남구", "동구", "동래구", "부산진구", "북구", "사상구", "사하구", "서구", "수영구", "연제구", "영도구", "중구", "해운대구"],
@@ -28,13 +28,13 @@ interface RegionSelectorProps {
 }
 
 export default function RegionSelector({ onRegionSelect }: RegionSelectorProps) {
-  
-  
+  // 수정: 초기값을 데이터에 존재하는 정확한 키 값인 "서울특별시"로 변경했습니다.
+  // 또는 Object.keys(REGION_DATA)[0] 을 사용하여 첫 번째 항목을 자동으로 선택하게 할 수 있습니다.
   const [selectedSido, setSelectedSido] = useState("서울특별시");
 
   return (
     <div style={containerStyle}>
-      {}
+      {/* 왼쪽: 시/도 리스트 */}
       <div style={sidebarStyle}>
         {Object.keys(REGION_DATA).map(sido => (
           <div 
@@ -53,13 +53,13 @@ export default function RegionSelector({ onRegionSelect }: RegionSelectorProps) 
         ))}
       </div>
 
-      {}
+      {/* 오른쪽: 시/군/구 그리드 */}
       <div style={gridContainerStyle}>
         <div style={gridHeaderStyle}>
           <span style={activeBadgeStyle}>전체</span>
         </div>
         <div style={gridStyle}>
-          {}
+          {/* 수정: 안전하게 REGION_DATA[selectedSido]?.map 을 사용합니다. */}
           {REGION_DATA[selectedSido]?.map(d => (
             <div 
               key={d} 
@@ -77,7 +77,7 @@ export default function RegionSelector({ onRegionSelect }: RegionSelectorProps) 
   );
 }
 
-
+// ... 스타일 정의는 동일하게 유지 ...
 const containerStyle: React.CSSProperties = {
   display: 'flex',
   border: '1px solid #ddd',

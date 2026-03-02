@@ -22,23 +22,17 @@ public class MedicationLogEntity extends BasicTime {
     @Column(name = "log_id")
     private Long id;
 
-    
-    @ManyToOne(fetch = FetchType.LAZY)
+        @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "medication_id")
     private MedicationEntity medication;
 
-    
-    @Column(nullable = false)
+        @Column(nullable = false)
     private LocalDate targetDate;
 
-    
-    private LocalDateTime takenTime;
+        private LocalDateTime takenTime;
 
-    
-    @Enumerated(EnumType.STRING)
+        @Enumerated(EnumType.STRING)
     private IntakeStatus status; 
-
-    
-    @Builder.Default
+        @Builder.Default
     private boolean isGuardianNotified = false;
 }

@@ -64,7 +64,7 @@ export default function MedicationCalendarPage() {
 
     return (
         <div className="calendar-page-root">
-            {}
+            {/* 🚀 모든 스타일을 최상단 직계 자식으로 통합 (빌드 에러 해결 핵심) [cite: 2026-02-23] */}
             <style jsx>{`
                 .calendar-page-root {
                     padding: 120px 16px 60px;
@@ -91,7 +91,7 @@ export default function MedicationCalendarPage() {
                 }
                 .status-container { text-align: center; font-size: 11px; }
 
-                
+                /* 상세 내역 카드 스타일 [cite: 2026-02-23] */
                 .detail-card {
                     margin-top: 30px;
                     padding: 20px;

@@ -7,7 +7,6 @@ import lombok.Data;
 @Builder
 public class MedicationCheckDto {
     private Long id;
-    private String checkDate; 
-    private String medicineName;
+    private String checkDate;     private String medicineName;
     private Long medicationId;
 }

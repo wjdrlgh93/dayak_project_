@@ -4,7 +4,7 @@ import { useState, useEffect, Suspense } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { getNoticeDetail, updateNotice } from "@/util/noticeApi";
 import Editor from "@/components/Editor";
-import "./noticeEdit.css"; 
+import "./noticeEdit.css"; // 🚀 새 CSS 임포트
 
 function EditForm() {
   const router = useRouter();
@@ -62,7 +62,7 @@ function EditForm() {
       <h1 className="edit-title">🛠️ 공지사항 수정</h1>
       
       <div className="board-form-wrapper">
-        {}
+        {/* 제목 입력 */}
         <div className="form-group">
           <label className="form-label">제목</label>
           <input
@@ -74,7 +74,7 @@ function EditForm() {
           />
         </div>
 
-        {}
+        {/* 상단 고정 여부 */}
         <label className="pin-toggle-area">
           <input
             type="checkbox"
@@ -84,7 +84,7 @@ function EditForm() {
           <span className="pin-text">📌 게시판 최상단에 고정하기</span>
         </label>
 
-        {}
+        {/* 에디터 섹션 */}
         <div className="editor-section">
           <label className="form-label">내용</label>
           <Editor 
@@ -93,7 +93,7 @@ function EditForm() {
           />
         </div>
 
-        {}
+        {/* 버튼 그룹 */}
         <div className="button-group">
           <button onClick={handleUpdate} className="btn-submit">수정 완료</button>
           <button onClick={() => router.back()} className="btn-cancel">취소</button>

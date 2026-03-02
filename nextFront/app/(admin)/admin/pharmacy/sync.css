@@ -29,7 +29,7 @@
   font-size: 1rem;
 }
 
-
+/* 상태 패널 */
 .status-panel {
   margin: 40px 0;
   padding: 24px;
@@ -62,7 +62,7 @@
   margin-top: 5px;
 }
 
-
+/* 버튼 */
 .btn-sync-trigger {
   width: 100%;
   padding: 16px;
@@ -86,7 +86,7 @@
   cursor: not-allowed;
 }
 
-
+/* 가이드 */
 .sync-guide {
   margin-top: 40px;
   text-align: left;
@@ -107,7 +107,7 @@
   line-height: 1.8;
 }
 
-
+/* 스피너 */
 .spinner {
   width: 40px;
   height: 40px;

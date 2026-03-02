@@ -12,11 +12,9 @@ public class DrugAdminController {
 
     private final DrugService drugService;
 
-    
-    @PostMapping("/sync")
+        @PostMapping("/sync")
     public ResponseEntity<String> syncDrugs() {
-        
-        drugService.syncAllDrugs();
+                drugService.syncAllDrugs();
         return ResponseEntity.ok("e약은요(Drug) 데이터 전체 동기화가 완료되었습니다.");
     }
 }

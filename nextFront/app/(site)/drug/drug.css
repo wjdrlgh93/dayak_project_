@@ -1,4 +1,4 @@
-
+/* 기본 레이아웃 및 타이포그래피 */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -16,7 +16,7 @@
   letter-spacing: -0.5px;
 }
 
-
+/* 검색창 및 컨트롤 영역 */
 .searchBox {
   display: flex;
   justify-content: center;
@@ -80,7 +80,7 @@
   box-shadow: none;
 }
 
-
+/* 전체 동기화 버튼 (초록색) */
 .btn.sync {
   background-color: #10b981;
   box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
@@ -91,7 +91,7 @@
   box-shadow: 0 6px 8px rgba(16, 185, 129, 0.3);
 }
 
-
+/* 메시지 및 알림 */
 .message {
   text-align: center;
   padding: 40px;
@@ -102,7 +102,7 @@
   margin-bottom: 40px;
 }
 
-
+/* 결과 그리드 (카드 레이아웃) */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -190,7 +190,7 @@
   font-weight: 600;
 }
 
-
+/* 페이지네이션 */
 .pagination-container {
   display: flex;
   justify-content: center;
@@ -259,7 +259,7 @@
   color: #1f2937;
 }
 
-
+/* 상세 정보 카드 (흰색 배경 박스) */
 .detail-card {
   background: white;
   border-radius: 20px;
@@ -268,7 +268,7 @@
   border: 1px solid #f0f0f0;
 }
 
-
+/* 상단 헤더 (이미지 + 제목) */
 .detail-header {
   display: flex;
   flex-direction: column;
@@ -296,7 +296,7 @@
 .detail-img {
   width: 100%;
   height: 100%;
-  object-fit: cover; 
+  object-fit: cover; /* or contain */
 }
 
 .detail-title {
@@ -304,7 +304,7 @@
   font-weight: 800;
   color: #111;
   margin-bottom: 10px;
-  word-break: keep-all; 
+  word-break: keep-all; /* 단어 단위 줄바꿈 */
 }
 
 .detail-company {
@@ -316,10 +316,10 @@
   font-weight: 500;
 }
 
-
+/* 본문 섹션 디자인 */
 .detail-content {
   max-width: 800px;
-  margin: 0 auto; 
+  margin: 0 auto; /* 중앙 정렬 */
 }
 
 .section-box {
@@ -335,7 +335,7 @@
   align-items: center;
 }
 
-
+/* 파란색 세로 줄 포인트 */
 .section-title::before {
   content: '';
   display: block;
@@ -349,15 +349,15 @@
 .section-text {
   font-size: 1.05rem;
   color: #4b5563;
-  line-height: 1.8; 
-  white-space: pre-wrap; 
-  background-color: #fcfcfc; 
+  line-height: 1.8; /* 줄간격 넓게 */
+  white-space: pre-wrap; /* 줄바꿈 유지 */
+  background-color: #fcfcfc; /* 아주 연한 회색 배경 */
   padding: 20px;
   border-radius: 12px;
   border: 1px solid #f9f9f9;
 }
 
-
+/* 로딩/에러 메시지 스타일 재사용 */
 .loading-msg {
   text-align: center;
   margin-top: 100px;
@@ -365,7 +365,7 @@
   color: #666;
 }
 
-
+/* 반응형 (모바일) */
 @media (max-width: 768px) {
   .detail-card {
     padding: 30px 20px;
@@ -378,124 +378,124 @@
   }
 }
 
-
+/* 1. 전체적인 레이아웃 및 배경 */
 body {
-    background-color: #f9f9f9; 
-    font-family: 'Pretendard', 'Noto Sans KR', sans-serif; 
-    color: #333; 
+    background-color: #f9f9f9; /* 아주 연한 회색 배경으로 카드와 대비 */
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif; /* 최신 웹 폰트 적용 (없으면 기본 고딕) */
+    color: #333; /* 기본 텍스트 색상 */
 }
 
 
 
-
+/* 다약 로고 스타일 (이미지 또는 텍스트) */
 .header .logo {
     font-weight: 700;
     font-size: 1.5rem;
-    color: #111; 
+    color: #111; /* 더 진한 검정 */
 }
 
-
-
+/* 3. 메인 콘텐츠 영역 개선 (헤더와 간격 벌리기) */
+/* 메인 콘텐츠를 감싸는 컨테이너 클래스명이 'main-container' 또는 유사하다고 가정 */
 .main-container {
-    max-width: 1200px; 
-    margin: 3rem auto 5rem; 
-    padding: 0 2rem; 
+    max-width: 1200px; /* 콘텐츠 최대 너비 제한 */
+    margin: 3rem auto 5rem; /* 상단(3rem), 하단(5rem) 여백 대폭 추가, 중앙 정렬 */
+    padding: 0 2rem; /* 좌우 패딩 */
 }
 
-
-
+/* 4. 페이지 제목 스타일 */
+/* "e약은요 검색" 제목 클래스명 가정 */
 .page-title {
     text-align: center;
-    font-size: 2.5rem; 
-    font-weight: 800; 
-    margin-bottom: 2.5rem; 
+    font-size: 2.5rem; /* 폰트 크기 키움 */
+    font-weight: 800; /* 더 두껍게 */
+    margin-bottom: 2.5rem; /* 검색창과의 간격 확보 */
     color: #222;
 }
 
-
-
+/* 5. 검색창 영역 디자인 개선 */
+/* 검색창을 감싸는 영역 클래스명 가정 */
 .search-section {
     display: flex;
     justify-content: center;
-    margin-bottom: 4rem; 
+    margin-bottom: 4rem; /* 카드 그리드와의 간격 확보 */
 }
 
-
+/* 실제 검색바 컨테이너 (입력창 + 버튼) */
 .search-bar-container {
     display: flex;
     width: 100%;
-    max-width: 700px; 
+    max-width: 700px; /* 검색바 최대 너비 설정 */
     background-color: #fff;
-    border-radius: 50px; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-    padding: 0.5rem; 
-    border: 1px solid #eee; 
+    border-radius: 50px; /* 둥근 알약 모양 */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* 부드럽고 넓은 그림자 */
+    padding: 0.5rem; /* 내부 여백 */
+    border: 1px solid #eee; /* 아주 연한 테두리 */
 }
 
-
+/* 검색 입력창 */
 .search-input {
-    flex-grow: 1; 
+    flex-grow: 1; /* 남은 공간 모두 차지 */
     border: none;
     padding: 1rem 1.5rem;
     font-size: 1.1rem;
-    border-radius: 50px; 
-    outline: none; 
+    border-radius: 50px; /* 둥근 모서리 */
+    outline: none; /* 포커스 시 기본 테두리 제거 */
 }
 
 .search-input::placeholder {
     color: #aaa;
 }
 
-
+/* 검색 버튼 */
 .search-button {
-    background-color: #1a73e8; 
+    background-color: #1a73e8; /* 구글 블루 같은 선명한 파란색 */
     color: white;
     border: none;
     padding: 1rem 2.5rem;
     font-size: 1.1rem;
     font-weight: 600;
-    border-radius: 50px; 
+    border-radius: 50px; /* 둥근 알약 모양 */
     cursor: pointer;
-    transition: background-color 0.2s ease; 
+    transition: background-color 0.2s ease; /* 호버 효과 부드럽게 */
 }
 
 .search-button:hover {
-    background-color: #155db1; 
+    background-color: #155db1; /* 호버 시 약간 더 진한 색 */
 }
 
-
-
+/* 6. 카드 그리드 영역 개선 */
+/* 카드 목록 컨테이너 클래스명 가정 */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-    gap: 2rem; 
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 반응형 그리드 */
+    gap: 2rem; /* 카드 사이 간격 넓힘 */
 }
 
-
+/* 개별 카드 스타일 (기존 스타일 유지하면서 개선) */
 .drug-card {
     background-color: #fff;
-    border-radius: 16px; 
-    overflow: hidden; 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
-    transition: transform 0.2s ease, box-shadow 0.2s ease; 
-    border: none; 
+    border-radius: 16px; /* 더 둥근 모서리 */
+    overflow: hidden; /* 이미지 넘침 방지 */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* 부드러운 그림자 */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* 호버 효과 */
+    border: none; /* 기존 테두리가 있다면 제거 */
 }
 
 .drug-card:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12); 
+    transform: translateY(-5px); /* 호버 시 살짝 위로 올라감 */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12); /* 그림자 더 진하게 */
 }
 
-
+/* 카드 내부 이미지 영역 */
 .drug-card .image-container {
-    background-color: #f4f4f4; 
+    background-color: #f4f4f4; /* 이미지 배경색 */
     padding: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-
+/* 카드 내부 텍스트 영역 */
 .drug-card .text-content {
     padding: 1.5rem;
 }
@@ -517,7 +517,7 @@ body {
     font-size: 0.95rem;
     color: #555;
     line-height: 1.5;
-    
+    /* 여러 줄 말줄임표 처리 (필요 시) */
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -527,6 +527,6 @@ body {
 
 .drug-card .efficacy-label {
     font-weight: 600;
-    color: #1a73e8; 
+    color: #1a73e8; /* 효능 라벨 강조 색상 */
     margin-right: 0.3rem;
 }

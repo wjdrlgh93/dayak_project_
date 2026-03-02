@@ -35,19 +35,18 @@ public class JwtProvider {
 
     @PostConstruct
     protected void init() {
-        
-        this.key = Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
+                this.key = Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
     }
 
-
+    /**
+     * UserPrincipal 정보를 바탕으로 JWT 토큰을 생성합니다.
+     */
     public String createToken(UserPrincipal userPrincipal) {
         Claims claims = Jwts.claims().setSubject(userPrincipal.getEmail());
 
-        
-        claims.put("userId", userPrincipal.getId());
+                claims.put("userId", userPrincipal.getId());
 
-        
-        String authorities = userPrincipal.getAuthorities().stream()
+                String authorities = userPrincipal.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.joining(","));
         claims.put("auth", authorities);
@@ -63,29 +62,30 @@ public class JwtProvider {
                 .compact();
     }
 
-
+    /**
+     * 토큰에서 정보를 추출하여 Authentication 객체를 생성합니다.
+     */
     public Authentication getAuthentication(String token) {
         Claims claims = parseClaims(token);
 
-        
-        Long userId = claims.get("userId", Long.class);
+                Long userId = claims.get("userId", Long.class);
         String email = claims.getSubject();
 
-        
-        Object authClaim = claims.get("auth");
+                Object authClaim = claims.get("auth");
         Collection<? extends GrantedAuthority> authorities = (authClaim == null || authClaim.toString().isEmpty())
                 ? Collections.emptyList()
                 : Arrays.stream(authClaim.toString().split(","))
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
 
-        
-        UserPrincipal principal = new UserPrincipal(userId, email, "", authorities);
+                UserPrincipal principal = new UserPrincipal(userId, email, "", authorities);
 
         return new UsernamePasswordAuthenticationToken(principal, token, authorities);
     }
 
- 
+    /**
+     * HTTP 헤더에서 Bearer 토큰을 추출합니다.
+     */
     public String resolveToken(HttpServletRequest req) {
         String bearerToken = req.getHeader("Authorization");
         if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
@@ -94,7 +94,9 @@ public class JwtProvider {
         return null;
     }
 
-
+    /**
+     * 토큰의 서명 및 만료 여부를 검증합니다.
+     */
     public boolean validateToken(String token) {
         try {
             Jwts.parserBuilder()
@@ -103,12 +105,13 @@ public class JwtProvider {
                     .parseClaimsJws(token);
             return true;
         } catch (JwtException | IllegalArgumentException e) {
-            
-            return false;
+                        return false;
         }
     }
 
-
+    /**
+     * 토큰 클레임을 파싱하는 공통 메서드입니다.
+     */
     private Claims parseClaims(String token) {
         try {
             return Jwts.parserBuilder()
@@ -117,8 +120,7 @@ public class JwtProvider {
                     .parseClaimsJws(token)
                     .getBody();
         } catch (ExpiredJwtException e) {
-            
-            return e.getClaims();
+                        return e.getClaims();
         }
     }
 }

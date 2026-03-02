@@ -3,19 +3,19 @@
 import { useState } from "react";
 import api from "@/util/api";
 import { useRouter } from "next/navigation";
-import Editor from "@/components/Editor"; 
+import Editor from "@/components/Editor"; // 🚀 공통 에디터 컴포넌트 임포트
 
 export default function NoticeWritePage() {
   const router = useRouter();
   const [formData, setFormData] = useState({
     title: "",
     content: "",
-    isPinned: false, 
+    isPinned: false, // 상단 고정 여부
   });
 
   const handleSubmit = async () => {
     try {
-      
+      // 🚀 에디터 특성상 내용이 없어도 HTML 태그가 남으므로 순수 텍스트만 추출하여 검사합니다.
       const plainText = formData.content.replace(/<[^>]+>/g, "").trim();
 
       if (!formData.title || !plainText) {
@@ -23,7 +23,7 @@ export default function NoticeWritePage() {
         return;
       }
 
-      
+      // 백엔드 API로 공지사항 데이터 전송
       await api.post("/api/notice", formData);
       alert("공지사항이 등록되었습니다!");
       router.push("/admin"); 
@@ -38,7 +38,7 @@ export default function NoticeWritePage() {
       <h1 style={{ fontSize: "24px", fontWeight: "bold", marginBottom: "20px" }}>📢 공지사항 작성</h1>
       
       <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-        {}
+        {/* 제목 입력 영역 */}
         <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
           <label style={{ fontWeight: "bold", color: "#444" }}>제목</label>
           <input
@@ -50,7 +50,7 @@ export default function NoticeWritePage() {
           />
         </div>
 
-        {}
+        {/* 상단 고정 옵션 */}
         <label style={{ 
           display: "flex", 
           alignItems: "center", 
@@ -71,17 +71,17 @@ export default function NoticeWritePage() {
           <span style={{ fontWeight: "bold", color: "#e11d48" }}>📌 게시판 최상단에 고정하기</span>
         </label>
 
-        {}
+        {/* 🚀 공통 에디터 입력 구간 */}
         <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
           <label style={{ fontWeight: "bold", color: "#444" }}>내용</label>
-          {}
+          {/* 이미 만들어두신 Editor 컴포넌트를 사용하여 높이와 로직을 통일합니다. */}
           <Editor 
             value={formData.content} 
             onChange={(content: string) => setFormData({ ...formData, content })} 
           />
         </div>
 
-        {}
+        {/* 하단 등록 버튼 */}
         <button
           onClick={handleSubmit}
           style={{ 

@@ -3,25 +3,25 @@
 import React, { useEffect, useState } from 'react';
 import '../../../css/home/main.css';
 import Link from 'next/link';
-import api from '@/util/api'; 
+import api from '@/util/api'; // axios 인스턴스
 import { getBoardList } from "@/util/boardApi";
 
 const Page = () => {
-  
+  // 🚀 게시판 데이터 상태
   const [boardPosts, setBoardPosts] = useState<any[]>([]);
-  
+  // 🚀 공지사항 데이터 상태 추가
   const [noticePosts, setNoticePosts] = useState<any[]>([]);
 
   useEffect(() => {
-    
+    // 1. 자유게시판 최신글 3개 로드
     getBoardList(0).then((data) => {
       if (data && data.content) {
         setBoardPosts(data.content.slice(0, 3));
       }
     });
 
-    
-    
+    // 2. 🚀 공지사항 최신글 3개 로드
+    // (API 경로: /api/notice/list?page=0&size=3)
     api.get('/api/notice/list?page=0&size=3')
       .then((res) => {
         if (res.data && res.data.content) {
@@ -35,7 +35,7 @@ const Page = () => {
 
   return (
     <div className="pharmacy-container">
-      {}
+      {/* Hero Section (기존 유지) */}
       <section className="hero-section">
         <div className="container hero-content">
           <div className="hero-text">
@@ -57,7 +57,7 @@ const Page = () => {
         </div>
       </section>
 
-      {}
+      {/* 퀵메뉴 섹션 (기존 유지) */}
       <section className="quick-menu-section">
         <div className="container">
           <h2 className="section-title">빠른 메뉴</h2>
@@ -94,7 +94,7 @@ const Page = () => {
         </div>
       </section>
 
-      {}
+      {/* 서비스 섹션 (기존 유지) */}
       <section className="services-section">
         <div className="container">
           <h2 className="section-title">제공 서비스</h2>
@@ -124,11 +124,11 @@ const Page = () => {
         </div>
       </section>
 
-      {}
+      {/* 4. 공지사항 & 자유게시판 미리보기 섹션 */}
       <section className="info-section">
         <div className="container info-grid">
           
-          {}
+          {/* 🚀 [수정됨] 실제 공지사항 데이터 연동 */}
           <div className="info-box">
             <Link href="/board" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
@@ -142,7 +142,7 @@ const Page = () => {
                   <li key={notice.id} style={{ padding: '8px 0', borderBottom: '1px solid #f0f0f0' }}>
                     <Link href={`/board/notice/${notice.id}`} style={{ textDecoration: 'none', color: '#333', display: 'flex', justifyContent: 'space-between' }}>
                       <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '70%' }}>
-                        {}
+                        {/* 고정 공지는 아이콘 표시 */}
                         {notice.isPinned && <span style={{ color: '#e11d48', marginRight: '5px' }}>[공지]</span>}
                         {notice.title}
                       </span>
@@ -158,7 +158,7 @@ const Page = () => {
             </ul>
           </div>
 
-          {}
+          {/* 자유게시판 섹션 (기존 유지) */}
           <div className="info-box">
             <Link href="/board" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
@@ -167,8 +167,11 @@ const Page = () => {
                 </div>
             </Link>
             <ul style={{ listStyle: 'none', padding: 0 }}>
+              
               {boardPosts.length > 0 ? (
+
                 boardPosts.map((post) => (
+  
                   <li key={post.id} style={{ padding: '8px 0', borderBottom: '1px solid #f0f0f0' }}>
                     <Link href={`/board/${post.id}`} style={{ textDecoration: 'none', color: '#333', display: 'flex', justifyContent: 'space-between' }}>
                       <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '70%' }}>

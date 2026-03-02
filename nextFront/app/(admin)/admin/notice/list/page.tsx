@@ -3,8 +3,8 @@
 import { useEffect, useState, Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
-import { getNoticeList, deleteNotice } from "@/util/noticeApi"; 
-import "./noticelist.css"; 
+import { getNoticeList, deleteNotice } from "@/util/noticeApi"; // 🚀 API 함수들
+import "./noticelist.css"; // 기존 게시판 스타일 재사용
 
 function AdminNoticeListContent() {
   const searchParams = useSearchParams();
@@ -12,7 +12,7 @@ function AdminNoticeListContent() {
   const page = parseInt(searchParams.get("page") || "0");
   const [data, setData] = useState<any>(null);
 
-  
+  // 데이터 로드
   const loadNotices = () => {
     getNoticeList(page, 10).then(setData);
   };
@@ -21,13 +21,13 @@ function AdminNoticeListContent() {
     loadNotices();
   }, [page]);
 
-  
+  // 삭제 핸들러
   const handleDelete = async (id: string, title: string) => {
     if (confirm(`[${title}]\n이 공지사항을 삭제하시겠습니까?`)) {
       try {
         await deleteNotice(id);
         alert("삭제되었습니다.");
-        loadNotices(); 
+        loadNotices(); // 목록 새로고침
       } catch (e) {
         alert("삭제 실패");
       }
@@ -70,7 +70,7 @@ function AdminNoticeListContent() {
                 </div>
               </div>
 
-              {}
+              {/* 🚀 관리자 전용 액션 버튼 */}
               <div style={{ display: 'flex', gap: '10px', marginLeft: '20px' }}>
                 <button 
                   onClick={() => router.push(`/admin/notice/edit/${notice.id}`)}
@@ -92,7 +92,7 @@ function AdminNoticeListContent() {
         )}
       </div>
 
-      {}
+      {/* 페이지네이션 */}
       <div className="pagination-container">
         <button className="page-nav-btn" disabled={data.first} onClick={() => router.push(`/admin/notice/list?page=${page - 1}`)}>&lt; 이전</button>
         <div className="page-numbers">

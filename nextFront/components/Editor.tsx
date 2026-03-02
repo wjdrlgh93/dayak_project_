@@ -11,7 +11,7 @@ const ReactQuill = dynamic(async () => {
 
 export default function Editor({ value, onChange }: any) {
   const quillRef = useRef<any>(null);
-  
+  // 🚀 이미지 베이스 URL 설정
   const IMAGE_BASE_URL = process.env.NEXT_PUBLIC_IMAGE_BASE_URL;
 
 const imageHandler = () => {
@@ -24,10 +24,10 @@ const imageHandler = () => {
       const file = input.files?.[0];
       if (file) {
         const formData = new FormData();
-        formData.append('file', file); 
+        formData.append('file', file); // 🚀 백엔드 @RequestParam("file")과 일치 [cite: 2026-02-18]
 
         try {
-          
+          // 🚀 1. 헤더에 multipart/form-data를 명시하여 400/500 에러 방지 [cite: 2026-02-18]
           const res = await api.post('/api/board/upload', formData, {
             headers: { 'Content-Type': 'multipart/form-data' }
           });
@@ -38,7 +38,7 @@ const imageHandler = () => {
             const quill = quillRef.current.getEditor();
             const range = quill.getSelection();
 
-            
+            // 🚀 2. OCI 주소(http)면 그대로 쓰고, 아니면 베이스 URL 결합 [cite: 2026-02-18]
             const finalUrl = imgUrl.startsWith('http') 
               ? imgUrl 
               : `${IMAGE_BASE_URL}${imgUrl}`;

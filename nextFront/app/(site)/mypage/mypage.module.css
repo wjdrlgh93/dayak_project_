@@ -23,7 +23,7 @@
     align-items: center;
 }
 
-
+/* 프로필 이미지 */
 .profileSection { margin-bottom: 30px; }
 .imgWrapper {
     width: 120px;
@@ -44,7 +44,7 @@
 }
 .imgWrapper:hover .overlay { opacity: 1; }
 
-
+/* 폼 섹션 */
 .infoSection { width: 100%; }
 .row { margin-bottom: 18px; }
 .row label {
@@ -63,7 +63,7 @@
     border-bottom: 1px solid #eee; color: #333;
 }
 
-
+/* 비밀번호 섹션 */
 .passwordSection {
     margin-top: 30px; padding-top: 20px;
     border-top: 2px dashed #eee;
@@ -73,7 +73,7 @@
 }
 .subTitle { margin: 0 0 15px 0; color: #495057; font-size: 1rem; }
 
-
+/* 버튼 */
 .btnArea { margin-top: 30px; display: flex; justify-content: flex-end; gap: 10px; }
 .editBtn, .saveBtn {
     padding: 12px 24px; border-radius: 8px; border: none;

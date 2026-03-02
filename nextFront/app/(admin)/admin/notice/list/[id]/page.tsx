@@ -44,7 +44,7 @@ export default function AdminNoticeDetailPage() {
 
   return (
     <div style={{ padding: "40px", maxWidth: "900px", margin: "0 auto" }}>
-      {}
+      {/* 상단 네비게이션 및 관리 버튼 */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "30px", borderBottom: "2px solid #eee", paddingBottom: "20px" }}>
         <div>
           <button onClick={() => router.push("/admin/notice")} style={{ background: "none", border: "none", color: "#666", cursor: "pointer", fontSize: "14px" }}>
@@ -72,20 +72,20 @@ export default function AdminNoticeDetailPage() {
         </div>
       </div>
 
-      {}
+      {/* 정보 바 */}
       <div style={{ display: "flex", gap: "20px", color: "#888", fontSize: "14px", marginBottom: "30px" }}>
         <span>작성자: {notice.writer || "관리자"}</span>
         <span>날짜: {new Date(notice.createdAt).toLocaleString()}</span>
       </div>
 
-      {}
+      {/* 본문 내용 (Quill HTML 출력) */}
       <div 
-        className="ql-editor" 
+        className="ql-editor" // Quill 스타일 적용을 위해 클래스 추가
         style={{ minHeight: "400px", lineHeight: "1.6", fontSize: "16px", border: "1,px solid #f0f0f0", padding: "20px", borderRadius: "8px", background: "#fff" }}
         dangerouslySetInnerHTML={{ __html: notice.content }} 
       />
 
-      {}
+      {/* 하단 버튼 */}
       <div style={{ marginTop: "40px", textAlign: "center" }}>
         <button 
           onClick={() => router.push("/admin/notice")}

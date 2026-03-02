@@ -1,9 +1,11 @@
 package org.spring.backend.member.repository;
 
+import org.spring.backend.global.Role;
 import org.spring.backend.member.entity.MemberEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
+import java.util.List;
 import java.util.Optional;
 
 public interface MemberRepository extends JpaRepository<MemberEntity, Long> {
@@ -11,4 +13,7 @@ public interface MemberRepository extends JpaRepository<MemberEntity, Long> {
     Optional<MemberEntity> findByEmail(String email);
     boolean existsByEmail(String email);
     boolean existsByNickName(String nickName);
+    long countByRoleIn(List<Role> roles);
+
+
 }

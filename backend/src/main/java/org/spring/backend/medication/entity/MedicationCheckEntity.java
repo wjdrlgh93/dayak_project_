@@ -20,16 +20,13 @@ public class MedicationCheckEntity extends BasicTime {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    
-    @ManyToOne(fetch = FetchType.LAZY)
+        @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "medication_id")
     private MedicationEntity medication;
 
-    
-    @Column(nullable = false)
+        @Column(nullable = false)
     private LocalDate checkDate;
 
-    
-    @Column(nullable = false)
+        @Column(nullable = false)
     private LocalTime checkTime;
 }

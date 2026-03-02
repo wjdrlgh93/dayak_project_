@@ -25,10 +25,8 @@ public class NoticeEntity {
 
     @Column(nullable = false)
     private boolean isPinned; 
-
     @Column(nullable = false)
     private String writer; 
-
     @CreationTimestamp
     private LocalDateTime createdAt;
 }

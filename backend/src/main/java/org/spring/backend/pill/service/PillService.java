@@ -60,19 +60,15 @@ public class PillService {
         String cleanShape = (drugShape != null && !drugShape.equals("전체") && !drugShape.isEmpty()) ? drugShape : null;
         String cleanColor = (colorClass1 != null && !colorClass1.equals("전체") && !colorClass1.isEmpty()) ? colorClass1 : null;
 
-        
-        return pillRepository.searchPills(cleanName, cleanPrint, cleanShape, cleanColor, pageable);
+                return pillRepository.searchPills(cleanName, cleanPrint, cleanShape, cleanColor, pageable);
     }
 
-    
-    @Transactional
+        @Transactional
     public PillEntity getPillDetail(String itemSeq) {
-        
-        PillEntity pill = pillRepository.findByItemSeq(itemSeq)
+                PillEntity pill = pillRepository.findByItemSeq(itemSeq)
                 .orElseThrow(() -> new IllegalArgumentException("해당 알약 정보를 찾을 수 없습니다: " + itemSeq));
 
-        
-        if (pill.getEfficacy() == null || pill.getEfficacy().isEmpty() || pill.getEfficacy().equals("정보 없음")) {
+                if (pill.getEfficacy() == null || pill.getEfficacy().isEmpty() || pill.getEfficacy().equals("정보 없음")) {
             String naverDesc = searchNaverEncyclopedia(pill.getItemName());
             if (!naverDesc.equals("정보 없음")) {
                 pill.setEfficacy(naverDesc);
@@ -85,15 +81,12 @@ public class PillService {
         if (query == null || query.isEmpty()) return "정보 없음";
 
         try {
-            
-            String cleanQuery = query.split("\\(")[0].trim(); 
-            String searchWord = cleanQuery + " 효능";
+                        String cleanQuery = query.split("\\(")[0].trim();             String searchWord = cleanQuery + " 효능";
 
             URI uri = UriComponentsBuilder
                     .fromUriString("https://openapi.naver.com/v1/search/encyc.json")
                     .queryParam("query", searchWord)
-                    .queryParam("display", 1) 
-                    .build()
+                    .queryParam("display", 1)                     .build()
                     .encode(StandardCharsets.UTF_8)
                     .toUri();
 
@@ -109,8 +102,7 @@ public class PillService {
             if (body != null && body.get("items") instanceof List) {
                 List<Map<String, String>> items = (List<Map<String, String>>) body.get("items");
                 if (!items.isEmpty()) {
-                    
-                    String description = items.get(0).get("description");
+                                        String description = items.get(0).get("description");
                     return description.replaceAll("<[^>]*>", "").trim();
                 }
             }
@@ -125,7 +117,6 @@ public class PillService {
         int pageNo = 1;
         int numOfRows = 100;
         int errorCount = 0; 
-
         while (true) {
             try {
                 int savedCount = savePageFromApi(pageNo, numOfRows);
@@ -137,20 +128,16 @@ public class PillService {
 
                 log.info("페이지 {} 완료 ({}개 저장)", pageNo, savedCount);
                 pageNo++;
-                errorCount = 0; 
-                Thread.sleep(500); 
-
+                errorCount = 0;                 Thread.sleep(500); 
             } catch (Exception e) {
                 errorCount++;
                 log.error("🚨 페이지 {} 에러: {}", pageNo, e.getMessage());
 
-                if (errorCount > 3) { 
-                    log.error("연속 에러 발생으로 동기화 중단");
+                if (errorCount > 3) {                     log.error("연속 에러 발생으로 동기화 중단");
                     break;
                 }
 
-                
-                pageNo++;
+                                pageNo++;
             }
         }
     }
@@ -159,8 +146,7 @@ public class PillService {
      */
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public int savePageFromApi(int pageNo, int numOfRows) throws Exception {
-        
-        URI uri = UriComponentsBuilder
+                URI uri = UriComponentsBuilder
                 .fromHttpUrl(apiUrl)
                 .queryParam("serviceKey", serviceKey)
                 .queryParam("pageNo", pageNo)
@@ -181,27 +167,22 @@ public class PillService {
             return 0;
         }
 
-        
-        List<String> itemSeqs = items.stream()
+                List<String> itemSeqs = items.stream()
                 .map(item -> String.valueOf(item.get("ITEM_SEQ")))
                 .collect(Collectors.toList());
 
-        
-        List<PillEntity> existingPills = pillRepository.findAllByItemSeqIn(itemSeqs);
+                List<PillEntity> existingPills = pillRepository.findAllByItemSeqIn(itemSeqs);
         Map<String, PillEntity> pillMap = existingPills.stream()
                 .collect(Collectors.toMap(PillEntity::getItemSeq, p -> p));
 
         List<PillEntity> saveList = new ArrayList<>();
 
-        
-        for (Map<String, Object> item : items) {
+                for (Map<String, Object> item : items) {
             String itemSeq = String.valueOf(item.get("ITEM_SEQ"));
 
-            
-            PillEntity pill = pillMap.getOrDefault(itemSeq, new PillEntity());
+                        PillEntity pill = pillMap.getOrDefault(itemSeq, new PillEntity());
 
-            
-            pill.setItemSeq(itemSeq);
+                        pill.setItemSeq(itemSeq);
             pill.setItemName(String.valueOf(item.get("ITEM_NAME")));
             pill.setEntpName(String.valueOf(item.get("ENTP_NAME")));
             pill.setChart(String.valueOf(item.get("CHART")));
@@ -211,16 +192,14 @@ public class PillService {
             pill.setPrintFront(String.valueOf(item.get("PRINT_FRONT")));
             pill.setPrintBack(String.valueOf(item.get("PRINT_BACK")));
 
-            
-            if (pill.getEfficacy() == null) {
+                        if (pill.getEfficacy() == null) {
                 pill.setEfficacy("정보 없음");
             }
 
             saveList.add(pill);
         }
 
-        
-        pillRepository.saveAll(saveList);
+                pillRepository.saveAll(saveList);
 
         return saveList.size();
     }

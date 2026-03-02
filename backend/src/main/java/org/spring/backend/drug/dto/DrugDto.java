@@ -27,29 +27,20 @@ public class DrugDto {
     }
 
     @Data
-    @JsonIgnoreProperties(ignoreUnknown = true) 
-    public static class Item {
+    @JsonIgnoreProperties(ignoreUnknown = true)     public static class Item {
 
         @JsonAlias("itemSeq")
         private String itemSeq;     
-
         @JsonAlias("itemName")
         private String itemName;    
-
         @JsonAlias("entpName")
         private String entpName;    
-
-        
-        @JsonAlias("efcyQesitm")
+                @JsonAlias("efcyQesitm")
         private String efficacy;    
-
         @JsonAlias("useMethodQesitm")
         private String useMethod;   
-
         @JsonAlias("atpnQesitm")
         private String caution;     
-
         @JsonAlias("itemImage")
-        private String itemImage;   
-    }
+        private String itemImage;       }
 }

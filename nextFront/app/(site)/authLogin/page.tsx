@@ -25,7 +25,7 @@ export default function LoginPage() {
     console.log("현재 API_URL:", API_URL);
   }, [API_URL]);
 
-  
+  // 페이지 진입 시 로그인 상태 체크
   useEffect(() => {
     const token = localStorage.getItem("token");
 
@@ -49,12 +49,12 @@ export default function LoginPage() {
     e.preventDefault();
 
     try {
-    
+    // 🚀 도메인을 숨기고 경로만 사용하여 POST 요청 (자동 JSON 변환)
     const response = await api.post('/api/member/login', formData);
 
-    
+    // Axios는 2xx 상태코드일 때만 이 블록을 실행합니다. [cite: 2026-02-18]
     if (response.status === 200) {
-      
+      // 🚀 데이터는 response.data에 이미 객체로 담겨 있습니다. [cite: 2026-02-18]
       const data = response.data;
       const token = data.accessToken || data.token;
       
@@ -74,7 +74,7 @@ export default function LoginPage() {
       window.location.href = '/main'; 
     }
   } catch (error: any) {
-    
+    // 🚀 401(인증실패) 등 에러 상태코드는 모두 catch 블록으로 옵니다. [cite: 2026-02-18]
     if (error.response && error.response.status === 401) {
       alert("이메일 또는 비밀번호를 확인해주세요. ❌");
     } else {
@@ -121,7 +121,7 @@ export default function LoginPage() {
 
         <button type="submit" className={styles.button}>로그인</button>
 
-        {}
+        {/* 🚀 카카오 로그인 버튼 영역 추가 */}
         <div style={{ marginTop: '30px', textAlign: 'center' }}>
             <div style={{ 
                 display: 'flex', 
