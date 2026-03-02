@@ -7,6 +7,7 @@
 > **"복잡한 약, 잊지 말고 챙기세요."**
 > 사용자의 복약 스케줄을 관리하고, 주변 약국 및 의약품 정보를 쉽고 빠르게 제공하는 헬스케어 웹 서비스입니다.
 
+
 ## 설치방법 
 1. git clone 을 해주세요
 2. 프론트에서 터미널을 열고 npm install 을 해주세요
@@ -95,7 +96,7 @@
     * **자동 문서화**: API 엔드포인트, 요청/응답 규격 자동 생성
     * **실시간 테스트**: Swagger UI를 통해 브라우저에서 즉시 API 호출 및 결과 확인
     * **JWT 인증 연동**: `Authorize` 설정을 통해 토큰이 필요한 보안 API도 직접 테스트 가능
-* **접속 주소**: `http://168.107.15.125/swagger-ui/index.html`
+<img width="787" height="863" alt="image" src="https://github.com/user-attachments/assets/5cc12f7b-3fdf-4d33-b8b8-199d6aab5c74" />
 
 
 
@@ -229,6 +230,7 @@
 
 <img width="1338" height="905" alt="화면 캡처 2026-02-21 170132" src="https://github.com/user-attachments/assets/75aa800f-9538-4d52-b1a5-389d18971adb" /><br>
 <img width="1435" height="766" alt="화면 캡처 2026-02-22 145300" src="https://github.com/user-attachments/assets/62908c57-4e2a-446d-858b-98b27fe408ad" /><br>
+
 
 
 
