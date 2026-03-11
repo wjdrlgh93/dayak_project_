@@ -17,6 +17,21 @@
 
 ---
 
+## 업데이트 (2026-03-11)
+1.redis-cahching 업데이트 
+<img width="975" height="329" alt="image" src="https://github.com/user-attachments/assets/0c22a479-a73e-404f-bebf-943d101acb76" /> <br>
+
+-[Performance: Implementing Distributed Caching with Redis]
+
+내용: 반복적인 DB 인덱스 스캔 및 쿼리 부하를 줄이기 위해 Redis 기반 Cache-aside 계층 구축.
+이점:
+> 평균 쿼리 응답 속도 개선 (In-memory 조회). <br>
+> DB(RDS) 커넥션 부하 분산.
+
+관리: @CacheEvict를 통한 데이터 정합성 유지 및 TTL 설정을 통한 메모리 관리 자동화.
+
+
+
 ## 📖 목차
 1. [프로젝트 개요](#-프로젝트-개요)
 2. [기술 스택](#-기술-스택)
@@ -230,6 +245,7 @@
 
 <img width="1338" height="905" alt="화면 캡처 2026-02-21 170132" src="https://github.com/user-attachments/assets/75aa800f-9538-4d52-b1a5-389d18971adb" /><br>
 <img width="1435" height="766" alt="화면 캡처 2026-02-22 145300" src="https://github.com/user-attachments/assets/62908c57-4e2a-446d-858b-98b27fe408ad" /><br>
+
 
 
 
