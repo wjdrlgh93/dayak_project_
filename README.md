@@ -23,7 +23,7 @@
 
 -[Performance: Implementing Distributed Caching with Redis]
 
-내용: 반복적인 DB 인덱스 스캔 및 쿼리 부하를 줄이기 위해 Redis 기반 Cache-aside 계층 구축.
+내용: 반복적인 DB 인덱스 스캔 및 쿼리 부하를 줄이기 위해 Redis 기반 Cache-aside 계층 구축. <br>
 이점:
 > 평균 쿼리 응답 속도 개선 (In-memory 조회). <br>
 > DB(RDS) 커넥션 부하 분산.
@@ -245,6 +245,7 @@
 
 <img width="1338" height="905" alt="화면 캡처 2026-02-21 170132" src="https://github.com/user-attachments/assets/75aa800f-9538-4d52-b1a5-389d18971adb" /><br>
 <img width="1435" height="766" alt="화면 캡처 2026-02-22 145300" src="https://github.com/user-attachments/assets/62908c57-4e2a-446d-858b-98b27fe408ad" /><br>
+
 
 
 
