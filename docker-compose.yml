@@ -1,31 +1,29 @@
 version: "3"
 
 services:
-  db:
-    image: mysql:8.0
-    container_name: mysql-db
+  redis:
+    image: redis:latest
+    container_name: redis-cache
     restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: #MySQL 루트 비밀번호를 입력해주세요
-      MYSQL_DATABASE: #생성할 데이터베이스 이름을 입력해주세요
-      MYSQL_USER: #MySQL 사용자 이름을 입력해주세요
-      MYSQL_PASSWORD: #MySQL 사용자 비밀번호를 입력해주세요
     ports:
-      - "3306:3306"
-    volumes:
-      - ./mysql_data:/var/lib/mysql
+      - "6379:6379"
+    command: redis-server --save 60 1 --loglevel warning
+    environment:
+      - TZ=Asia/Seoul
 
   backend:
     build: ./backend
     container_name: spring-backend
     restart: always
     depends_on:
-      - db
+      - redis
     environment:
       TZ: Asia/Seoul
-      SPRING_DATASOURCE_URL: #MySQL 데이터베이스 URL을 입력해주세요 (예: jdbc:mysql://db:3306/your_database_name)
-      SPRING_DATASOURCE_PASSWORD: #MySQL 사용자 비밀번호를 입력해주세요
-      OCI_USER_ID: ${OCI_USER_ID} #OCI 관련 시크릿입니다
+      SPRING_DATASOURCE_URL: ${RDS_URL}
+      SPRING_DATASOURCE_PASSWORD: ${RDS_PASSWORD}
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
+      OCI_USER_ID: ${OCI_USER_ID}
       OCI_TENANCY_ID: ${OCI_TENANCY_ID}
       OCI_FINGERPRINT: ${OCI_FINGERPRINT}
       OCI_REGION: ${OCI_REGION}
