@@ -16,6 +16,12 @@
 5. Docker-compose 에서 서비스가 다르면 들어가는 시크릿키가 상이할 수 있습니다
 
 ---
+## NEXT STEP ( 업데이트 예정 및 계획 ) 
+1.Elasticsearch: "구글 같은 검색 기능" <br>
+2.Prometheus & Grafana: "서버 모니터링 시각화" <br>
+
+
+---
 
 ## 업데이트 (2026-03-11)
 1.redis-cahching 업데이트 
