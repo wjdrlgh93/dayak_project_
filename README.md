@@ -17,7 +17,7 @@
 
 ---
 ## NEXT STEP ( 업데이트 예정 및 계획 ) 
-2.Prometheus & Grafana: "서버 모니터링 시각화" <br>
+.Prometheus & Grafana: "서버 모니터링 시각화" <br>
 
 
 ---
