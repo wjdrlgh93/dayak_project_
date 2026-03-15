@@ -17,7 +17,6 @@
 
 ---
 ## NEXT STEP ( 업데이트 예정 및 계획 ) 
-1.Elasticsearch: "구글 같은 검색 기능" <br>
 2.Prometheus & Grafana: "서버 모니터링 시각화" <br>
 
 
