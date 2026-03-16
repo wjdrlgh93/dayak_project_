@@ -4,13 +4,9 @@ package org.spring.backend.pill.controller;
 import lombok.RequiredArgsConstructor;
 import org.spring.backend.pill.entity.PillEntity;
 import org.spring.backend.pill.service.PillService;
-import org.spring.backend.pill.entity.PillEntity;
-import org.spring.backend.pill.service.PillService;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/pill")
@@ -25,9 +21,9 @@ public class PillController {
             @RequestParam(required = false) String printFront,
             @RequestParam(required = false) String drugShape,
             @RequestParam(required = false) String colorClass1,
-            @RequestParam(defaultValue = "0") int page,             @RequestParam(defaultValue = "20") int size)  {
+            @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "20") int size) {
 
-        Page<PillEntity> results = pillService.searchPills(itemName ,printFront, drugShape, colorClass1, page, size);;
+        Page<PillEntity> results = pillService.searchPills(itemName, printFront, drugShape, colorClass1, page, size);
         return ResponseEntity.ok(results);
     }
 

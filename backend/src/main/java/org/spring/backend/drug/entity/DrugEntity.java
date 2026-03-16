@@ -25,4 +25,5 @@ public class DrugEntity {
     private String useMethod;   
     @Column(columnDefinition = "TEXT")
     private String caution;     
-    private String itemImage;   }
+    private String itemImage;
+}

@@ -35,7 +35,7 @@ public class DrugDto {
         private String itemName;    
         @JsonAlias("entpName")
         private String entpName;    
-                @JsonAlias("efcyQesitm")
+        @JsonAlias("efcyQesitm")
         private String efficacy;    
         @JsonAlias("useMethodQesitm")
         private String useMethod;   

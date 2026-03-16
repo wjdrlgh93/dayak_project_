@@ -19,14 +19,23 @@ public class PillEntity {
     private Long id;
 
     @Column(unique = true, nullable = false)
-    private String itemSeq;     
+    private String itemSeq;
+
     @Column(nullable = false)
-    private String itemName;    
+    private String itemName;
     private String entpName;    
-        @Column(columnDefinition = "TEXT")
+
+    @Column(columnDefinition = "TEXT")
     private String chart;       
     private String itemImage;   
-        private String printFront;      private String printBack;       private String drugShape;       private String colorClass1;     private String colorClass2;     private String className;   
+    private String printFront;
+    private String printBack;
+    private String drugShape;
+    private String colorClass1;
+    private String colorClass2;
+    private String className;
+
     @Lob
-    @Column(columnDefinition = "LONGTEXT")     private String efficacy;
+    @Column(columnDefinition = "LONGTEXT")
+    private String efficacy;
 }

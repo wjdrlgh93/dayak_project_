@@ -1,8 +1,5 @@
 package org.spring.backend.admin.dto;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -30,10 +27,10 @@ public class AdminMemberDto {
 
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
-        private int socialLogin;
+    private int socialLogin;
     private int isProfileImg;
     private String newFileName;
     private String fileUrl;
-        private String currentPassword;
+    private String currentPassword;
     private String newPassword;
 }

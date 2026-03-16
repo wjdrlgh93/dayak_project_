@@ -4,9 +4,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.spring.backend.global.common.RestPage;
-import org.spring.backend.pill.dto.PillDto;
+import org.spring.backend.pill.document.PillDocument;
 import org.spring.backend.pill.entity.PillEntity;
 import org.spring.backend.pill.repository.PillRepository;
+import org.spring.backend.pill.repository.PillSearchRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -35,6 +36,7 @@ import java.util.stream.Collectors;
 public class PillService {
 
     private final PillRepository pillRepository;
+    private final PillSearchRepository pillSearchRepository;
     private final RestTemplate restTemplate = new RestTemplate();
     private final ObjectMapper objectMapper = new ObjectMapper();
 
@@ -93,12 +95,14 @@ public class PillService {
         if (query == null || query.isEmpty()) return "정보 없음";
 
         try {
-            String cleanQuery = query.split("\\(")[0].trim();             String searchWord = cleanQuery + " 효능";
+            String cleanQuery = query.split("\\(")[0].trim();
+            String searchWord = cleanQuery + " 효능";
 
             URI uri = UriComponentsBuilder
                     .fromUriString("https://openapi.naver.com/v1/search/encyc.json")
                     .queryParam("query", searchWord)
-                    .queryParam("display", 1)                     .build()
+                    .queryParam("display", 1)
+                    .build()
                     .encode(StandardCharsets.UTF_8)
                     .toUri();
 
@@ -141,7 +145,8 @@ public class PillService {
 
                 log.info("페이지 {} 완료 ({}개 저장)", pageNo, savedCount);
                 pageNo++;
-                errorCount = 0;                 Thread.sleep(500);
+                errorCount = 0;
+                Thread.sleep(500);
             } catch (Exception e) {
                 errorCount++;
                 log.error("🚨 페이지 {} 에러: {}", pageNo, e.getMessage());
@@ -154,6 +159,7 @@ public class PillService {
             }
         }
     }
+
     /**
      * ✅ 페이지 단위로 트랜잭션을 분리하여 실행 (Propagation.REQUIRES_NEW)
      */
@@ -213,6 +219,25 @@ public class PillService {
         }
 
         pillRepository.saveAll(saveList);
+        // Elasticsearch 동기화
+        try {
+            List<PillDocument> documents = saveList.stream()
+                    .map(pill -> PillDocument.builder()
+                            .id(pill.getItemSeq()) // ES의 ID는 itemSeq로 매칭
+                            .itemName(pill.getItemName())
+                            .entpName(pill.getEntpName())
+                            .efficacy(pill.getEfficacy())
+                            .printFront(pill.getPrintFront())
+                            .drugShape(pill.getDrugShape())
+                            .colorClass1(pill.getColorClass1())
+                            .build())
+                    .collect(Collectors.toList());
+
+            pillSearchRepository.saveAll(documents); // ES에 저장
+            log.info("🔎 Elasticsearch 동기화 완료: {}건", documents.size());
+        } catch (Exception e) {
+            log.error("❌ Elasticsearch 동기화 실패: {}", e.getMessage());
+        }
 
         return saveList.size();
     }
