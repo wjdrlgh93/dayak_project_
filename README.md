@@ -22,6 +22,8 @@
 ---
 ## 업데이트 (2026-03-15)
 2.Elasticsearch: "구글 같은 검색 기능" 및 인텔리전트 서비스 가용성 관리<br>
+![hjkhjkhkjh](https://github.com/user-attachments/assets/171aa192-a1f9-4179-b2b4-af42cbe7f5d2)
+<img width="850" height="522" alt="서비스준비중" src="https://github.com/user-attachments/assets/139ee46d-0771-458b-875c-3bf8991179b8" />
 
 
 - 인텔리전트 서비스 가용성 관리 (Maintenance Page)
@@ -33,6 +35,7 @@
 > 의존성 기반 기동 제어: wait-for-it.sh 스크립트를 커스텀하여 Elasticsearch(9200 포트)가 완전히 준비된 후 백엔드가 실행되도록 제어함으로써,<br>
 > 인덱싱 오류 및 기동 실패를 원천 차단했습니다.<br>
 > 멀티 컨테이너 환경 최적화: MySQL(8.0), Redis, Elasticsearch, Spring Boot, Next.js, Nginx로 구성된 풀스택 환경의 Docker Compose 네트워크 환경을 재정비했습니다.<br>
+
 
 - 모니터링 및 헬스체크 시스템
 > Health Check API 구현: /api/health 엔드포인트를 전용 패키지로 분리하여 인프라 모니터링 및 Nginx 가용성 판단의 척도로 활용합니다.<br>
